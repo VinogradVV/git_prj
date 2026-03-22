@@ -1,0 +1,536 @@
+ {
+  "timestamp": "2026-03-22T17:18:28.257Z",
+  "blocks": [
+    {
+      "id": "semantics_block",
+      "name": "Semantics",
+      "type": "semantics",
+      "x": 2400,
+      "y": 1310,
+      "width": 200,
+      "height": 60,
+      "color": "#28a745",
+      "description": "CV for test SQL",
+      "tableFields": [
+        {
+          "name": "docdate",
+          "type": "date",
+          "alias": "docdate",
+          "selected": true,
+          "tableIndex": 0,
+          "type_schema": "pg_catalog",
+          "originalName": "docdate",
+          "sourceBlockId": "block_1",
+          "column_comment": "Дата документа",
+          "sourceBlockName": "Projection_1",
+          "sourceBlockType": "projection",
+          "isValid": 0
+        },
+        {
+          "name": "docnum",
+          "type": "varchar",
+          "alias": "docnum",
+          "selected": true,
+          "tableIndex": 0,
+          "type_schema": "pg_catalog",
+          "originalName": "docnum",
+          "sourceBlockId": "block_1",
+          "column_comment": "Номер документа",
+          "sourceBlockName": "Projection_1",
+          "sourceBlockType": "projection",
+          "isValid": 0
+        },
+        {
+          "name": "docyear",
+          "type": "integer",
+          "alias": "docyear",
+          "selected": true,
+          "tableIndex": 0,
+          "type_schema": "pg_catalog",
+          "originalName": "docyear",
+          "sourceBlockId": "block_1",
+          "column_comment": "Год документа",
+          "sourceBlockName": "Projection_1",
+          "sourceBlockType": "projection",
+          "isValid": 0
+        },
+        {
+          "name": "id",
+          "type": "test_tbl_id",
+          "alias": "id",
+          "selected": true,
+          "tableIndex": 0,
+          "type_schema": "repo_fi",
+          "originalName": "id",
+          "sourceBlockId": "block_1",
+          "column_comment": "id строки",
+          "sourceBlockName": "Projection_1",
+          "sourceBlockType": "projection",
+          "isValid": 0
+        },
+        {
+          "name": "shop",
+          "type": "varchar",
+          "alias": "shop",
+          "selected": true,
+          "tableIndex": 1,
+          "type_schema": "pg_catalog",
+          "originalName": "shop",
+          "sourceBlockId": "block_2",
+          "column_comment": "Магазин",
+          "sourceBlockName": "Projection_2",
+          "sourceBlockType": "projection",
+          "isValid": 0
+        },
+        {
+          "name": "shopname",
+          "type": "varchar",
+          "alias": "shopname",
+          "selected": true,
+          "tableIndex": 1,
+          "type_schema": "pg_catalog",
+          "originalName": "shopname",
+          "sourceBlockId": "block_2",
+          "column_comment": "Название магазина",
+          "sourceBlockName": "Projection_2",
+          "sourceBlockType": "projection",
+          "isValid": 0
+        }
+      ],
+      "fields": [
+        {
+          "id": "w9cpgyf6v",
+          "name": "docdate",
+          "role": "attribute",
+          "type": "date",
+          "isKey": false,
+          "label": "Дата документа",
+          "comment": "Дата документа",
+          "visible": true,
+          "hierarchy": "",
+          "partition": "",
+          "aggregation": "",
+          "isValid": 0
+        },
+        {
+          "id": "om29u02si",
+          "name": "docnum",
+          "role": "attribute",
+          "type": "varchar",
+          "isKey": false,
+          "label": "Номер документа",
+          "comment": "Номер документа",
+          "visible": true,
+          "hierarchy": "",
+          "partition": "",
+          "aggregation": "",
+          "isValid": 0
+        },
+        {
+          "id": "5fxtamck2",
+          "name": "docyear",
+          "role": "measure",
+          "type": "integer",
+          "isKey": false,
+          "label": "Год документа",
+          "comment": "Год документа",
+          "visible": true,
+          "hierarchy": "",
+          "partition": "",
+          "aggregation": "sum",
+          "isValid": 0
+        },
+        {
+          "id": "v4hyxjlqj",
+          "name": "id",
+          "role": "attribute",
+          "type": "test_tbl_id",
+          "isKey": false,
+          "label": "id строки",
+          "comment": "id строки",
+          "visible": true,
+          "hierarchy": "",
+          "partition": "",
+          "aggregation": "",
+          "isValid": 0
+        },
+        {
+          "id": "qgi2yelf5",
+          "name": "shop",
+          "role": "attribute",
+          "type": "varchar",
+          "isKey": false,
+          "label": "Магазин",
+          "comment": "Магазин",
+          "visible": true,
+          "hierarchy": "",
+          "partition": "",
+          "aggregation": "",
+          "isValid": 0
+        },
+        {
+          "id": "hfymbyudb",
+          "name": "shopname",
+          "role": "attribute",
+          "type": "varchar",
+          "isKey": false,
+          "label": "Название магазина",
+          "comment": "Название магазина",
+          "visible": true,
+          "hierarchy": "",
+          "partition": "",
+          "aggregation": "",
+          "isValid": 0
+        }
+      ],
+      "variables": [],
+      "technicalName": "cv_test_sql",
+      "layerName": "Semantic Layer",
+      "implementation": "UDF",
+      "executionEngine": "Database"
+    },
+    {
+      "id": "block_1",
+      "name": "Projection_1",
+      "type": "projection",
+      "x": 2250,
+      "y": 1630,
+      "width": 200,
+      "height": 60,
+      "color": "#6f42c120",
+      "description": "",
+      "selectedTable": {
+        "name": "allinfo_tbl",
+        "descr": "Проводки + Аналитика",
+        "label": "[allinfo_tbl] Проводки + Аналитика",
+        "table": "allinfo_tbl",
+        "schema": "repo_fi",
+        "fullName": "[allinfo_tbl] Проводки + Аналитика",
+        "table_type": "TABLE"
+      },
+      "tableFields": [
+        {
+          "name": "account",
+          "type": "varchar",
+          "alias": "account",
+          "selected": false,
+          "type_schema": "pg_catalog",
+          "column_comment": "Счет",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_1",
+            "originalFieldName": "account",
+            "cascadeDepth": 0
+          }
+        },
+        {
+          "name": "docdate",
+          "type": "date",
+          "alias": "docdate",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Дата документа",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_1",
+            "originalFieldName": "docdate",
+            "cascadeDepth": 0
+          }
+        },
+        {
+          "name": "docnum",
+          "type": "varchar",
+          "alias": "docnum",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Номер документа",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_1",
+            "originalFieldName": "docnum",
+            "cascadeDepth": 0
+          }
+        },
+        {
+          "name": "docyear",
+          "type": "integer",
+          "alias": "docyear",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Год документа",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_1",
+            "originalFieldName": "docyear",
+            "cascadeDepth": 0
+          }
+        },
+        {
+          "name": "id",
+          "type": "test_tbl_id",
+          "alias": "id",
+          "selected": true,
+          "type_schema": "repo_fi",
+          "column_comment": "id строки",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_1",
+            "originalFieldName": "id",
+            "cascadeDepth": 0
+          }
+        },
+        {
+          "name": "price",
+          "type": "numeric",
+          "alias": "price",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Цена",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_1",
+            "originalFieldName": "price",
+            "cascadeDepth": 0
+          }
+        },
+        {
+          "name": "quantity",
+          "type": "numeric",
+          "alias": "quantity",
+          "selected": false,
+          "type_schema": "pg_catalog",
+          "column_comment": "Количество",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_1",
+            "originalFieldName": "quantity",
+            "cascadeDepth": 0
+          }
+        },
+        {
+          "name": "total",
+          "type": "numeric",
+          "alias": "total",
+          "selected": false,
+          "type_schema": "pg_catalog",
+          "column_comment": "Итого сумма",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_1",
+            "originalFieldName": "total",
+            "cascadeDepth": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "block_2",
+      "name": "Projection_2",
+      "type": "projection",
+      "x": 2550,
+      "y": 1630,
+      "width": 200,
+      "height": 60,
+      "color": "#6f42c120",
+      "description": "",
+      "selectedTable": {
+        "name": "allinfo_tbl_sat1",
+        "descr": "Место покупки sat",
+        "label": "[allinfo_tbl_sat1] Место покупки sat",
+        "table": "allinfo_tbl_sat1",
+        "schema": "repo_fi",
+        "fullName": "[allinfo_tbl_sat1] Место покупки sat",
+        "table_type": "TABLE"
+      },
+      "tableFields": [
+        {
+          "name": "id",
+          "type": "allinfo_tbl_id",
+          "alias": "id",
+          "selected": true,
+          "type_schema": "repo_fi",
+          "column_comment": "id строки",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "id",
+            "cascadeDepth": 0
+          }
+        },
+        {
+          "name": "region",
+          "type": "varchar",
+          "alias": "region",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Регион",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "region",
+            "cascadeDepth": 0
+          }
+        },
+        {
+          "name": "shop",
+          "type": "varchar",
+          "alias": "shop",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Магазин",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "shop",
+            "cascadeDepth": 0
+          }
+        },
+        {
+          "name": "shopname",
+          "type": "varchar",
+          "alias": "shopname",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Название магазина",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "shopname",
+            "cascadeDepth": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "block_3",
+      "name": "Join_3",
+      "type": "join",
+      "x": 2400,
+      "y": 1470,
+      "width": 200,
+      "height": 60,
+      "color": "#0d6efd20",
+      "description": "",
+      "tableFields": [
+        {
+          "name": "docdate",
+          "type": "date",
+          "column_comment": "Дата документа",
+          "type_schema": "pg_catalog",
+          "selected": true,
+          "alias": "docdate",
+          "tableIndex": 0
+        },
+        {
+          "name": "docnum",
+          "type": "varchar",
+          "column_comment": "Номер документа",
+          "type_schema": "pg_catalog",
+          "selected": true,
+          "alias": "docnum",
+          "tableIndex": 0
+        },
+        {
+          "name": "docyear",
+          "type": "integer",
+          "column_comment": "Год документа",
+          "type_schema": "pg_catalog",
+          "selected": true,
+          "alias": "docyear",
+          "tableIndex": 0
+        },
+        {
+          "name": "id",
+          "type": "test_tbl_id",
+          "column_comment": "id строки",
+          "type_schema": "repo_fi",
+          "selected": true,
+          "alias": "id",
+          "tableIndex": 0
+        },
+        {
+          "name": "price",
+          "type": "numeric",
+          "column_comment": "Цена",
+          "type_schema": "pg_catalog",
+          "selected": true,
+          "alias": "price",
+          "tableIndex": 0
+        },
+        {
+          "name": "id",
+          "type": "allinfo_tbl_id",
+          "column_comment": "id строки",
+          "type_schema": "repo_fi",
+          "selected": false,
+          "alias": "id",
+          "tableIndex": 1
+        },
+        {
+          "name": "region",
+          "type": "varchar",
+          "column_comment": "Регион",
+          "type_schema": "pg_catalog",
+          "selected": true,
+          "alias": "region",
+          "tableIndex": 1
+        },
+        {
+          "name": "shop",
+          "type": "varchar",
+          "column_comment": "Магазин",
+          "type_schema": "pg_catalog",
+          "selected": true,
+          "alias": "shop",
+          "tableIndex": 1
+        },
+        {
+          "name": "shopname",
+          "type": "varchar",
+          "column_comment": "Название магазина",
+          "type_schema": "pg_catalog",
+          "selected": true,
+          "alias": "shopname",
+          "tableIndex": 1
+        }
+      ],
+      "joinConditions": [
+        {
+          "id": "conn-1758229695186",
+          "operator": "=",
+          "leftField": "id",
+          "leftTable": 0,
+          "rightField": "id",
+          "rightTable": 1,
+          "logicalOperator": "AND"
+        }
+      ],
+      "joinType": "INNER"
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn_1",
+      "sourceBlockId": "block_1",
+      "targetBlockId": "block_3",
+      "type": "data",
+      "selected": false
+    },
+    {
+      "id": "conn_2",
+      "sourceBlockId": "block_2",
+      "targetBlockId": "block_3",
+      "type": "data",
+      "selected": false
+    },
+    {
+      "id": "conn_3",
+      "sourceBlockId": "block_3",
+      "targetBlockId": "semantics_block",
+      "type": "data",
+      "selected": false
+    }
+  ], 
+  "aggregationSumFields": {},
+  "rankPartitionFields": {}
+}

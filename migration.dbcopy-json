@@ -1,0 +1,44 @@
+{
+  "description": "Копирование клиентов с подготовкой и очисткой",
+  "beforeSQL": [
+    "BEGIN;",
+    "SET session_replication_role = replica;",
+    "CREATE TEMP TABLE IF NOT EXISTS _copy_log (ts timestamptz, msg text);"
+  ],
+  
+  "afterSQL": [
+    "SET session_replication_role = DEFAULT;",
+    "INSERT INTO _copy_log VALUES (now(), 'Copy completed');",
+    "COMMIT;"
+  ],
+
+  "tables": [
+    {
+      "schema": "reference",
+      "table": "clients",
+      "where": "is_active = true AND created_at >= '2024-01-01'",
+      "beforeSQL": [
+        "DROP INDEX IF EXISTS idx_clients_region_id",
+        "DELETE FROM reference.clients WHERE created_at >= '2024-01-01'"
+      ],
+      "afterSQL": [        
+        "CREATE INDEX IF NOT EXISTS idx_clients_region_id ON reference.clients (region_id)",
+        "ANALYZE reference.clients"
+      ]
+    },
+    {
+      "schema": "sales",
+      "table": "orders",
+      "where": "order_date >= '2024-01-01'",
+      "beforeSQL": "ALTER TABLE sales.orders DISABLE TRIGGER ALL",
+      "afterSQL": "ALTER TABLE sales.orders ENABLE TRIGGER ALL"
+    },
+    {
+      "schema": "analytics",
+      "table": "user_sessions",
+      "where": "",
+      "beforeSQL": null,
+      "afterSQL": null
+    }
+  ]
+}

@@ -1,1 +1,1 @@
-test mdfgdfgd file fdg dfgdf
+Пример документации

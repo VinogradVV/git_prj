@@ -10,6 +10,10 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - "15432:5432"
+    labels:
+      asapbi.connection.name: "GREENPLUM"      
+      asapbi.connection.type: "PostgreSQL"      
+      asapbi.connection.port: "15432"   
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
@@ -32,6 +36,10 @@ services:
     ports:
       - "18123:8123"   # HTTP
       - "19000:9000"   # Native
+    labels:
+      asapbi.connection.name: "CLICKHOUSE"
+      asapbi.connection.type: "Clickhouse"   
+      asapbi.connection.port: "18123"   
     volumes:
       - clickhouse-data:/var/lib/clickhouse
       - clickhouse-logs:/var/log/clickhouse-server

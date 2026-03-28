@@ -11,9 +11,9 @@ services:
     ports:
       - "15432:5432"
     labels:
-      asapbi.connection.name: "GREENPLUM"      
-      asapbi.connection.type: "PostgreSQL"      
-      asapbi.connection.port: "15432"   
+      asapbi.connection.name: "GREENPLUM"      # customer label! need for asapBI
+      asapbi.connection.type: "PostgreSQL"     # customer label! need for asapBI 
+      asapbi.connection.port: "15432"          # customer label! need for asapBI
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
@@ -37,9 +37,9 @@ services:
       - "18123:8123"   # HTTP
       - "19000:9000"   # Native
     labels:
-      asapbi.connection.name: "CLICKHOUSE"
-      asapbi.connection.type: "Clickhouse"   
-      asapbi.connection.port: "18123"   
+      asapbi.connection.name: "CLICKHOUSE"   # customer label! need for asapBI
+      asapbi.connection.type: "Clickhouse"   # customer label! need for asapBI
+      asapbi.connection.port: "18123"        # customer label! need for asapBI
     volumes:
       - clickhouse-data:/var/lib/clickhouse
       - clickhouse-logs:/var/log/clickhouse-server

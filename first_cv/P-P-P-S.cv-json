@@ -1,0 +1,465 @@
+{
+  "timestamp": "2026-03-31T12:31:08.278Z",
+  "blocks": [
+    {
+      "id": "semantics_block",
+      "name": "Semantics",
+      "type": "semantics",
+      "x": 2400,
+      "y": 1150,
+      "width": 200,
+      "height": 60,
+      "color": "#28a745",
+      "description": "CV for test SQL",
+      "tableFields": [
+        {
+          "name": "id",
+          "type": "allinfo_tbl_id",
+          "alias": "id",
+          "selected": true,
+          "type_schema": "repo_fi",
+          "column_comment": "id строки",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "id",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "id",
+          "visible": true
+        },
+        {
+          "name": "region",
+          "type": "varchar",
+          "alias": "region",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Регион",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "region",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "region",
+          "visible": true
+        },
+        {
+          "name": "shop",
+          "type": "varchar",
+          "alias": "shop",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Магазин",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "shop",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "shop",
+          "visible": true
+        },
+        {
+          "name": "shopname",
+          "type": "varchar",
+          "alias": "shopname",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Название магазина",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "shopname",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "shopname",
+          "visible": true
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "allinfo_tbl_id",
+          "description": "id строки",
+          "alias": "id",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "region",
+          "type": "varchar",
+          "description": "Регион",
+          "alias": "region",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "shop",
+          "type": "varchar",
+          "description": "Магазин",
+          "alias": "shop",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "shopname",
+          "type": "varchar",
+          "description": "Название магазина",
+          "alias": "shopname",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ],
+      "variables": [],
+      "technicalName": "cv_test_sql",
+      "layerName": "Semantic Layer",
+      "implementation": "UDF",
+      "executionEngine": "Database"
+    },
+    {
+      "id": "block_2",
+      "name": "Projection_2",
+      "type": "projection",
+      "x": 2400,
+      "y": 1790,
+      "width": 200,
+      "height": 60,
+      "color": "#6f42c120",
+      "description": "",
+      "selectedTable": {
+        "name": "allinfo_tbl_sat1",
+        "descr": "Место покупки sat",
+        "label": "[allinfo_tbl_sat1] Место покупки sat",
+        "table": "allinfo_tbl_sat1",
+        "schema": "repo_fi",
+        "fullName": "[allinfo_tbl_sat1] Место покупки sat",
+        "table_type": "TABLE"
+      },
+      "tableFields": [
+        {
+          "name": "id",
+          "type": "allinfo_tbl_id",
+          "alias": "id",
+          "selected": true,
+          "type_schema": "repo_fi",
+          "column_comment": "id строки",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "id",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "id"
+        },
+        {
+          "name": "region",
+          "type": "varchar",
+          "alias": "region",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Регион",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "region",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "region"
+        },
+        {
+          "name": "shop",
+          "type": "varchar",
+          "alias": "shop",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Магазин",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "shop",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "shop"
+        },
+        {
+          "name": "shopname",
+          "type": "varchar",
+          "alias": "shopname",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Название магазина",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "shopname",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "shopname"
+        }
+      ]
+    },
+    {
+      "id": "block_4",
+      "name": "Projection_4",
+      "type": "projection",
+      "x": 2400,
+      "y": 1630,
+      "width": 200,
+      "height": 60,
+      "color": "#6f42c120",
+      "description": "",
+      "tableFields": [
+        {
+          "name": "id",
+          "type": "allinfo_tbl_id",
+          "alias": "id",
+          "selected": true,
+          "type_schema": "repo_fi",
+          "column_comment": "id строки",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "id",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "id",
+          "visible": true
+        },
+        {
+          "name": "region",
+          "type": "varchar",
+          "alias": "region",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Регион",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "region",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "region",
+          "visible": true
+        },
+        {
+          "name": "shop",
+          "type": "varchar",
+          "alias": "shop",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Магазин",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "shop",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "shop"
+        },
+        {
+          "name": "shopname",
+          "type": "varchar",
+          "alias": "shopname",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Название магазина",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "shopname",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "shopname",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "block_6",
+      "name": "Projection_6",
+      "type": "projection",
+      "x": 2400,
+      "y": 1470,
+      "width": 200,
+      "height": 60,
+      "color": "#6f42c120",
+      "description": "",
+      "tableFields": [
+        {
+          "name": "id",
+          "type": "allinfo_tbl_id",
+          "alias": "id",
+          "selected": true,
+          "type_schema": "repo_fi",
+          "column_comment": "id строки",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "id",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "id",
+          "visible": true
+        },
+        {
+          "name": "region",
+          "type": "varchar",
+          "alias": "region",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Регион",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "region",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "region",
+          "visible": true
+        },
+        {
+          "name": "shop",
+          "type": "varchar",
+          "alias": "shop",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Магазин",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "shop",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "shop",
+          "visible": true
+        },
+        {
+          "name": "shopname",
+          "type": "varchar",
+          "alias": "shopname",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Название магазина",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "shopname",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "shopname",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "block_7",
+      "name": "Projection_7",
+      "type": "projection",
+      "x": 2400,
+      "y": 1310,
+      "width": 200,
+      "height": 60,
+      "color": "#6f42c120",
+      "description": "",
+      "tableFields": [
+        {
+          "name": "id",
+          "type": "allinfo_tbl_id",
+          "alias": "id",
+          "selected": true,
+          "type_schema": "repo_fi",
+          "column_comment": "id строки",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "id",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "id",
+          "visible": true
+        },
+        {
+          "name": "region",
+          "type": "varchar",
+          "alias": "region",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Регион",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "region",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "region",
+          "visible": true
+        },
+        {
+          "name": "shop",
+          "type": "varchar",
+          "alias": "shop",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Магазин",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "shop",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "shop",
+          "visible": true
+        },
+        {
+          "name": "shopname",
+          "type": "varchar",
+          "alias": "shopname",
+          "selected": true,
+          "type_schema": "pg_catalog",
+          "column_comment": "Название магазина",
+          "isValid": 0,
+          "origin": {
+            "sourceBlockId": "block_2",
+            "originalFieldName": "shopname",
+            "cascadeDepth": 0
+          },
+          "prevAlias": "shopname",
+          "visible": true
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn_4",
+      "sourceBlockId": "block_2",
+      "targetBlockId": "block_4",
+      "type": "data",
+      "selected": false
+    },
+    {
+      "id": "conn_7",
+      "sourceBlockId": "block_4",
+      "targetBlockId": "block_6",
+      "type": "data",
+      "selected": false
+    },
+    {
+      "id": "conn_9",
+      "sourceBlockId": "block_6",
+      "targetBlockId": "block_7",
+      "type": "data",
+      "selected": false
+    },
+    {
+      "id": "conn_10",
+      "sourceBlockId": "block_7",
+      "targetBlockId": "semantics_block",
+      "type": "data",
+      "selected": false
+    }
+  ],
+  "aggregationSumFields": {},
+  "rankPartitionFields": {}
+}

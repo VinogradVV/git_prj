@@ -16,6 +16,7 @@ services:
       asapbi.connection.port: "15432"                   # customer label! need for asapBI
     volumes:
       - postgres-data:/var/lib/postgresql/data
+      - ./init/init_pg.sql:/docker-entrypoint-initdb.d/init_pg.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U admin -d demo"]
       interval: 10s
@@ -43,6 +44,7 @@ services:
     volumes:
       - clickhouse-data:/var/lib/clickhouse
       - clickhouse-logs:/var/log/clickhouse-server
+      - ./init/init_ch.sql:/docker-entrypoint-initdb.d/init_ch.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8123/ping || exit 1"]
       interval: 10s

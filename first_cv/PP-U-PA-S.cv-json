@@ -4,7 +4,7 @@
             "id": "semantics_block",
             "name": "Semantics",
             "type": "semantics",
-            "x": 2520.5,
+            "x": 2527.75,
             "y": 1150,
             "width": 200,
             "height": 60,
@@ -239,7 +239,8 @@
                     "alias": "bytes_sent",
                     "nullable": true,
                     "primaryKey": false,
-                    "isValid": 0
+                    "isValid": 0,
+                    "isKey": false
                 },
                 {
                     "name": "country_code",
@@ -248,7 +249,8 @@
                     "alias": "country_code",
                     "nullable": true,
                     "primaryKey": false,
-                    "isValid": 0
+                    "isValid": 0,
+                    "isKey": false
                 },
                 {
                     "name": "created_at",
@@ -426,14 +428,16 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775494008665,
+            "engine": "Database",
+            "measures": [],
+            "__cvInvalidCountCacheAt": 1775498970817,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "projection_1775479171850",
             "name": "Projection_table1_pg",
             "type": "projection",
-            "x": 2370.5,
+            "x": 2377.75,
             "y": 1790,
             "width": 200,
             "height": 60,
@@ -627,14 +631,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775494008665,
+            "__cvInvalidCountCacheAt": 1775498970817,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "projection_1775479174020",
             "name": "Projection_table2_pg",
             "type": "projection",
-            "x": 2670.5,
+            "x": 2677.75,
             "y": 1790,
             "width": 200,
             "height": 60,
@@ -813,14 +817,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775494008665,
+            "__cvInvalidCountCacheAt": 1775498970817,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_8",
             "name": "Union_8",
             "type": "union",
-            "x": 2520.5,
+            "x": 2527.75,
             "y": 1630,
             "width": 200,
             "height": 60,
@@ -1383,14 +1387,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775494008665,
+            "__cvInvalidCountCacheAt": 1775498970817,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_9",
             "name": "Projection_9",
             "type": "projection",
-            "x": 2347.5,
+            "x": 2354.75,
             "y": 1479,
             "width": 200,
             "height": 60,
@@ -1721,14 +1725,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775494008665,
+            "__cvInvalidCountCacheAt": 1775498970818,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_10",
             "name": "Aggregation_10",
             "type": "aggregation",
-            "x": 2670.5,
+            "x": 2677.75,
             "y": 1470,
             "width": 200,
             "height": 60,
@@ -2040,14 +2044,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775494008665,
+            "__cvInvalidCountCacheAt": 1775498970818,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_1775479174021",
             "name": "Union_1775479174021",
             "type": "union",
-            "x": 2520.5,
+            "x": 2527.75,
             "y": 1310,
             "width": 200,
             "height": 60,
@@ -2610,7 +2614,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775494008666,
+            "__cvInvalidCountCacheAt": 1775498970818,
             "__cvInvalidCountCacheValue": 0
         }
     ],

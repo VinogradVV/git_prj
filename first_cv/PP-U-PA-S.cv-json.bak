@@ -1,0 +1,2670 @@
+{
+    "blocks": [
+        {
+            "id": "semantics_block",
+            "name": "Semantics",
+            "type": "semantics",
+            "x": 2400,
+            "y": 1150,
+            "width": 200,
+            "height": 60,
+            "color": "#28a745",
+            "description": "CV for test SQL",
+            "tableFields": [
+                {
+                    "name": "amount",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "amount",
+                    "alias": "amount"
+                },
+                {
+                    "name": "bytes_sent",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "bytes_sent",
+                    "alias": "bytes_sent"
+                },
+                {
+                    "name": "country_code",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "country_code",
+                    "alias": "country_code"
+                },
+                {
+                    "name": "created_at",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "created_at",
+                    "alias": "created_at"
+                },
+                {
+                    "name": "http_status",
+                    "type": "VARCHAR",
+                    "type_schema": "analytics",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "http_status",
+                    "alias": "http_status"
+                },
+                {
+                    "name": "id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "id",
+                    "alias": "id"
+                },
+                {
+                    "name": "ip_address",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "ip_address",
+                    "alias": "ip_address"
+                },
+                {
+                    "name": "is_active",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "is_active",
+                    "alias": "is_active"
+                },
+                {
+                    "name": "is_bot",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "is_bot",
+                    "alias": "is_bot"
+                },
+                {
+                    "name": "metadata",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "metadata",
+                    "alias": "metadata"
+                },
+                {
+                    "name": "referrer",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "referrer",
+                    "alias": "referrer"
+                },
+                {
+                    "name": "request_time",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "request_time",
+                    "alias": "request_time"
+                },
+                {
+                    "name": "response_time_ms",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "response_time_ms",
+                    "alias": "response_time_ms"
+                },
+                {
+                    "name": "session_id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "session_id",
+                    "alias": "session_id"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "status",
+                    "alias": "status"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "t1_f1",
+                    "alias": "t1_f1"
+                },
+                {
+                    "name": "tags",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "tags",
+                    "alias": "tags"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "updated_at",
+                    "alias": "updated_at"
+                },
+                {
+                    "name": "url",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "url",
+                    "alias": "url"
+                },
+                {
+                    "name": "user_agent",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "user_agent",
+                    "alias": "user_agent"
+                },
+                {
+                    "name": "user_id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "user_id",
+                    "alias": "user_id"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "amount",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "amount",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "bytes_sent",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "bytes_sent",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "country_code",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "country_code",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "created_at",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "created_at",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "http_status",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "http_status",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "id",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "id",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "ip_address",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "ip_address",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "is_active",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "is_active",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "is_bot",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "is_bot",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "metadata",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "metadata",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "referrer",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "referrer",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "request_time",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "request_time",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "response_time_ms",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "response_time_ms",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "session_id",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "session_id",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "status",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "t1_f1",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "tags",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "tags",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "updated_at",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "updated_at",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "url",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "url",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "user_agent",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "user_agent",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "user_id",
+                    "type": "VARCHAR",
+                    "description": "",
+                    "alias": "user_id",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                }
+            ],
+            "variables": [],
+            "technicalName": "cv_test_sql",
+            "layerName": "Semantic Layer",
+            "implementation": "UDF",
+            "executionEngine": "Database",
+            "selected": false,
+            "fieldMapping": {},
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__cvInvalidCountCacheAt": 1775493997710,
+            "__cvInvalidCountCacheValue": 0,
+            "__invalidBadgeLastCount": 0
+        },
+        {
+            "id": "projection_1775479171850",
+            "name": "Projection_table1_pg",
+            "type": "projection",
+            "x": 2250,
+            "y": 1790,
+            "width": 200,
+            "height": 60,
+            "color": "#6f42c120",
+            "selectedTable": {
+                "connect_key": "1775066342829@@127.0.0.1@GREENPLUM@demo",
+                "instanceName": "GREENPLUM",
+                "database": "demo",
+                "schema": "analytics",
+                "table": "table1_pg",
+                "dbType": "PostgreSQL",
+                "metadata": {
+                    "table_schema": "analytics",
+                    "table_name": "table1_pg",
+                    "table_comment": "Основная таблица аналитики событий: хранит транзакции, статусы и метаданные пользователей",
+                    "table_type": "TABLE"
+                }
+            },
+            "tableFields": [
+                {
+                    "name": "id",
+                    "type": "bigint",
+                    "column_comment": "Уникальный идентификатор записи (автоинкремент)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "id",
+                    "isValid": 0,
+                    "prevAlias": "id",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "id",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "user_id",
+                    "type": "uuid",
+                    "column_comment": "ID пользователя (UUID)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "user_id",
+                    "isValid": 0,
+                    "prevAlias": "user_id",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "user_id",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "metadata",
+                    "type": "jsonb",
+                    "column_comment": "Гибкие метаданные в формате JSONB",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "metadata",
+                    "isValid": 0,
+                    "prevAlias": "metadata",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "metadata",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp with time zone",
+                    "column_comment": "Дата и время создания записи (с часовым поясом)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "created_at",
+                    "isValid": 0,
+                    "prevAlias": "created_at",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "created_at",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp with time zone",
+                    "column_comment": "Дата последнего обновления записи",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "updated_at",
+                    "isValid": 0,
+                    "prevAlias": "updated_at",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "updated_at",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "country_code",
+                    "type": "character",
+                    "column_comment": "Код страны (ISO 3166-1 alpha-2: RU, US)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "country_code",
+                    "isValid": 0,
+                    "prevAlias": "country_code",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "country_code",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "tags",
+                    "type": "text[]",
+                    "column_comment": "Массив тегов или категорий",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "tags",
+                    "isValid": 0,
+                    "prevAlias": "tags",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "tags",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "varchar",
+                    "column_comment": "Произвольное текстовое поле (название или описание)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "t1_f1",
+                    "isValid": 0,
+                    "prevAlias": "t1_f1",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "t1_f1",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "status",
+                    "type": "varchar",
+                    "column_comment": "Статус обработки: new, processed, error",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "status",
+                    "isValid": 0,
+                    "prevAlias": "status",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "status",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "amount",
+                    "type": "numeric",
+                    "column_comment": "Сумма транзакции с точностью до 2 знаков",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "amount",
+                    "isValid": 0,
+                    "prevAlias": "amount",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "amount",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "is_active",
+                    "type": "boolean",
+                    "column_comment": "Флаг активности записи (NULL = неизвестно)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "is_active",
+                    "isValid": 0,
+                    "prevAlias": "is_active",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "is_active",
+                        "cascadeDepth": 0
+                    }
+                }
+            ],
+            "selected": false,
+            "fieldOrder": [],
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__cvInvalidCountCacheAt": 1775493997710,
+            "__cvInvalidCountCacheValue": 0,
+            "__invalidBadgeLastCount": 0
+        },
+        {
+            "id": "projection_1775479174020",
+            "name": "Projection_table2_pg",
+            "type": "projection",
+            "x": 2550,
+            "y": 1790,
+            "width": 200,
+            "height": 60,
+            "color": "#6f42c120",
+            "selectedTable": {
+                "connect_key": "1775066342829@@127.0.0.1@GREENPLUM@demo",
+                "instanceName": "GREENPLUM",
+                "database": "demo",
+                "schema": "analytics",
+                "table": "table2_pg",
+                "dbType": "PostgreSQL",
+                "metadata": {
+                    "table_schema": "analytics",
+                    "table_name": "table2_pg",
+                    "table_comment": "Таблица логов веб-сессий: хранит детали HTTP-запросов, производительность и информацию о клиентах",
+                    "table_type": "TABLE"
+                }
+            },
+            "tableFields": [
+                {
+                    "name": "session_id",
+                    "type": "uuid",
+                    "column_comment": "Уникальный идентификатор пользовательской сессии (UUID)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "session_id",
+                    "isValid": 0,
+                    "prevAlias": "session_id",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479174020",
+                        "originalFieldName": "session_id",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "http_status",
+                    "type": "http_status_enum",
+                    "column_comment": "HTTP код ответа (через ENUM тип)",
+                    "type_schema": "analytics",
+                    "selected": true,
+                    "alias": "http_status",
+                    "isValid": 0,
+                    "prevAlias": "http_status",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479174020",
+                        "originalFieldName": "http_status",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "ip_address",
+                    "type": "inet",
+                    "column_comment": "IP-адрес клиента (тип INET поддерживает IPv4/IPv6)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "ip_address",
+                    "isValid": 0,
+                    "prevAlias": "ip_address",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479174020",
+                        "originalFieldName": "ip_address",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "referrer",
+                    "type": "text",
+                    "column_comment": "URL страницы перехода (может быть NULL)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "referrer",
+                    "isValid": 0,
+                    "prevAlias": "referrer",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479174020",
+                        "originalFieldName": "referrer",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "request_time",
+                    "type": "timestamp with time zone",
+                    "column_comment": "Время запроса с точностью до миллисекунд (с часовым поясом)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "request_time",
+                    "isValid": 0,
+                    "prevAlias": "request_time",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479174020",
+                        "originalFieldName": "request_time",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "response_time_ms",
+                    "type": "integer",
+                    "column_comment": "Время обработки запроса в миллисекундах",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "response_time_ms",
+                    "isValid": 0,
+                    "prevAlias": "response_time_ms",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479174020",
+                        "originalFieldName": "response_time_ms",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "url",
+                    "type": "text",
+                    "column_comment": "Полный URL запрашиваемой страницы",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "url",
+                    "isValid": 0,
+                    "prevAlias": "url",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479174020",
+                        "originalFieldName": "url",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "bytes_sent",
+                    "type": "bigint",
+                    "column_comment": "Размер ответа сервера в байтах",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "bytes_sent",
+                    "isValid": 0,
+                    "prevAlias": "bytes_sent",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479174020",
+                        "originalFieldName": "bytes_sent",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "user_agent",
+                    "type": "text",
+                    "column_comment": "Строка User-Agent браузера или клиента",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "user_agent",
+                    "isValid": 0,
+                    "prevAlias": "user_agent",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479174020",
+                        "originalFieldName": "user_agent",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "is_bot",
+                    "type": "boolean",
+                    "column_comment": "Флаг: является ли запрос ботом",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "is_bot",
+                    "isValid": 0,
+                    "prevAlias": "is_bot",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479174020",
+                        "originalFieldName": "is_bot",
+                        "cascadeDepth": 0
+                    }
+                }
+            ],
+            "selected": false,
+            "fieldOrder": [],
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__cvInvalidCountCacheAt": 1775493997710,
+            "__cvInvalidCountCacheValue": 0,
+            "__invalidBadgeLastCount": 0
+        },
+        {
+            "id": "block_8",
+            "name": "Union_8",
+            "type": "union",
+            "x": 2400,
+            "y": 1630,
+            "width": 200,
+            "height": 60,
+            "color": "#0d6efd20",
+            "description": "",
+            "tableFields": [
+                {
+                    "name": "amount",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "amount",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "amount"
+                },
+                {
+                    "name": "bytes_sent",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "bytes_sent",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "bytes_sent"
+                },
+                {
+                    "name": "country_code",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "country_code",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "country_code"
+                },
+                {
+                    "name": "created_at",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "created_at",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "created_at"
+                },
+                {
+                    "name": "http_status",
+                    "type": "VARCHAR",
+                    "type_schema": "analytics",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "http_status",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "http_status"
+                },
+                {
+                    "name": "id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "id",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "id"
+                },
+                {
+                    "name": "ip_address",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "ip_address",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "ip_address"
+                },
+                {
+                    "name": "is_active",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "is_active",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "is_active"
+                },
+                {
+                    "name": "is_bot",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "is_bot",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "is_bot"
+                },
+                {
+                    "name": "metadata",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "metadata",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "metadata"
+                },
+                {
+                    "name": "referrer",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "referrer",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "referrer"
+                },
+                {
+                    "name": "request_time",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "request_time",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "request_time"
+                },
+                {
+                    "name": "response_time_ms",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "response_time_ms",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "response_time_ms"
+                },
+                {
+                    "name": "session_id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "session_id",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "session_id"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "status",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "status"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "t1_f1",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "t1_f1"
+                },
+                {
+                    "name": "tags",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "tags",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "tags"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "updated_at",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "updated_at"
+                },
+                {
+                    "name": "url",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "url",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "url"
+                },
+                {
+                    "name": "user_agent",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "user_agent",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "user_agent"
+                },
+                {
+                    "name": "user_id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "user_id",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "user_id"
+                }
+            ],
+            "fieldMappings": {
+                "id": {
+                    "sources": [
+                        {
+                            "fieldName": "id"
+                        },
+                        {
+                            "fieldName": null
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "user_id": {
+                    "sources": [
+                        {
+                            "fieldName": "user_id"
+                        },
+                        {
+                            "fieldName": null
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "metadata": {
+                    "sources": [
+                        {
+                            "fieldName": "metadata"
+                        },
+                        {
+                            "fieldName": null
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "created_at": {
+                    "sources": [
+                        {
+                            "fieldName": "created_at"
+                        },
+                        {
+                            "fieldName": null
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "updated_at": {
+                    "sources": [
+                        {
+                            "fieldName": "updated_at"
+                        },
+                        {
+                            "fieldName": null
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "country_code": {
+                    "sources": [
+                        {
+                            "fieldName": "country_code"
+                        },
+                        {
+                            "fieldName": null
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "tags": {
+                    "sources": [
+                        {
+                            "fieldName": "tags"
+                        },
+                        {
+                            "fieldName": null
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "t1_f1": {
+                    "sources": [
+                        {
+                            "fieldName": "t1_f1"
+                        },
+                        {
+                            "fieldName": null
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "status": {
+                    "sources": [
+                        {
+                            "fieldName": "status"
+                        },
+                        {
+                            "fieldName": "http_status"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "amount": {
+                    "sources": [
+                        {
+                            "fieldName": "amount"
+                        },
+                        {
+                            "fieldName": null
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "is_active": {
+                    "sources": [
+                        {
+                            "fieldName": "is_active"
+                        },
+                        {
+                            "fieldName": null
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "session_id": {
+                    "sources": [
+                        {
+                            "fieldName": null
+                        },
+                        {
+                            "fieldName": "session_id"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "http_status": {
+                    "sources": [
+                        {
+                            "fieldName": null
+                        },
+                        {
+                            "fieldName": "http_status"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "ip_address": {
+                    "sources": [
+                        {
+                            "fieldName": null
+                        },
+                        {
+                            "fieldName": "ip_address"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "referrer": {
+                    "sources": [
+                        {
+                            "fieldName": null
+                        },
+                        {
+                            "fieldName": "referrer"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "request_time": {
+                    "sources": [
+                        {
+                            "fieldName": null
+                        },
+                        {
+                            "fieldName": "request_time"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "response_time_ms": {
+                    "sources": [
+                        {
+                            "fieldName": null
+                        },
+                        {
+                            "fieldName": "response_time_ms"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "url": {
+                    "sources": [
+                        {
+                            "fieldName": null
+                        },
+                        {
+                            "fieldName": "url"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "bytes_sent": {
+                    "sources": [
+                        {
+                            "fieldName": null
+                        },
+                        {
+                            "fieldName": "bytes_sent"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "user_agent": {
+                    "sources": [
+                        {
+                            "fieldName": null
+                        },
+                        {
+                            "fieldName": "user_agent"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "is_bot": {
+                    "sources": [
+                        {
+                            "fieldName": null
+                        },
+                        {
+                            "fieldName": "is_bot"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                }
+            },
+            "selected": false,
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__cvInvalidCountCacheAt": 1775493997710,
+            "__cvInvalidCountCacheValue": 0,
+            "__invalidBadgeLastCount": 0
+        },
+        {
+            "id": "block_9",
+            "name": "Projection_9",
+            "type": "projection",
+            "x": 2009,
+            "y": 1378,
+            "width": 200,
+            "height": 60,
+            "color": "#6f42c120",
+            "description": "",
+            "tableFields": [
+                {
+                    "name": "amount",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "amount",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "amount",
+                    "prevAlias": "amount"
+                },
+                {
+                    "name": "bytes_sent",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "bytes_sent",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "bytes_sent",
+                    "prevAlias": "bytes_sent"
+                },
+                {
+                    "name": "country_code",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "country_code",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "country_code",
+                    "prevAlias": "country_code"
+                },
+                {
+                    "name": "created_at",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "created_at",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "created_at",
+                    "prevAlias": "created_at"
+                },
+                {
+                    "name": "http_status",
+                    "type": "VARCHAR",
+                    "type_schema": "analytics",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "http_status",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "http_status",
+                    "prevAlias": "http_status"
+                },
+                {
+                    "name": "id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "id",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "id",
+                    "prevAlias": "id"
+                },
+                {
+                    "name": "ip_address",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "ip_address",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "ip_address",
+                    "prevAlias": "ip_address"
+                },
+                {
+                    "name": "is_active",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "is_active",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "is_active",
+                    "prevAlias": "is_active"
+                },
+                {
+                    "name": "is_bot",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "is_bot",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "is_bot",
+                    "prevAlias": "is_bot"
+                },
+                {
+                    "name": "metadata",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "metadata",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "metadata",
+                    "prevAlias": "metadata"
+                },
+                {
+                    "name": "referrer",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "referrer",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "referrer",
+                    "prevAlias": "referrer"
+                },
+                {
+                    "name": "request_time",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "request_time",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "request_time",
+                    "prevAlias": "request_time"
+                },
+                {
+                    "name": "response_time_ms",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "response_time_ms",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "response_time_ms",
+                    "prevAlias": "response_time_ms"
+                },
+                {
+                    "name": "session_id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "session_id",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "session_id",
+                    "prevAlias": "session_id"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "status",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "status",
+                    "prevAlias": "status"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "t1_f1",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "t1_f1",
+                    "prevAlias": "t1_f1"
+                },
+                {
+                    "name": "tags",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "tags",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "tags",
+                    "prevAlias": "tags"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "updated_at",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "updated_at",
+                    "prevAlias": "updated_at"
+                },
+                {
+                    "name": "url",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "url",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "url",
+                    "prevAlias": "url"
+                },
+                {
+                    "name": "user_agent",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "user_agent",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "user_agent",
+                    "prevAlias": "user_agent"
+                },
+                {
+                    "name": "user_id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "user_id",
+                        "cascadeDepth": 0
+                    },
+                    "alias": "user_id",
+                    "prevAlias": "user_id"
+                }
+            ],
+            "selected": false,
+            "fieldOrder": [],
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__cvInvalidCountCacheAt": 1775493997710,
+            "__cvInvalidCountCacheValue": 0,
+            "__invalidBadgeLastCount": 0
+        },
+        {
+            "id": "block_10",
+            "name": "Aggregation_10",
+            "type": "aggregation",
+            "x": 2550,
+            "y": 1470,
+            "width": 200,
+            "height": 60,
+            "color": "#6f42c120",
+            "description": "",
+            "tableFields": [
+                {
+                    "name": "id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "id",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "id"
+                },
+                {
+                    "name": "user_id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "user_id",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "user_id"
+                },
+                {
+                    "name": "metadata",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "metadata",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "metadata"
+                },
+                {
+                    "name": "created_at",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "created_at",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "created_at"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "updated_at",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "updated_at"
+                },
+                {
+                    "name": "country_code",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "country_code",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "country_code"
+                },
+                {
+                    "name": "tags",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "tags",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "tags"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "t1_f1",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "t1_f1"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "status",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "status"
+                },
+                {
+                    "name": "amount",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "amount",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "amount"
+                },
+                {
+                    "name": "is_active",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "is_active",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "is_active"
+                },
+                {
+                    "name": "session_id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "session_id",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "session_id"
+                },
+                {
+                    "name": "http_status",
+                    "type": "VARCHAR",
+                    "type_schema": "analytics",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "http_status",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "http_status"
+                },
+                {
+                    "name": "ip_address",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "ip_address",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "ip_address"
+                },
+                {
+                    "name": "referrer",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "referrer",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "referrer"
+                },
+                {
+                    "name": "request_time",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "request_time",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "request_time"
+                },
+                {
+                    "name": "response_time_ms",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "response_time_ms",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "response_time_ms"
+                },
+                {
+                    "name": "url",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "url",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "url"
+                },
+                {
+                    "name": "bytes_sent",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "bytes_sent",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "bytes_sent"
+                },
+                {
+                    "name": "user_agent",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "user_agent",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "user_agent"
+                },
+                {
+                    "name": "is_bot",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "origin": {
+                        "sourceBlockId": "block_8",
+                        "originalFieldName": "is_bot",
+                        "cascadeDepth": 0
+                    },
+                    "prevAlias": "is_bot"
+                }
+            ],
+            "selected": false,
+            "groupFields": [],
+            "aggregationFunctions": [],
+            "fieldOrder": [],
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__cvInvalidCountCacheAt": 1775493997710,
+            "__cvInvalidCountCacheValue": 0,
+            "__invalidBadgeLastCount": 0
+        },
+        {
+            "id": "block_1775479174021",
+            "name": "Union_1775479174021",
+            "type": "union",
+            "x": 2400,
+            "y": 1310,
+            "width": 200,
+            "height": 60,
+            "color": "#0d6efd20",
+            "description": "",
+            "tableFields": [
+                {
+                    "name": "amount",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "amount",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "amount",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "bytes_sent",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "bytes_sent",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "bytes_sent",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "country_code",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "country_code",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "country_code",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "created_at",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "created_at",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "created_at",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "http_status",
+                    "type": "VARCHAR",
+                    "type_schema": "analytics",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "http_status",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "http_status",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "id",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "id",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "ip_address",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "ip_address",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "ip_address",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "is_active",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "is_active",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "is_active",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "is_bot",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "is_bot",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "is_bot",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "metadata",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "metadata",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "metadata",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "referrer",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "referrer",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "referrer",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "request_time",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "request_time",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "request_time",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "response_time_ms",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "response_time_ms",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "response_time_ms",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "session_id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "session_id",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "session_id",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "status",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "status",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "t1_f1",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "t1_f1",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "tags",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "tags",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "tags",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "updated_at",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "updated_at",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "updated_at",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "url",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "url",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "url",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "user_agent",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "user_agent",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "user_agent",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "user_id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "isValid": 0,
+                    "prevAlias": "user_id",
+                    "origin": {
+                        "sourceBlockId": "block_1775479174021",
+                        "originalFieldName": "user_id",
+                        "cascadeDepth": 0
+                    }
+                }
+            ],
+            "fieldMappings": {
+                "amount": {
+                    "sources": [
+                        {
+                            "fieldName": "amount"
+                        },
+                        {
+                            "fieldName": "amount"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "bytes_sent": {
+                    "sources": [
+                        {
+                            "fieldName": "bytes_sent"
+                        },
+                        {
+                            "fieldName": "bytes_sent"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "country_code": {
+                    "sources": [
+                        {
+                            "fieldName": "country_code"
+                        },
+                        {
+                            "fieldName": "country_code"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "created_at": {
+                    "sources": [
+                        {
+                            "fieldName": "created_at"
+                        },
+                        {
+                            "fieldName": "created_at"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "http_status": {
+                    "sources": [
+                        {
+                            "fieldName": "http_status"
+                        },
+                        {
+                            "fieldName": "http_status"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "id": {
+                    "sources": [
+                        {
+                            "fieldName": "id"
+                        },
+                        {
+                            "fieldName": "id"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "ip_address": {
+                    "sources": [
+                        {
+                            "fieldName": "ip_address"
+                        },
+                        {
+                            "fieldName": "ip_address"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "is_active": {
+                    "sources": [
+                        {
+                            "fieldName": "is_active"
+                        },
+                        {
+                            "fieldName": "is_active"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "is_bot": {
+                    "sources": [
+                        {
+                            "fieldName": "is_bot"
+                        },
+                        {
+                            "fieldName": "is_bot"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "metadata": {
+                    "sources": [
+                        {
+                            "fieldName": "metadata"
+                        },
+                        {
+                            "fieldName": "metadata"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "referrer": {
+                    "sources": [
+                        {
+                            "fieldName": "referrer"
+                        },
+                        {
+                            "fieldName": "referrer"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "request_time": {
+                    "sources": [
+                        {
+                            "fieldName": "request_time"
+                        },
+                        {
+                            "fieldName": "request_time"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "response_time_ms": {
+                    "sources": [
+                        {
+                            "fieldName": "response_time_ms"
+                        },
+                        {
+                            "fieldName": "response_time_ms"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "session_id": {
+                    "sources": [
+                        {
+                            "fieldName": "session_id"
+                        },
+                        {
+                            "fieldName": "session_id"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "status": {
+                    "sources": [
+                        {
+                            "fieldName": "status"
+                        },
+                        {
+                            "fieldName": "status"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "t1_f1": {
+                    "sources": [
+                        {
+                            "fieldName": "t1_f1"
+                        },
+                        {
+                            "fieldName": "t1_f1"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "tags": {
+                    "sources": [
+                        {
+                            "fieldName": "tags"
+                        },
+                        {
+                            "fieldName": "tags"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "updated_at": {
+                    "sources": [
+                        {
+                            "fieldName": "updated_at"
+                        },
+                        {
+                            "fieldName": "updated_at"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "url": {
+                    "sources": [
+                        {
+                            "fieldName": "url"
+                        },
+                        {
+                            "fieldName": "url"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "user_agent": {
+                    "sources": [
+                        {
+                            "fieldName": "user_agent"
+                        },
+                        {
+                            "fieldName": "user_agent"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                },
+                "user_id": {
+                    "sources": [
+                        {
+                            "fieldName": "user_id"
+                        },
+                        {
+                            "fieldName": "user_id"
+                        }
+                    ],
+                    "outputType": "VARCHAR",
+                    "nullable": true
+                }
+            },
+            "selected": false,
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__cvInvalidCountCacheAt": 1775493997710,
+            "__cvInvalidCountCacheValue": 0,
+            "__invalidBadgeLastCount": 0
+        }
+    ],
+    "connections": [
+        {
+            "id": "conn_11",
+            "sourceBlockId": "projection_1775479171850",
+            "targetBlockId": "block_8",
+            "type": "data",
+            "selected": false
+        },
+        {
+            "id": "conn_12",
+            "sourceBlockId": "projection_1775479174020",
+            "targetBlockId": "block_8",
+            "type": "data",
+            "selected": false
+        },
+        {
+            "id": "conn_13",
+            "sourceBlockId": "block_8",
+            "targetBlockId": "block_9",
+            "type": "data",
+            "selected": false
+        },
+        {
+            "id": "conn_14",
+            "sourceBlockId": "block_8",
+            "targetBlockId": "block_10",
+            "type": "data",
+            "selected": false
+        },
+        {
+            "id": "conn_15",
+            "sourceBlockId": "block_9",
+            "targetBlockId": "block_1775479174021",
+            "type": "data",
+            "selected": false
+        },
+        {
+            "id": "conn_16",
+            "sourceBlockId": "block_10",
+            "targetBlockId": "block_1775479174021",
+            "type": "data",
+            "selected": false
+        },
+        {
+            "id": "conn_17",
+            "sourceBlockId": "block_1775479174021",
+            "targetBlockId": "semantics_block",
+            "type": "data",
+            "selected": false
+        }
+    ],
+    "aggregationSumFields": {},
+    "rankPartitionFields": {}
+}

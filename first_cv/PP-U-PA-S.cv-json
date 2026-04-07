@@ -4,7 +4,7 @@
             "id": "semantics_block",
             "name": "Semantics",
             "type": "semantics",
-            "x": 2527.75,
+            "x": 2411.5,
             "y": 1150,
             "width": 200,
             "height": 60,
@@ -419,7 +419,7 @@
             "technicalName": "cv_test_sql",
             "layerName": "Semantic Layer",
             "implementation": "UDF",
-            "executionEngine": "Database",
+            "executionEngine": "PostgreSQL/demo/analytics",
             "selected": false,
             "fieldMapping": {},
             "cascadeMetadata": {
@@ -428,16 +428,18 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "engine": "Database",
+            "engine": "PostgreSQL/demo/analytics",
             "measures": [],
-            "__cvInvalidCountCacheAt": 1775498970817,
+            "engineDbType": "POSTGRESQL",
+            "connectionKey": "mysql.connections",
+            "__cvInvalidCountCacheAt": 1775564530861,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "projection_1775479171850",
             "name": "Projection_table1_pg",
             "type": "projection",
-            "x": 2377.75,
+            "x": 2261.5,
             "y": 1790,
             "width": 200,
             "height": 60,
@@ -631,14 +633,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775498970817,
+            "__cvInvalidCountCacheAt": 1775564530861,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "projection_1775479174020",
             "name": "Projection_table2_pg",
             "type": "projection",
-            "x": 2677.75,
+            "x": 2561.5,
             "y": 1790,
             "width": 200,
             "height": 60,
@@ -817,14 +819,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775498970817,
+            "__cvInvalidCountCacheAt": 1775564530861,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_8",
             "name": "Union_8",
             "type": "union",
-            "x": 2527.75,
+            "x": 2411.5,
             "y": 1630,
             "width": 200,
             "height": 60,
@@ -1387,14 +1389,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775498970817,
+            "__cvInvalidCountCacheAt": 1775564530862,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_9",
             "name": "Projection_9",
             "type": "projection",
-            "x": 2354.75,
+            "x": 2238.5,
             "y": 1479,
             "width": 200,
             "height": 60,
@@ -1725,14 +1727,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775498970818,
+            "__cvInvalidCountCacheAt": 1775564530862,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_10",
             "name": "Aggregation_10",
             "type": "aggregation",
-            "x": 2677.75,
+            "x": 2561.5,
             "y": 1470,
             "width": 200,
             "height": 60,
@@ -2044,14 +2046,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775498970818,
+            "__cvInvalidCountCacheAt": 1775564530863,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_1775479174021",
             "name": "Union_1775479174021",
             "type": "union",
-            "x": 2527.75,
+            "x": 2411.5,
             "y": 1310,
             "width": 200,
             "height": 60,
@@ -2614,7 +2616,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775498970818,
+            "__cvInvalidCountCacheAt": 1775564530863,
             "__cvInvalidCountCacheValue": 0
         }
     ],

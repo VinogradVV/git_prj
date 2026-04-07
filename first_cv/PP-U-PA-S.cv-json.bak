@@ -4,7 +4,7 @@
             "id": "semantics_block",
             "name": "Semantics",
             "type": "semantics",
-            "x": 2520.5,
+            "x": 2411.5,
             "y": 1150,
             "width": 200,
             "height": 60,
@@ -419,7 +419,7 @@
             "technicalName": "cv_test_sql",
             "layerName": "Semantic Layer",
             "implementation": "UDF",
-            "executionEngine": "Database",
+            "executionEngine": "PostgreSQL/demo/analytics",
             "selected": false,
             "fieldMapping": {},
             "cascadeMetadata": {
@@ -428,16 +428,18 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "engine": "Database",
+            "engine": "PostgreSQL/demo/analytics",
             "measures": [],
-            "__cvInvalidCountCacheAt": 1775496746454,
+            "engineDbType": "POSTGRESQL",
+            "connectionKey": "mysql.connections",
+            "__cvInvalidCountCacheAt": 1775564523166,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "projection_1775479171850",
             "name": "Projection_table1_pg",
             "type": "projection",
-            "x": 2370.5,
+            "x": 2261.5,
             "y": 1790,
             "width": 200,
             "height": 60,
@@ -631,14 +633,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775496746454,
+            "__cvInvalidCountCacheAt": 1775564523166,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "projection_1775479174020",
             "name": "Projection_table2_pg",
             "type": "projection",
-            "x": 2670.5,
+            "x": 2561.5,
             "y": 1790,
             "width": 200,
             "height": 60,
@@ -817,14 +819,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775496746454,
+            "__cvInvalidCountCacheAt": 1775564523166,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_8",
             "name": "Union_8",
             "type": "union",
-            "x": 2520.5,
+            "x": 2411.5,
             "y": 1630,
             "width": 200,
             "height": 60,
@@ -1387,14 +1389,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775496746454,
+            "__cvInvalidCountCacheAt": 1775564523167,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_9",
             "name": "Projection_9",
             "type": "projection",
-            "x": 2347.5,
+            "x": 2238.5,
             "y": 1479,
             "width": 200,
             "height": 60,
@@ -1725,14 +1727,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775496746455,
+            "__cvInvalidCountCacheAt": 1775564523167,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_10",
             "name": "Aggregation_10",
             "type": "aggregation",
-            "x": 2670.5,
+            "x": 2561.5,
             "y": 1470,
             "width": 200,
             "height": 60,
@@ -2044,14 +2046,14 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775496746455,
+            "__cvInvalidCountCacheAt": 1775564523167,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_1775479174021",
             "name": "Union_1775479174021",
             "type": "union",
-            "x": 2520.5,
+            "x": 2411.5,
             "y": 1310,
             "width": 200,
             "height": 60,
@@ -2614,130 +2616,8 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775496746455,
+            "__cvInvalidCountCacheAt": 1775564523167,
             "__cvInvalidCountCacheValue": 0
-        },
-        {
-            "id": "projection_1775496734674",
-            "type": "projection",
-            "name": "Projection_table1_pg",
-            "x": 2115,
-            "y": 1650.800048828125,
-            "width": 200,
-            "height": 60,
-            "color": "#6f42c120",
-            "selectedTable": {
-                "connect_key": "1775066342829@@127.0.0.1@GREENPLUM@demo",
-                "instanceName": "GREENPLUM",
-                "database": "demo",
-                "schema": "analytics",
-                "table": "table1_pg",
-                "dbType": "PostgreSQL",
-                "metadata": {
-                    "table_schema": "analytics",
-                    "table_name": "table1_pg",
-                    "table_comment": "Основная таблица аналитики событий: хранит транзакции, статусы и метаданные пользователей",
-                    "table_type": "TABLE"
-                }
-            },
-            "tableFields": [
-                {
-                    "name": "id",
-                    "type": "bigint",
-                    "column_comment": "Уникальный идентификатор записи (автоинкремент)",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "id"
-                },
-                {
-                    "name": "user_id",
-                    "type": "uuid",
-                    "column_comment": "ID пользователя (UUID)",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "user_id"
-                },
-                {
-                    "name": "metadata",
-                    "type": "jsonb",
-                    "column_comment": "Гибкие метаданные в формате JSONB",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "metadata"
-                },
-                {
-                    "name": "created_at",
-                    "type": "timestamp with time zone",
-                    "column_comment": "Дата и время создания записи (с часовым поясом)",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "created_at"
-                },
-                {
-                    "name": "updated_at",
-                    "type": "timestamp with time zone",
-                    "column_comment": "Дата последнего обновления записи",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "updated_at"
-                },
-                {
-                    "name": "country_code",
-                    "type": "character",
-                    "column_comment": "Код страны (ISO 3166-1 alpha-2: RU, US)",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "country_code"
-                },
-                {
-                    "name": "tags",
-                    "type": "text[]",
-                    "column_comment": "Массив тегов или категорий",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "tags"
-                },
-                {
-                    "name": "t1_f1",
-                    "type": "varchar",
-                    "column_comment": "Произвольное текстовое поле (название или описание)",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "t1_f1"
-                },
-                {
-                    "name": "status",
-                    "type": "varchar",
-                    "column_comment": "Статус обработки: new, processed, error",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "status"
-                },
-                {
-                    "name": "amount",
-                    "type": "numeric",
-                    "column_comment": "Сумма транзакции с точностью до 2 знаков",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "amount"
-                },
-                {
-                    "name": "is_active",
-                    "type": "boolean",
-                    "column_comment": "Флаг активности записи (NULL = неизвестно)",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "is_active"
-                }
-            ],
-            "position": {
-                "x": 2238,
-                "y": 1635.800048828125
-            },
-            "__cvInvalidCountCacheAt": 1775496746455,
-            "__cvInvalidCountCacheValue": 0,
-            "__invalidBadgeLastCount": 0,
-            "selected": false
         }
     ],
     "connections": [

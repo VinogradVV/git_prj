@@ -1,0 +1,520 @@
+{
+    "blocks": [
+        {
+            "id": "semantics_block",
+            "name": "Semantics",
+            "type": "semantics",
+            "x": 2400,
+            "y": 1390,
+            "width": 200,
+            "height": 60,
+            "color": "#28a745",
+            "description": "CV for test SQL",
+            "tableFields": [
+                {
+                    "name": "id",
+                    "type": "bigint",
+                    "column_comment": "Уникальный идентификатор записи (автоинкремент)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "id",
+                    "isValid": 0,
+                    "prevAlias": "id"
+                },
+                {
+                    "name": "user_id",
+                    "type": "uuid",
+                    "column_comment": "ID пользователя (UUID)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "user_id",
+                    "isValid": 0,
+                    "prevAlias": "user_id"
+                },
+                {
+                    "name": "metadata",
+                    "type": "jsonb",
+                    "column_comment": "Гибкие метаданные в формате JSONB",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "metadata",
+                    "isValid": 0,
+                    "prevAlias": "metadata"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp with time zone",
+                    "column_comment": "Дата и время создания записи (с часовым поясом)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "created_at",
+                    "isValid": 0,
+                    "prevAlias": "created_at"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp with time zone",
+                    "column_comment": "Дата последнего обновления записи",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "updated_at",
+                    "isValid": 0,
+                    "prevAlias": "updated_at"
+                },
+                {
+                    "name": "country_code",
+                    "type": "character",
+                    "column_comment": "Код страны (ISO 3166-1 alpha-2: RU, US)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "country_code",
+                    "isValid": 0,
+                    "prevAlias": "country_code"
+                },
+                {
+                    "name": "tags",
+                    "type": "text[]",
+                    "column_comment": "Массив тегов или категорий",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "tags",
+                    "isValid": 0,
+                    "prevAlias": "tags"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "varchar",
+                    "column_comment": "Произвольное текстовое поле (название или описание)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "t1_f1",
+                    "isValid": 0,
+                    "prevAlias": "t1_f1"
+                },
+                {
+                    "name": "status",
+                    "type": "varchar",
+                    "column_comment": "Статус обработки: new, processed, error",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "status",
+                    "isValid": 0,
+                    "prevAlias": "status"
+                },
+                {
+                    "name": "amount",
+                    "type": "numeric",
+                    "column_comment": "Сумма транзакции с точностью до 2 знаков",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "amount",
+                    "isValid": 0,
+                    "prevAlias": "amount"
+                },
+                {
+                    "name": "is_active",
+                    "type": "boolean",
+                    "column_comment": "Флаг активности записи (NULL = неизвестно)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "is_active",
+                    "isValid": 0,
+                    "prevAlias": "is_active"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "bigint",
+                    "description": "Уникальный идентификатор записи (автоинкремент)",
+                    "alias": "id",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "user_id",
+                    "type": "uuid",
+                    "description": "ID пользователя (UUID)",
+                    "alias": "user_id",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "metadata",
+                    "type": "jsonb",
+                    "description": "Гибкие метаданные в формате JSONB",
+                    "alias": "metadata",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp with time zone",
+                    "description": "Дата и время создания записи (с часовым поясом)",
+                    "alias": "created_at",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp with time zone",
+                    "description": "Дата последнего обновления записи",
+                    "alias": "updated_at",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "country_code",
+                    "type": "character",
+                    "description": "Код страны (ISO 3166-1 alpha-2: RU, US)",
+                    "alias": "country_code",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "tags",
+                    "type": "text[]",
+                    "description": "Массив тегов или категорий",
+                    "alias": "tags",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "varchar",
+                    "description": "Произвольное текстовое поле (название или описание)",
+                    "alias": "t1_f1",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "status",
+                    "type": "varchar",
+                    "description": "Статус обработки: new, processed, error",
+                    "alias": "status",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "amount",
+                    "type": "numeric",
+                    "description": "Сумма транзакции с точностью до 2 знаков",
+                    "alias": "amount",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "is_active",
+                    "type": "boolean",
+                    "description": "Флаг активности записи (NULL = неизвестно)",
+                    "alias": "is_active",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                }
+            ],
+            "variables": [],
+            "technicalName": "cv_test_sql",
+            "layerName": "Semantic Layer",
+            "implementation": "UDF",
+            "executionEngine": "GREENPLUM/demo/analytics",
+            "selected": false,
+            "fieldMapping": {
+                "id": {
+                    "sourceField": "id",
+                    "sourceType": "bigint",
+                    "targetField": "id",
+                    "targetType": "bigint",
+                    "transformation": null
+                },
+                "user_id": {
+                    "sourceField": "user_id",
+                    "sourceType": "uuid",
+                    "targetField": "user_id",
+                    "targetType": "uuid",
+                    "transformation": null
+                },
+                "metadata": {
+                    "sourceField": "metadata",
+                    "sourceType": "jsonb",
+                    "targetField": "metadata",
+                    "targetType": "jsonb",
+                    "transformation": null
+                },
+                "created_at": {
+                    "sourceField": "created_at",
+                    "sourceType": "timestamp with time zone",
+                    "targetField": "created_at",
+                    "targetType": "timestamp with time zone",
+                    "transformation": null
+                },
+                "updated_at": {
+                    "sourceField": "updated_at",
+                    "sourceType": "timestamp with time zone",
+                    "targetField": "updated_at",
+                    "targetType": "timestamp with time zone",
+                    "transformation": null
+                },
+                "country_code": {
+                    "sourceField": "country_code",
+                    "sourceType": "character",
+                    "targetField": "country_code",
+                    "targetType": "character",
+                    "transformation": null
+                },
+                "tags": {
+                    "sourceField": "tags",
+                    "sourceType": "text[]",
+                    "targetField": "tags",
+                    "targetType": "text[]",
+                    "transformation": null
+                },
+                "t1_f1": {
+                    "sourceField": "t1_f1",
+                    "sourceType": "varchar",
+                    "targetField": "t1_f1",
+                    "targetType": "varchar",
+                    "transformation": null
+                },
+                "status": {
+                    "sourceField": "status",
+                    "sourceType": "varchar",
+                    "targetField": "status",
+                    "targetType": "varchar",
+                    "transformation": null
+                },
+                "amount": {
+                    "sourceField": "amount",
+                    "sourceType": "numeric",
+                    "targetField": "amount",
+                    "targetType": "numeric",
+                    "transformation": null
+                },
+                "is_active": {
+                    "sourceField": "is_active",
+                    "sourceType": "boolean",
+                    "targetField": "is_active",
+                    "targetType": "boolean",
+                    "transformation": null
+                }
+            },
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__invalidBadgeLastCount": 0,
+            "engine": "GREENPLUM/demo/analytics",
+            "measures": [
+                {
+                    "name": "id",
+                    "type": "bigint",
+                    "description": "Уникальный идентификатор записи (автоинкремент)",
+                    "displayName": "id",
+                    "aggregationType": "SUM",
+                    "formatString": "#,##0"
+                },
+                {
+                    "name": "amount",
+                    "type": "numeric",
+                    "description": "Сумма транзакции с точностью до 2 знаков",
+                    "displayName": "amount",
+                    "aggregationType": "SUM",
+                    "formatString": "#,##0"
+                }
+            ],
+            "engineDbType": "POSTGRESQL",
+            "connectionKey": "mysql.connections",
+            "attributes": [
+                {
+                    "name": "t1_f1",
+                    "type": "varchar",
+                    "description": "Произвольное текстовое поле (название или описание)",
+                    "displayName": "t1_f1"
+                },
+                {
+                    "name": "status",
+                    "type": "varchar",
+                    "description": "Статус обработки: new, processed, error",
+                    "displayName": "status"
+                }
+            ],
+            "hierarchies": [],
+            "_fieldCache": [],
+            "__invalidBadgeValidatedAt": 1775636273356,
+            "autoUpdateSchema": true,
+            "enableCaching": true,
+            "__cvInvalidCountCacheAt": 1775636284495,
+            "__cvInvalidCountCacheValue": 0
+        },
+        {
+            "id": "projection_1775636267420",
+            "type": "projection",
+            "name": "Projection_table1_pg",
+            "x": 2400,
+            "y": 1550,
+            "width": 200,
+            "height": 60,
+            "color": "#6f42c120",
+            "selectedTable": {
+                "connect_key": "1775066342829@@127.0.0.1@GREENPLUM@demo",
+                "instanceName": "GREENPLUM",
+                "database": "demo",
+                "schema": "analytics",
+                "table": "table1_pg",
+                "dbType": "PostgreSQL",
+                "metadata": {
+                    "table_schema": "analytics",
+                    "table_name": "table1_pg",
+                    "table_comment": "Основная таблица аналитики событий: хранит транзакции, статусы и метаданные пользователей",
+                    "table_type": "TABLE"
+                }
+            },
+            "tableFields": [
+                {
+                    "name": "id",
+                    "type": "bigint",
+                    "column_comment": "Уникальный идентификатор записи (автоинкремент)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "id",
+                    "isValid": 0,
+                    "prevAlias": "id"
+                },
+                {
+                    "name": "user_id",
+                    "type": "uuid",
+                    "column_comment": "ID пользователя (UUID)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "user_id",
+                    "isValid": 0,
+                    "prevAlias": "user_id"
+                },
+                {
+                    "name": "metadata",
+                    "type": "jsonb",
+                    "column_comment": "Гибкие метаданные в формате JSONB",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "metadata",
+                    "isValid": 0,
+                    "prevAlias": "metadata"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp with time zone",
+                    "column_comment": "Дата и время создания записи (с часовым поясом)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "created_at",
+                    "isValid": 0,
+                    "prevAlias": "created_at"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp with time zone",
+                    "column_comment": "Дата последнего обновления записи",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "updated_at",
+                    "isValid": 0,
+                    "prevAlias": "updated_at"
+                },
+                {
+                    "name": "country_code",
+                    "type": "character",
+                    "column_comment": "Код страны (ISO 3166-1 alpha-2: RU, US)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "country_code",
+                    "isValid": 0,
+                    "prevAlias": "country_code"
+                },
+                {
+                    "name": "tags",
+                    "type": "text[]",
+                    "column_comment": "Массив тегов или категорий",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "tags",
+                    "isValid": 0,
+                    "prevAlias": "tags"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "varchar",
+                    "column_comment": "Произвольное текстовое поле (название или описание)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "t1_f1",
+                    "isValid": 0,
+                    "prevAlias": "t1_f1"
+                },
+                {
+                    "name": "status",
+                    "type": "varchar",
+                    "column_comment": "Статус обработки: new, processed, error",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "status",
+                    "isValid": 0,
+                    "prevAlias": "status"
+                },
+                {
+                    "name": "amount",
+                    "type": "numeric",
+                    "column_comment": "Сумма транзакции с точностью до 2 знаков",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "amount",
+                    "isValid": 0,
+                    "prevAlias": "amount"
+                },
+                {
+                    "name": "is_active",
+                    "type": "boolean",
+                    "column_comment": "Флаг активности записи (NULL = неизвестно)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "is_active",
+                    "isValid": 0,
+                    "prevAlias": "is_active"
+                }
+            ],
+            "position": {
+                "x": 2183,
+                "y": 1511.7999877929688
+            },
+            "__invalidBadgeLastCount": 0,
+            "_fieldCache": [],
+            "_cacheDirty": false,
+            "_lastSourceHash": "{\"sourceIds\":[],\"fieldExclusions\":[],\"fieldAliases\":{},\"selectedTable\":{\"connect_key\":\"1775066342829@@127.0.0.1@GREENPLUM@demo\",\"instanceName\":\"GREENPLUM\",\"database\":\"demo\",\"schema\":\"analytics\",\"table\":\"table1_pg\",\"dbType\":\"PostgreSQL\",\"metadata\":{\"table_schema\":\"analytics\",\"table_name\":\"table1_pg\",\"table_comment\":\"Основная таблица аналитики событий: хранит транзакции, статусы и метаданные пользователей\",\"table_type\":\"TABLE\"}}}",
+            "__cvInvalidCountCacheAt": 1775636284495,
+            "__cvInvalidCountCacheValue": 0,
+            "selected": false
+        }
+    ],
+    "connections": [
+        {
+            "id": "conn_19",
+            "name": "Connection 19",
+            "sourceBlockId": "projection_1775636267420",
+            "targetBlockId": "semantics_block",
+            "type": "data",
+            "selected": false
+        }
+    ],
+    "aggregationSumFields": {},
+    "rankPartitionFields": {}
+}

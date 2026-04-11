@@ -13,13 +13,15 @@
             "tableFields": [
                 {
                     "name": "amount",
-                    "type": "VARCHAR",
+                    "type": "INTEGER",
                     "type_schema": "pg_catalog",
                     "selected": true,
                     "isUnionOutput": true,
                     "isValid": 0,
                     "prevAlias": "amount",
-                    "alias": "amount"
+                    "alias": "amount",
+                    "prevType": "INTEGER",
+                    "originalType": "VARCHAR"
                 },
                 {
                     "name": "bytes_sent",
@@ -225,12 +227,14 @@
             "fields": [
                 {
                     "name": "amount",
-                    "type": "VARCHAR",
+                    "type": "INTEGER",
                     "description": "",
                     "alias": "amount",
                     "nullable": true,
                     "primaryKey": false,
-                    "isValid": 0
+                    "isValid": 0,
+                    "role": "measure",
+                    "aggregation": "sum"
                 },
                 {
                     "name": "bytes_sent",
@@ -415,11 +419,27 @@
                     "isValid": 0
                 }
             ],
-            "variables": [],
+            "variables": [
+                {
+                    "id": "aefttva1b",
+                    "name": "test_var",
+                    "displayName": "Тестовая переменная",
+                    "type": "TEXT",
+                    "defaultValue": "Москва",
+                    "description": "Описание: Тестовая переменная",
+                    "required": false,
+                    "visibility": "public",
+                    "category": "filter",
+                    "predefinedValues": "",
+                    "minValue": "",
+                    "maxValue": "",
+                    "expanded": true
+                }
+            ],
             "technicalName": "cv_test_sql",
             "layerName": "Semantic Layer",
             "implementation": "UDF",
-            "executionEngine": "GREENPLUM/demo/analytics",
+            "executionEngine": "CLICKHOUSE/analytics",
             "selected": false,
             "fieldMapping": {},
             "cascadeMetadata": {
@@ -428,11 +448,268 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "engine": "GREENPLUM/demo/analytics",
-            "measures": [],
-            "engineDbType": "POSTGRESQL",
+            "engine": "CLICKHOUSE/analytics",
+            "measures": [
+                {
+                    "name": "amount",
+                    "displayName": "amount",
+                    "sourceField": "amount",
+                    "aggregation": "sum",
+                    "format": "number",
+                    "unit": "",
+                    "description": "",
+                    "customFormula": "",
+                    "isVisible": true,
+                    "allowSort": true,
+                    "allowFilter": true,
+                    "expanded": false
+                }
+            ],
+            "engineDbType": "CLICKHOUSE",
             "connectionKey": "mysql.connections",
-            "__cvInvalidCountCacheAt": 1775636153157,
+            "attributes": [
+                {
+                    "name": "bytes_sent",
+                    "displayName": "bytes_sent",
+                    "sourceField": "bytes_sent",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "country_code",
+                    "displayName": "country_code",
+                    "sourceField": "country_code",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "created_at",
+                    "displayName": "created_at",
+                    "sourceField": "created_at",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "http_status",
+                    "displayName": "http_status",
+                    "sourceField": "http_status",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "id",
+                    "displayName": "id",
+                    "sourceField": "id",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "ip_address",
+                    "displayName": "ip_address",
+                    "sourceField": "ip_address",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "is_active",
+                    "displayName": "is_active",
+                    "sourceField": "is_active",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "is_bot",
+                    "displayName": "is_bot",
+                    "sourceField": "is_bot",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "metadata",
+                    "displayName": "metadata",
+                    "sourceField": "metadata",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "referrer",
+                    "displayName": "referrer",
+                    "sourceField": "referrer",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "request_time",
+                    "displayName": "request_time",
+                    "sourceField": "request_time",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "response_time_ms",
+                    "displayName": "response_time_ms",
+                    "sourceField": "response_time_ms",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "session_id",
+                    "displayName": "session_id",
+                    "sourceField": "session_id",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "status",
+                    "displayName": "status",
+                    "sourceField": "status",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "t1_f1",
+                    "displayName": "t1_f1",
+                    "sourceField": "t1_f1",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "tags",
+                    "displayName": "tags",
+                    "sourceField": "tags",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "updated_at",
+                    "displayName": "updated_at",
+                    "sourceField": "updated_at",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "url",
+                    "displayName": "url",
+                    "sourceField": "url",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "user_agent",
+                    "displayName": "user_agent",
+                    "sourceField": "user_agent",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                },
+                {
+                    "name": "user_id",
+                    "displayName": "user_id",
+                    "sourceField": "user_id",
+                    "dataType": "string",
+                    "description": "",
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
+                }
+            ],
+            "__cvInvalidCountCacheAt": 1775893857993,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -460,77 +737,17 @@
             },
             "tableFields": [
                 {
-                    "name": "id",
-                    "type": "bigint",
-                    "column_comment": "Уникальный идентификатор записи (автоинкремент)",
+                    "name": "amount",
+                    "type": "numeric",
+                    "column_comment": "Сумма транзакции с точностью до 2 знаков",
                     "type_schema": "pg_catalog",
                     "selected": true,
-                    "alias": "id",
+                    "alias": "amount",
                     "isValid": 0,
-                    "prevAlias": "id",
+                    "prevAlias": "amount",
                     "origin": {
                         "sourceBlockId": "projection_1775479171850",
-                        "originalFieldName": "id",
-                        "cascadeDepth": 0
-                    }
-                },
-                {
-                    "name": "user_id",
-                    "type": "uuid",
-                    "column_comment": "ID пользователя (UUID)",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "user_id",
-                    "isValid": 0,
-                    "prevAlias": "user_id",
-                    "origin": {
-                        "sourceBlockId": "projection_1775479171850",
-                        "originalFieldName": "user_id",
-                        "cascadeDepth": 0
-                    }
-                },
-                {
-                    "name": "metadata",
-                    "type": "jsonb",
-                    "column_comment": "Гибкие метаданные в формате JSONB",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "metadata",
-                    "isValid": 0,
-                    "prevAlias": "metadata",
-                    "origin": {
-                        "sourceBlockId": "projection_1775479171850",
-                        "originalFieldName": "metadata",
-                        "cascadeDepth": 0
-                    }
-                },
-                {
-                    "name": "created_at",
-                    "type": "timestamp with time zone",
-                    "column_comment": "Дата и время создания записи (с часовым поясом)",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "created_at",
-                    "isValid": 0,
-                    "prevAlias": "created_at",
-                    "origin": {
-                        "sourceBlockId": "projection_1775479171850",
-                        "originalFieldName": "created_at",
-                        "cascadeDepth": 0
-                    }
-                },
-                {
-                    "name": "updated_at",
-                    "type": "timestamp with time zone",
-                    "column_comment": "Дата последнего обновления записи",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "updated_at",
-                    "isValid": 0,
-                    "prevAlias": "updated_at",
-                    "origin": {
-                        "sourceBlockId": "projection_1775479171850",
-                        "originalFieldName": "updated_at",
+                        "originalFieldName": "amount",
                         "cascadeDepth": 0
                     }
                 },
@@ -550,32 +767,62 @@
                     }
                 },
                 {
-                    "name": "tags",
-                    "type": "text[]",
-                    "column_comment": "Массив тегов или категорий",
+                    "name": "created_at",
+                    "type": "timestamp with time zone",
+                    "column_comment": "Дата и время создания записи (с часовым поясом)",
                     "type_schema": "pg_catalog",
                     "selected": true,
-                    "alias": "tags",
+                    "alias": "created_at",
                     "isValid": 0,
-                    "prevAlias": "tags",
+                    "prevAlias": "created_at",
                     "origin": {
                         "sourceBlockId": "projection_1775479171850",
-                        "originalFieldName": "tags",
+                        "originalFieldName": "created_at",
                         "cascadeDepth": 0
                     }
                 },
                 {
-                    "name": "t1_f1",
-                    "type": "varchar",
-                    "column_comment": "Произвольное текстовое поле (название или описание)",
+                    "name": "id",
+                    "type": "bigint",
+                    "column_comment": "Уникальный идентификатор записи (автоинкремент)",
                     "type_schema": "pg_catalog",
                     "selected": true,
-                    "alias": "t1_f1",
+                    "alias": "id",
                     "isValid": 0,
-                    "prevAlias": "t1_f1",
+                    "prevAlias": "id",
                     "origin": {
                         "sourceBlockId": "projection_1775479171850",
-                        "originalFieldName": "t1_f1",
+                        "originalFieldName": "id",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "is_active",
+                    "type": "boolean",
+                    "column_comment": "Флаг активности записи (NULL = неизвестно)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "is_active",
+                    "isValid": 0,
+                    "prevAlias": "is_active",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "is_active",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "metadata",
+                    "type": "jsonb",
+                    "column_comment": "Гибкие метаданные в формате JSONB",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "metadata",
+                    "isValid": 0,
+                    "prevAlias": "metadata",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "metadata",
                         "cascadeDepth": 0
                     }
                 },
@@ -595,32 +842,62 @@
                     }
                 },
                 {
-                    "name": "amount",
-                    "type": "numeric",
-                    "column_comment": "Сумма транзакции с точностью до 2 знаков",
+                    "name": "t1_f1",
+                    "type": "varchar",
+                    "column_comment": "Произвольное текстовое поле (название или описание)",
                     "type_schema": "pg_catalog",
                     "selected": true,
-                    "alias": "amount",
+                    "alias": "t1_f1",
                     "isValid": 0,
-                    "prevAlias": "amount",
+                    "prevAlias": "t1_f1",
                     "origin": {
                         "sourceBlockId": "projection_1775479171850",
-                        "originalFieldName": "amount",
+                        "originalFieldName": "t1_f1",
                         "cascadeDepth": 0
                     }
                 },
                 {
-                    "name": "is_active",
-                    "type": "boolean",
-                    "column_comment": "Флаг активности записи (NULL = неизвестно)",
+                    "name": "tags",
+                    "type": "text[]",
+                    "column_comment": "Массив тегов или категорий",
                     "type_schema": "pg_catalog",
                     "selected": true,
-                    "alias": "is_active",
+                    "alias": "tags",
                     "isValid": 0,
-                    "prevAlias": "is_active",
+                    "prevAlias": "tags",
                     "origin": {
                         "sourceBlockId": "projection_1775479171850",
-                        "originalFieldName": "is_active",
+                        "originalFieldName": "tags",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp with time zone",
+                    "column_comment": "Дата последнего обновления записи",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "updated_at",
+                    "isValid": 0,
+                    "prevAlias": "updated_at",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "updated_at",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "user_id",
+                    "type": "uuid",
+                    "column_comment": "ID пользователя (UUID)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "user_id",
+                    "isValid": 0,
+                    "prevAlias": "user_id",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479171850",
+                        "originalFieldName": "user_id",
                         "cascadeDepth": 0
                     }
                 }
@@ -633,7 +910,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775636153157,
+            "__cvInvalidCountCacheAt": 1775893857993,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -661,17 +938,17 @@
             },
             "tableFields": [
                 {
-                    "name": "session_id",
-                    "type": "uuid",
-                    "column_comment": "Уникальный идентификатор пользовательской сессии (UUID)",
+                    "name": "bytes_sent",
+                    "type": "bigint",
+                    "column_comment": "Размер ответа сервера в байтах",
                     "type_schema": "pg_catalog",
                     "selected": true,
-                    "alias": "session_id",
+                    "alias": "bytes_sent",
                     "isValid": 0,
-                    "prevAlias": "session_id",
+                    "prevAlias": "bytes_sent",
                     "origin": {
                         "sourceBlockId": "projection_1775479174020",
-                        "originalFieldName": "session_id",
+                        "originalFieldName": "bytes_sent",
                         "cascadeDepth": 0
                     }
                 },
@@ -702,6 +979,21 @@
                     "origin": {
                         "sourceBlockId": "projection_1775479174020",
                         "originalFieldName": "ip_address",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "is_bot",
+                    "type": "boolean",
+                    "column_comment": "Флаг: является ли запрос ботом",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "is_bot",
+                    "isValid": 0,
+                    "prevAlias": "is_bot",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479174020",
+                        "originalFieldName": "is_bot",
                         "cascadeDepth": 0
                     }
                 },
@@ -751,6 +1043,21 @@
                     }
                 },
                 {
+                    "name": "session_id",
+                    "type": "uuid",
+                    "column_comment": "Уникальный идентификатор пользовательской сессии (UUID)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "session_id",
+                    "isValid": 0,
+                    "prevAlias": "session_id",
+                    "origin": {
+                        "sourceBlockId": "projection_1775479174020",
+                        "originalFieldName": "session_id",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
                     "name": "url",
                     "type": "text",
                     "column_comment": "Полный URL запрашиваемой страницы",
@@ -762,21 +1069,6 @@
                     "origin": {
                         "sourceBlockId": "projection_1775479174020",
                         "originalFieldName": "url",
-                        "cascadeDepth": 0
-                    }
-                },
-                {
-                    "name": "bytes_sent",
-                    "type": "bigint",
-                    "column_comment": "Размер ответа сервера в байтах",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "bytes_sent",
-                    "isValid": 0,
-                    "prevAlias": "bytes_sent",
-                    "origin": {
-                        "sourceBlockId": "projection_1775479174020",
-                        "originalFieldName": "bytes_sent",
                         "cascadeDepth": 0
                     }
                 },
@@ -794,21 +1086,6 @@
                         "originalFieldName": "user_agent",
                         "cascadeDepth": 0
                     }
-                },
-                {
-                    "name": "is_bot",
-                    "type": "boolean",
-                    "column_comment": "Флаг: является ли запрос ботом",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "is_bot",
-                    "isValid": 0,
-                    "prevAlias": "is_bot",
-                    "origin": {
-                        "sourceBlockId": "projection_1775479174020",
-                        "originalFieldName": "is_bot",
-                        "cascadeDepth": 0
-                    }
                 }
             ],
             "selected": false,
@@ -819,7 +1096,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775636153158,
+            "__cvInvalidCountCacheAt": 1775893857993,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -1389,7 +1666,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775636153158,
+            "__cvInvalidCountCacheAt": 1775893857994,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -1727,7 +2004,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775636153158,
+            "__cvInvalidCountCacheAt": 1775893857994,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -1879,7 +2156,8 @@
                         "originalFieldName": "amount",
                         "cascadeDepth": 0
                     },
-                    "prevAlias": "amount"
+                    "prevAlias": "amount",
+                    "aggregation": "SUM"
                 },
                 {
                     "name": "is_active",
@@ -2046,7 +2324,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775636153158,
+            "__cvInvalidCountCacheAt": 1775893857994,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -2616,7 +2894,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775636153158,
+            "__cvInvalidCountCacheAt": 1775893857994,
             "__cvInvalidCountCacheValue": 0
         }
     ],

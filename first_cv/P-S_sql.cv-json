@@ -224,7 +224,7 @@
                 }
             ],
             "variables": [],
-            "technicalName": "cv_test_sql",
+            "technicalName": "p_s",
             "layerName": "Semantic Layer",
             "implementation": "UDF",
             "executionEngine": "GREENPLUM/demo/analytics",

@@ -197,7 +197,7 @@
             "__invalidBadgeLastCount": 0,
             "engine": "CLICKHOUSE/analytics",
             "engineDbType": "Clickhouse",
-            "__cvInvalidCountCacheAt": 1776069895307,
+            "__cvInvalidCountCacheAt": 1776084538146,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -341,8 +341,9 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1776069895307,
-            "__cvInvalidCountCacheValue": 0
+            "__cvInvalidCountCacheAt": 1776084538146,
+            "__cvInvalidCountCacheValue": 0,
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_1\n-- =========================================\n-- Блок: Projection_1 (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: cv_test_sql\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"cv_test_sql$projection_1\" AS\nWITH step_auto AS (SELECT\n  \"docdate\",\n  \"docnum\",\n  \"docyear\",\n  \"id\",\n  \"price\"\nFROM repo_fi.allinfo_tbl)\nSELECT *\nFROM step_auto;\n"
         },
         {
             "id": "block_2",
@@ -429,7 +430,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1776069895308,
+            "__cvInvalidCountCacheAt": 1776084538146,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -739,9 +740,9 @@
                     }
                 ]
             },
-            "__cvJoinBadgeDbgAt": 1776069895182,
+            "__cvJoinBadgeDbgAt": 1776084538072,
             "__invalidBadgeLastCount": 3,
-            "__cvInvalidCountCacheAt": 1776069895308,
+            "__cvInvalidCountCacheAt": 1776084538146,
             "__cvInvalidCountCacheValue": 3
         }
     ],

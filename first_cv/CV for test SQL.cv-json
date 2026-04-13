@@ -197,7 +197,7 @@
             "__invalidBadgeLastCount": 0,
             "engine": "CLICKHOUSE/analytics",
             "engineDbType": "Clickhouse",
-            "__cvInvalidCountCacheAt": 1776084538146,
+            "__cvInvalidCountCacheAt": 1776086194629,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -341,9 +341,9 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1776084538146,
-            "__cvInvalidCountCacheValue": 0,
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_1\n-- =========================================\n-- Блок: Projection_1 (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: cv_test_sql\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"cv_test_sql$projection_1\" AS\nWITH step_auto AS (SELECT\n  \"docdate\",\n  \"docnum\",\n  \"docyear\",\n  \"id\",\n  \"price\"\nFROM repo_fi.allinfo_tbl)\nSELECT *\nFROM step_auto;\n"
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_1\n-- =========================================\n-- Блок: Projection_1 (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: cv_test_sql\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"cv_test_sql$projection_1\" AS\nWITH step_auto AS (SELECT\n  \"docdate\",\n  \"docnum\",\n  \"docyear\",\n  \"id\",\n  \"price\"\nFROM repo_fi.allinfo_tbl)\nSELECT *\nFROM step_auto where 1=1;\n",
+            "__cvInvalidCountCacheAt": 1776086194629,
+            "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_2",
@@ -430,15 +430,15 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1776084538146,
+            "__cvInvalidCountCacheAt": 1776086194629,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "block_3",
             "name": "Join_3",
             "type": "join",
-            "x": 2400,
-            "y": 1470,
+            "x": 2403,
+            "y": 1458,
             "width": 200,
             "height": 60,
             "color": "#0d6efd20",
@@ -740,9 +740,9 @@
                     }
                 ]
             },
-            "__cvJoinBadgeDbgAt": 1776084538072,
+            "__cvJoinBadgeDbgAt": 1776086194535,
             "__invalidBadgeLastCount": 3,
-            "__cvInvalidCountCacheAt": 1776084538146,
+            "__cvInvalidCountCacheAt": 1776086194629,
             "__cvInvalidCountCacheValue": 3
         }
     ],

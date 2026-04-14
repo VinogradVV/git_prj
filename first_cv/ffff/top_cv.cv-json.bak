@@ -1,0 +1,525 @@
+{
+    "blocks": [
+        {
+            "id": "semantics_block",
+            "name": "Semantics",
+            "type": "semantics",
+            "x": 2400,
+            "y": 1390,
+            "width": 200,
+            "height": 60,
+            "color": "#28a745",
+            "description": "CV top_cv",
+            "tableFields": [
+                {
+                    "name": "created_at",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "created_at",
+                    "isValid": 0,
+                    "prevAlias": "created_at"
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "id",
+                    "isValid": 0,
+                    "prevAlias": "id"
+                },
+                {
+                    "name": "amount",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "amount",
+                    "isValid": 0,
+                    "prevAlias": "amount"
+                },
+                {
+                    "name": "country_code",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "country_code",
+                    "isValid": 0,
+                    "prevAlias": "country_code"
+                },
+                {
+                    "name": "is_active",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "is_active",
+                    "isValid": 0,
+                    "prevAlias": "is_active"
+                },
+                {
+                    "name": "metadata",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "metadata",
+                    "isValid": 0,
+                    "prevAlias": "metadata"
+                },
+                {
+                    "name": "status",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "status",
+                    "isValid": 0,
+                    "prevAlias": "status"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "t1_f1",
+                    "isValid": 0,
+                    "prevAlias": "t1_f1"
+                },
+                {
+                    "name": "tags",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "tags",
+                    "isValid": 0,
+                    "prevAlias": "tags"
+                },
+                {
+                    "name": "user_id",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "user_id",
+                    "isValid": 0,
+                    "prevAlias": "user_id"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "created_at",
+                    "type": "String",
+                    "description": "",
+                    "alias": "created_at",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "description": "",
+                    "alias": "id",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "amount",
+                    "type": "String",
+                    "description": "",
+                    "alias": "amount",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "country_code",
+                    "type": "String",
+                    "description": "",
+                    "alias": "country_code",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "is_active",
+                    "type": "String",
+                    "description": "",
+                    "alias": "is_active",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "metadata",
+                    "type": "String",
+                    "description": "",
+                    "alias": "metadata",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "status",
+                    "type": "String",
+                    "description": "",
+                    "alias": "status",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "String",
+                    "description": "",
+                    "alias": "t1_f1",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "tags",
+                    "type": "String",
+                    "description": "",
+                    "alias": "tags",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "user_id",
+                    "type": "String",
+                    "description": "",
+                    "alias": "user_id",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                }
+            ],
+            "variables": [],
+            "technicalName": "top_cv",
+            "layerName": "Semantic Layer",
+            "implementation": "UDF",
+            "executionEngine": "CLICKHOUSE/analytics",
+            "selected": false,
+            "fieldMapping": {
+                "created_at": {
+                    "sourceField": "created_at",
+                    "sourceType": "String",
+                    "targetField": "created_at",
+                    "targetType": "String",
+                    "transformation": null
+                },
+                "id": {
+                    "sourceField": "id",
+                    "sourceType": "String",
+                    "targetField": "id",
+                    "targetType": "String",
+                    "transformation": null
+                },
+                "amount": {
+                    "sourceField": "amount",
+                    "sourceType": "String",
+                    "targetField": "amount",
+                    "targetType": "String",
+                    "transformation": null
+                },
+                "country_code": {
+                    "sourceField": "country_code",
+                    "sourceType": "String",
+                    "targetField": "country_code",
+                    "targetType": "String",
+                    "transformation": null
+                },
+                "is_active": {
+                    "sourceField": "is_active",
+                    "sourceType": "String",
+                    "targetField": "is_active",
+                    "targetType": "String",
+                    "transformation": null
+                },
+                "metadata": {
+                    "sourceField": "metadata",
+                    "sourceType": "String",
+                    "targetField": "metadata",
+                    "targetType": "String",
+                    "transformation": null
+                },
+                "status": {
+                    "sourceField": "status",
+                    "sourceType": "String",
+                    "targetField": "status",
+                    "targetType": "String",
+                    "transformation": null
+                },
+                "t1_f1": {
+                    "sourceField": "t1_f1",
+                    "sourceType": "String",
+                    "targetField": "t1_f1",
+                    "targetType": "String",
+                    "transformation": null
+                },
+                "tags": {
+                    "sourceField": "tags",
+                    "sourceType": "String",
+                    "targetField": "tags",
+                    "targetType": "String",
+                    "transformation": null
+                },
+                "user_id": {
+                    "sourceField": "user_id",
+                    "sourceType": "String",
+                    "targetField": "user_id",
+                    "targetType": "String",
+                    "transformation": null
+                }
+            },
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__invalidBadgeLastCount": 0,
+            "engine": "CLICKHOUSE/analytics",
+            "engineDbType": "Clickhouse",
+            "__invalidBadgeValidatedAt": 1776199761637,
+            "attributes": [
+                {
+                    "name": "created_at",
+                    "type": "String",
+                    "description": "",
+                    "displayName": "created_at"
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "description": "",
+                    "displayName": "id"
+                },
+                {
+                    "name": "amount",
+                    "type": "String",
+                    "description": "",
+                    "displayName": "amount"
+                },
+                {
+                    "name": "country_code",
+                    "type": "String",
+                    "description": "",
+                    "displayName": "country_code"
+                },
+                {
+                    "name": "is_active",
+                    "type": "String",
+                    "description": "",
+                    "displayName": "is_active"
+                },
+                {
+                    "name": "metadata",
+                    "type": "String",
+                    "description": "",
+                    "displayName": "metadata"
+                },
+                {
+                    "name": "status",
+                    "type": "String",
+                    "description": "",
+                    "displayName": "status"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "String",
+                    "description": "",
+                    "displayName": "t1_f1"
+                },
+                {
+                    "name": "tags",
+                    "type": "String",
+                    "description": "",
+                    "displayName": "tags"
+                },
+                {
+                    "name": "user_id",
+                    "type": "String",
+                    "description": "",
+                    "displayName": "user_id"
+                }
+            ],
+            "measures": [],
+            "hierarchies": [],
+            "_fieldCache": [],
+            "autoUpdateSchema": true,
+            "enableCaching": true,
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- Тип: ClickHouse Parameterized View\n-- CV: top_cv\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"top_cv\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"created_at\" AS \"created_at\",\n  \"id\" AS \"id\",\n  \"amount\" AS \"amount\",\n  \"country_code\" AS \"country_code\",\n  \"is_active\" AS \"is_active\",\n  \"metadata\" AS \"metadata\",\n  \"status\" AS \"status\",\n  \"t1_f1\" AS \"t1_f1\",\n  \"tags\" AS \"tags\",\n  \"user_id\" AS \"user_id\"\nFROM analytics.\"top_cv$projection_test\"(ctx = ctx)\nGROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"\n)\nSELECT *\nFROM step_auto;\n\n-- пример вызова:\n--SELECT *\n--  FROM analytics.\"top_cv\"(ctx = '{\"param1\": \"value1\"}')\n",
+            "__cvInvalidCountCacheAt": 1776200027737,
+            "__cvInvalidCountCacheValue": 0
+        },
+        {
+            "id": "projection_1776199760388",
+            "type": "projection",
+            "name": "Projection_test",
+            "x": 2400,
+            "y": 1550,
+            "width": 200,
+            "height": 60,
+            "color": "#6f42c120",
+            "selectedTable": {
+                "connect_key": "1775066342937@@127.0.0.1@CLICKHOUSE@analytics",
+                "instanceName": "CLICKHOUSE",
+                "database": "analytics",
+                "schema": "",
+                "table": "test",
+                "dbType": "Clickhouse",
+                "table_type": "VIEW",
+                "metadata": {
+                    "table_schema": "analytics",
+                    "table_name": "test",
+                    "table_comment": "",
+                    "table_type": "VIEW"
+                }
+            },
+            "tableFields": [
+                {
+                    "name": "created_at",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "created_at",
+                    "isValid": 0,
+                    "prevAlias": "created_at"
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "id",
+                    "isValid": 0,
+                    "prevAlias": "id"
+                },
+                {
+                    "name": "amount",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "amount",
+                    "isValid": 0,
+                    "prevAlias": "amount"
+                },
+                {
+                    "name": "country_code",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "country_code",
+                    "isValid": 0,
+                    "prevAlias": "country_code"
+                },
+                {
+                    "name": "is_active",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "is_active",
+                    "isValid": 0,
+                    "prevAlias": "is_active"
+                },
+                {
+                    "name": "metadata",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "metadata",
+                    "isValid": 0,
+                    "prevAlias": "metadata"
+                },
+                {
+                    "name": "status",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "status",
+                    "isValid": 0,
+                    "prevAlias": "status"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "t1_f1",
+                    "isValid": 0,
+                    "prevAlias": "t1_f1"
+                },
+                {
+                    "name": "tags",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "tags",
+                    "isValid": 0,
+                    "prevAlias": "tags"
+                },
+                {
+                    "name": "user_id",
+                    "type": "String",
+                    "column_comment": "",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "user_id",
+                    "isValid": 0,
+                    "prevAlias": "user_id"
+                }
+            ],
+            "position": {
+                "x": 2348,
+                "y": 1660.300048828125
+            },
+            "__invalidBadgeLastCount": 0,
+            "viewParams": [
+                {
+                    "name": "ctx",
+                    "type": "String",
+                    "defaultValue": ""
+                }
+            ],
+            "isParameterizedView": true,
+            "_fieldCache": [],
+            "_cacheDirty": false,
+            "_lastSourceHash": "{\"sourceIds\":[],\"fieldExclusions\":[],\"fieldAliases\":{},\"selectedTable\":{\"connect_key\":\"1775066342937@@127.0.0.1@CLICKHOUSE@analytics\",\"instanceName\":\"CLICKHOUSE\",\"database\":\"analytics\",\"schema\":\"\",\"table\":\"test\",\"dbType\":\"Clickhouse\",\"table_type\":\"VIEW\",\"metadata\":{\"table_schema\":\"analytics\",\"table_name\":\"test\",\"table_comment\":\"\",\"table_type\":\"VIEW\"}}}",
+            "__cvInvalidCountCacheAt": 1776200027737,
+            "__cvInvalidCountCacheValue": 0,
+            "selected": false,
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_test\n-- =========================================\n-- Блок: Projection_test (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: top_cv\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"top_cv$projection_test\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"created_at\",\n  \"id\",\n  \"amount\",\n  \"country_code\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.test(ctx='')\n)\nSELECT *\nFROM step_auto;\n\n-- пример вызова:\n--SELECT *\n--  FROM analytics.\"top_cv$projection_test\"(ctx = '{\"param1\": \"value1\"}')\n"
+        }
+    ],
+    "connections": [
+        {
+            "id": "conn_2",
+            "name": "Connection 2",
+            "sourceBlockId": "projection_1776199760388",
+            "targetBlockId": "semantics_block",
+            "type": "data",
+            "selected": false
+        }
+    ],
+    "aggregationSumFields": {},
+    "rankPartitionFields": {}
+}

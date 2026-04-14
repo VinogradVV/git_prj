@@ -1,0 +1,459 @@
+{
+    "blocks": [
+        {
+            "id": "semantics_block",
+            "name": "Semantics",
+            "type": "semantics",
+            "x": 2400,
+            "y": 1470,
+            "width": 200,
+            "height": 60,
+            "color": "#28a745",
+            "description": "CV test",
+            "tableFields": [
+                {
+                    "name": "created_at",
+                    "type": "DateTime",
+                    "column_comment": "Время создания события",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "created_at",
+                    "isValid": 0,
+                    "prevAlias": "created_at"
+                },
+                {
+                    "name": "id",
+                    "type": "UInt64",
+                    "column_comment": "Уникальный идентификатор записи",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "id",
+                    "isValid": 0,
+                    "prevAlias": "id"
+                },
+                {
+                    "name": "amount",
+                    "type": "Decimal(18, 2)",
+                    "column_comment": "Сумма транзакции",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "amount",
+                    "isValid": 0,
+                    "prevAlias": "amount"
+                },
+                {
+                    "name": "country_code",
+                    "type": "FixedString(2)",
+                    "column_comment": "Код страны",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "country_code",
+                    "isValid": 0,
+                    "prevAlias": "country_code"
+                },
+                {
+                    "name": "is_active",
+                    "type": "Nullable(Bool)",
+                    "column_comment": "Флаг активности",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "is_active",
+                    "isValid": 0,
+                    "prevAlias": "is_active"
+                },
+                {
+                    "name": "metadata",
+                    "type": "Map(String, String)",
+                    "column_comment": "Метаданные JSON-like",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "metadata",
+                    "isValid": 0,
+                    "prevAlias": "metadata"
+                },
+                {
+                    "name": "status",
+                    "type": "LowCardinality(String)",
+                    "column_comment": "Статус обработки",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "status",
+                    "isValid": 0,
+                    "prevAlias": "status"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "String",
+                    "column_comment": "Произвольное текстовое поле",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "t1_f1",
+                    "isValid": 0,
+                    "prevAlias": "t1_f1"
+                },
+                {
+                    "name": "tags",
+                    "type": "Array(String)",
+                    "column_comment": "Список тегов",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "tags",
+                    "isValid": 0,
+                    "prevAlias": "tags"
+                },
+                {
+                    "name": "user_id",
+                    "type": "UUID",
+                    "column_comment": "ID пользователя",
+                    "type_schema": "",
+                    "selected": true,
+                    "alias": "user_id",
+                    "isValid": 0,
+                    "prevAlias": "user_id"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "created_at",
+                    "type": "DateTime",
+                    "description": "Время создания события",
+                    "alias": "created_at",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "id",
+                    "type": "UInt64",
+                    "description": "Уникальный идентификатор записи",
+                    "alias": "id",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "amount",
+                    "type": "Decimal(18, 2)",
+                    "description": "Сумма транзакции",
+                    "alias": "amount",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "country_code",
+                    "type": "FixedString(2)",
+                    "description": "Код страны",
+                    "alias": "country_code",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "is_active",
+                    "type": "Nullable(Bool)",
+                    "description": "Флаг активности",
+                    "alias": "is_active",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "metadata",
+                    "type": "Map(String, String)",
+                    "description": "Метаданные JSON-like",
+                    "alias": "metadata",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "status",
+                    "type": "LowCardinality(String)",
+                    "description": "Статус обработки",
+                    "alias": "status",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "String",
+                    "description": "Произвольное текстовое поле",
+                    "alias": "t1_f1",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "tags",
+                    "type": "Array(String)",
+                    "description": "Список тегов",
+                    "alias": "tags",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                },
+                {
+                    "name": "user_id",
+                    "type": "UUID",
+                    "description": "ID пользователя",
+                    "alias": "user_id",
+                    "nullable": true,
+                    "primaryKey": false,
+                    "isValid": 0
+                }
+            ],
+            "variables": [],
+            "technicalName": "test",
+            "layerName": "Semantic Layer",
+            "implementation": "UDF",
+            "executionEngine": "CLICKHOUSE/analytics",
+            "selected": false,
+            "fieldMapping": {
+                "created_at": {
+                    "sourceField": "created_at",
+                    "sourceType": "DateTime",
+                    "targetField": "created_at",
+                    "targetType": "DateTime",
+                    "transformation": null
+                },
+                "id": {
+                    "sourceField": "id",
+                    "sourceType": "UInt64",
+                    "targetField": "id",
+                    "targetType": "UInt64",
+                    "transformation": null
+                },
+                "amount": {
+                    "sourceField": "amount",
+                    "sourceType": "Decimal(18, 2)",
+                    "targetField": "amount",
+                    "targetType": "Decimal(18, 2)",
+                    "transformation": null
+                },
+                "country_code": {
+                    "sourceField": "country_code",
+                    "sourceType": "FixedString(2)",
+                    "targetField": "country_code",
+                    "targetType": "FixedString(2)",
+                    "transformation": null
+                },
+                "is_active": {
+                    "sourceField": "is_active",
+                    "sourceType": "Nullable(Bool)",
+                    "targetField": "is_active",
+                    "targetType": "Nullable(Bool)",
+                    "transformation": null
+                },
+                "metadata": {
+                    "sourceField": "metadata",
+                    "sourceType": "Map(String, String)",
+                    "targetField": "metadata",
+                    "targetType": "Map(String, String)",
+                    "transformation": null
+                },
+                "status": {
+                    "sourceField": "status",
+                    "sourceType": "LowCardinality(String)",
+                    "targetField": "status",
+                    "targetType": "LowCardinality(String)",
+                    "transformation": null
+                },
+                "t1_f1": {
+                    "sourceField": "t1_f1",
+                    "sourceType": "String",
+                    "targetField": "t1_f1",
+                    "targetType": "String",
+                    "transformation": null
+                },
+                "tags": {
+                    "sourceField": "tags",
+                    "sourceType": "Array(String)",
+                    "targetField": "tags",
+                    "targetType": "Array(String)",
+                    "transformation": null
+                },
+                "user_id": {
+                    "sourceField": "user_id",
+                    "sourceType": "UUID",
+                    "targetField": "user_id",
+                    "targetType": "UUID",
+                    "transformation": null
+                }
+            },
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__invalidBadgeLastCount": 0,
+            "engine": "CLICKHOUSE/analytics",
+            "engineDbType": "Clickhouse",
+            "__invalidBadgeValidatedAt": 1776159852289,
+            "attributes": [
+                {
+                    "name": "created_at",
+                    "type": "DateTime",
+                    "description": "Время создания события",
+                    "displayName": "created_at"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "String",
+                    "description": "Произвольное текстовое поле",
+                    "displayName": "t1_f1"
+                }
+            ],
+            "measures": [],
+            "hierarchies": [],
+            "_fieldCache": [],
+            "autoUpdateSchema": true,
+            "enableCaching": true,
+            "__cvInvalidCountCacheAt": 1776159943043,
+            "__cvInvalidCountCacheValue": 0,
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- Тип: ClickHouse Parameterized View\n-- CV: test\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"test\" AS\nWITH step_auto AS (\nSELECT\n  \"created_at\" AS \"created_at\",\n  \"t1_f1\" AS \"t1_f1\"\nFROM analytics.\"test$projection_table1_ch\"\nGROUP BY \"created_at\", \"t1_f1\"\n)\nSELECT *\nFROM step_auto;\n"
+        },
+        {
+            "id": "projection_1776159850798",
+            "type": "projection",
+            "name": "Projection_table1_ch",
+            "x": 2350,
+            "y": 1841.800048828125,
+            "width": 200,
+            "height": 60,
+            "color": "#6f42c120",
+            "selectedTable": {
+                "connect_key": "1775066342937@@127.0.0.1@CLICKHOUSE@analytics",
+                "instanceName": "CLICKHOUSE",
+                "database": "analytics",
+                "schema": "",
+                "table": "table1_ch",
+                "dbType": "Clickhouse",
+                "table_type": "TABLE",
+                "metadata": {
+                    "table_schema": "analytics",
+                    "table_name": "table1_ch",
+                    "table_comment": "Основная таблица аналитики событий: хранит транзакции и метаданные",
+                    "table_type": "TABLE"
+                }
+            },
+            "tableFields": [
+                {
+                    "name": "created_at",
+                    "type": "DateTime",
+                    "column_comment": "Время создания события",
+                    "type_schema": "",
+                    "selected": true,
+                    "isValid": 0,
+                    "prevAlias": "created_at"
+                },
+                {
+                    "name": "id",
+                    "type": "UInt64",
+                    "column_comment": "Уникальный идентификатор записи",
+                    "type_schema": "",
+                    "selected": true,
+                    "isValid": 0,
+                    "prevAlias": "id"
+                },
+                {
+                    "name": "amount",
+                    "type": "Decimal(18, 2)",
+                    "column_comment": "Сумма транзакции",
+                    "type_schema": "",
+                    "selected": true,
+                    "isValid": 0,
+                    "prevAlias": "amount"
+                },
+                {
+                    "name": "country_code",
+                    "type": "FixedString(2)",
+                    "column_comment": "Код страны",
+                    "type_schema": "",
+                    "selected": true,
+                    "isValid": 0,
+                    "prevAlias": "country_code"
+                },
+                {
+                    "name": "is_active",
+                    "type": "Nullable(Bool)",
+                    "column_comment": "Флаг активности",
+                    "type_schema": "",
+                    "selected": true,
+                    "isValid": 0,
+                    "prevAlias": "is_active"
+                },
+                {
+                    "name": "metadata",
+                    "type": "Map(String, String)",
+                    "column_comment": "Метаданные JSON-like",
+                    "type_schema": "",
+                    "selected": true,
+                    "isValid": 0,
+                    "prevAlias": "metadata"
+                },
+                {
+                    "name": "status",
+                    "type": "LowCardinality(String)",
+                    "column_comment": "Статус обработки",
+                    "type_schema": "",
+                    "selected": true,
+                    "isValid": 0,
+                    "prevAlias": "status"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "String",
+                    "column_comment": "Произвольное текстовое поле",
+                    "type_schema": "",
+                    "selected": true,
+                    "isValid": 0,
+                    "prevAlias": "t1_f1"
+                },
+                {
+                    "name": "tags",
+                    "type": "Array(String)",
+                    "column_comment": "Список тегов",
+                    "type_schema": "",
+                    "selected": true,
+                    "isValid": 0,
+                    "prevAlias": "tags"
+                },
+                {
+                    "name": "user_id",
+                    "type": "UUID",
+                    "column_comment": "ID пользователя",
+                    "type_schema": "",
+                    "selected": true,
+                    "isValid": 0,
+                    "prevAlias": "user_id"
+                }
+            ],
+            "position": {
+                "x": 2350,
+                "y": 1841.800048828125
+            },
+            "__invalidBadgeLastCount": 0,
+            "_fieldCache": [],
+            "_cacheDirty": false,
+            "_lastSourceHash": "{\"sourceIds\":[],\"fieldExclusions\":[],\"fieldAliases\":{},\"selectedTable\":{\"connect_key\":\"1775066342937@@127.0.0.1@CLICKHOUSE@analytics\",\"instanceName\":\"CLICKHOUSE\",\"database\":\"analytics\",\"schema\":\"\",\"table\":\"table1_ch\",\"dbType\":\"Clickhouse\",\"table_type\":\"TABLE\",\"metadata\":{\"table_schema\":\"analytics\",\"table_name\":\"table1_ch\",\"table_comment\":\"Основная таблица аналитики событий: хранит транзакции и метаданные\",\"table_type\":\"TABLE\"}}}",
+            "__cvInvalidCountCacheAt": 1776159943043,
+            "__cvInvalidCountCacheValue": 0,
+            "selected": false,
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_table1_ch\n-- =========================================\n-- Блок: Projection_table1_ch (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: test\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"test$projection_table1_ch\" AS\nWITH step_auto AS (\nSELECT\n  \"created_at\",\n  \"id\",\n  \"amount\",\n  \"country_code\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.table1_ch\n)\nSELECT *\nFROM step_auto;\n"
+        }
+    ],
+    "connections": [
+        {
+            "id": "conn_1",
+            "name": "Connection 1",
+            "sourceBlockId": "projection_1776159850798",
+            "targetBlockId": "semantics_block",
+            "type": "data",
+            "selected": false
+        }
+    ],
+    "aggregationSumFields": {},
+    "rankPartitionFields": {}
+}

@@ -327,7 +327,7 @@
             "autoUpdateSchema": true,
             "enableCaching": true,
             "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- Тип: ClickHouse Parameterized View\n-- CV: test\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"test\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"created_at\" AS \"created_at\",\n  \"id\" AS \"id\",\n  \"amount\" AS \"amount\",\n  \"country_code\" AS \"country_code\",\n  \"is_active\" AS \"is_active\",\n  \"metadata\" AS \"metadata\",\n  \"status\" AS \"status\",\n  \"t1_f1\" AS \"t1_f1\",\n  \"tags\" AS \"tags\",\n  \"user_id\" AS \"user_id\"\nFROM analytics.\"test$projection_table1_ch\"(ctx = ctx)\nGROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"\n)\nSELECT *\nFROM step_auto;\n\n-- пример вызова:\n--SELECT *\n--  FROM analytics.\"test\"(ctx = '{\"p_test\":\"Москва\"}')\n",
-            "__cvInvalidCountCacheAt": 1776203293837,
+            "__cvInvalidCountCacheAt": 1776254806518,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -505,14 +505,14 @@
             "_cacheDirty": false,
             "_lastSourceHash": "{\"sourceIds\":[],\"fieldExclusions\":[],\"fieldAliases\":{},\"selectedTable\":{\"connect_key\":\"1775066342937@@127.0.0.1@CLICKHOUSE@analytics\",\"instanceName\":\"CLICKHOUSE\",\"database\":\"analytics\",\"schema\":\"\",\"table\":\"table1_ch\",\"dbType\":\"Clickhouse\",\"table_type\":\"TABLE\",\"metadata\":{\"table_schema\":\"analytics\",\"table_name\":\"table1_ch\",\"table_comment\":\"Основная таблица аналитики событий: хранит транзакции и метаданные\",\"table_type\":\"TABLE\"}}}",
             "selected": false,
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_table1_ch\n-- =========================================\n-- Блок: Projection_table1_ch (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: test\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"test$projection_table1_ch\" AS\n{ctx:String} AS ctx,\nWITH step_auto AS (\nSELECT\n  \"amount\",\n  \"country_code\",\n  \"created_at\",\n  \"id\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.table1_ch\n)\nSELECT *\nFROM step_auto;\n\n-- пример вызова:\n--SELECT *\n--  FROM analytics.\"test$projection_table1_ch\"(ctx = '{\"p_test\":\"Москва\"}')\n",
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_table1_ch\n-- =========================================\n-- Блок: Projection_table1_ch (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: test\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"test$projection_table1_ch\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"amount\",\n  \"country_code\",\n  \"created_at\",\n  \"id\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.table1_ch\n)\nSELECT *\nFROM step_auto;\n",
             "fieldOrder": [],
             "cascadeMetadata": {
                 "parentBlocks": [],
                 "childBlocks": [],
                 "fieldOrigins": {}
             },
-            "__cvInvalidCountCacheAt": 1776203293837,
+            "__cvInvalidCountCacheAt": 1776254806518,
             "__cvInvalidCountCacheValue": 0
         }
     ],

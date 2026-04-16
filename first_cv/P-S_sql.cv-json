@@ -354,7 +354,8 @@
             "__invalidBadgeValidatedAt": 1775636273356,
             "autoUpdateSchema": true,
             "enableCaching": true,
-            "__cvInvalidCountCacheAt": 1775636284495,
+            "sqlScript": "-- =========================================\n-- ФУНКЦИЯ ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- ID: semantics_block\n-- CV: p_s\n-- Схема: public\n-- =========================================\n\nCREATE OR REPLACE FUNCTION demo.public.\"p_s\"(\n  p_params JSONB DEFAULT '{}'\n)\nRETURNS TABLE(\n  \"id\" BIGINT,\n  \"user_id\" UUID,\n  \"metadata\" JSONB,\n  \"created_at\" TIMESTAMP WITH TIME ZONE,\n  \"updated_at\" TIMESTAMP WITH TIME ZONE,\n  \"country_code\" CHAR,\n  \"tags\" pg_catalog.text[],\n  \"t1_f1\" VARCHAR,\n  \"status\" VARCHAR,\n  \"amount\" NUMERIC,\n  \"is_active\" BOOLEAN\n)\nSTABLE\nAS $$\nDECLARE\n  _sql TEXT;\nBEGIN\n-- Функция для блока: Semantics\n-- Тип блока: semantics\n-- CV: p_s\n-- База данных: demo\n-- Схема: public\n  _sql := $inner$\n      -- Блок: Semantics (semantics)\n      SELECT\n        \"id\",\n        \"user_id\"::pg_catalog.uuid,\n        \"metadata\",\n        \"created_at\"::pg_catalog.timestamp with time zone,\n        \"updated_at\"::pg_catalog.timestamp with time zone,\n        \"country_code\"::pg_catalog.character,\n        \"tags\"::pg_catalog.text[],\n        \"t1_f1\",\n        \"status\",\n        \"amount\",\n        \"is_active\"\n      FROM public.p_sprojection_table1_pg(p_params);\n    \n  $inner$;\n  RETURN QUERY EXECUTE _sql USING p_params;\nEND;\n$$ LANGUAGE plpgsql;\n\n\n",
+            "__cvInvalidCountCacheAt": 1776352975842,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -382,54 +383,19 @@
             },
             "tableFields": [
                 {
-                    "name": "id",
-                    "type": "bigint",
-                    "column_comment": "Уникальный идентификатор записи (автоинкремент)",
+                    "name": "amount",
+                    "type": "numeric",
+                    "column_comment": "Сумма транзакции с точностью до 2 знаков",
                     "type_schema": "pg_catalog",
                     "selected": true,
-                    "alias": "id",
+                    "alias": "amount",
                     "isValid": 0,
-                    "prevAlias": "id"
-                },
-                {
-                    "name": "user_id",
-                    "type": "uuid",
-                    "column_comment": "ID пользователя (UUID)",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "user_id",
-                    "isValid": 0,
-                    "prevAlias": "user_id"
-                },
-                {
-                    "name": "metadata",
-                    "type": "jsonb",
-                    "column_comment": "Гибкие метаданные в формате JSONB",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "metadata",
-                    "isValid": 0,
-                    "prevAlias": "metadata"
-                },
-                {
-                    "name": "created_at",
-                    "type": "timestamp with time zone",
-                    "column_comment": "Дата и время создания записи (с часовым поясом)",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "created_at",
-                    "isValid": 0,
-                    "prevAlias": "created_at"
-                },
-                {
-                    "name": "updated_at",
-                    "type": "timestamp with time zone",
-                    "column_comment": "Дата последнего обновления записи",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "updated_at",
-                    "isValid": 0,
-                    "prevAlias": "updated_at"
+                    "prevAlias": "amount",
+                    "origin": {
+                        "sourceBlockId": "projection_1775636267420",
+                        "originalFieldName": "amount",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "country_code",
@@ -439,47 +405,42 @@
                     "selected": true,
                     "alias": "country_code",
                     "isValid": 0,
-                    "prevAlias": "country_code"
+                    "prevAlias": "country_code",
+                    "origin": {
+                        "sourceBlockId": "projection_1775636267420",
+                        "originalFieldName": "country_code",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
-                    "name": "tags",
-                    "type": "text[]",
-                    "column_comment": "Массив тегов или категорий",
+                    "name": "created_at",
+                    "type": "timestamp with time zone",
+                    "column_comment": "Дата и время создания записи (с часовым поясом)",
                     "type_schema": "pg_catalog",
                     "selected": true,
-                    "alias": "tags",
+                    "alias": "created_at",
                     "isValid": 0,
-                    "prevAlias": "tags"
+                    "prevAlias": "created_at",
+                    "origin": {
+                        "sourceBlockId": "projection_1775636267420",
+                        "originalFieldName": "created_at",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
-                    "name": "t1_f1",
-                    "type": "varchar",
-                    "column_comment": "Произвольное текстовое поле (название или описание)",
+                    "name": "id",
+                    "type": "bigint",
+                    "column_comment": "Уникальный идентификатор записи (автоинкремент)",
                     "type_schema": "pg_catalog",
                     "selected": true,
-                    "alias": "t1_f1",
+                    "alias": "id",
                     "isValid": 0,
-                    "prevAlias": "t1_f1"
-                },
-                {
-                    "name": "status",
-                    "type": "varchar",
-                    "column_comment": "Статус обработки: new, processed, error",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "status",
-                    "isValid": 0,
-                    "prevAlias": "status"
-                },
-                {
-                    "name": "amount",
-                    "type": "numeric",
-                    "column_comment": "Сумма транзакции с точностью до 2 знаков",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "alias": "amount",
-                    "isValid": 0,
-                    "prevAlias": "amount"
+                    "prevAlias": "id",
+                    "origin": {
+                        "sourceBlockId": "projection_1775636267420",
+                        "originalFieldName": "id",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "is_active",
@@ -489,7 +450,102 @@
                     "selected": true,
                     "alias": "is_active",
                     "isValid": 0,
-                    "prevAlias": "is_active"
+                    "prevAlias": "is_active",
+                    "origin": {
+                        "sourceBlockId": "projection_1775636267420",
+                        "originalFieldName": "is_active",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "metadata",
+                    "type": "jsonb",
+                    "column_comment": "Гибкие метаданные в формате JSONB",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "metadata",
+                    "isValid": 0,
+                    "prevAlias": "metadata",
+                    "origin": {
+                        "sourceBlockId": "projection_1775636267420",
+                        "originalFieldName": "metadata",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "status",
+                    "type": "varchar",
+                    "column_comment": "Статус обработки: new, processed, error",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "status",
+                    "isValid": 0,
+                    "prevAlias": "status",
+                    "origin": {
+                        "sourceBlockId": "projection_1775636267420",
+                        "originalFieldName": "status",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "varchar",
+                    "column_comment": "Произвольное текстовое поле (название или описание)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "t1_f1",
+                    "isValid": 0,
+                    "prevAlias": "t1_f1",
+                    "origin": {
+                        "sourceBlockId": "projection_1775636267420",
+                        "originalFieldName": "t1_f1",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "tags",
+                    "type": "text[]",
+                    "column_comment": "Массив тегов или категорий",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "tags",
+                    "isValid": 0,
+                    "prevAlias": "tags",
+                    "origin": {
+                        "sourceBlockId": "projection_1775636267420",
+                        "originalFieldName": "tags",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp with time zone",
+                    "column_comment": "Дата последнего обновления записи",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "updated_at",
+                    "isValid": 0,
+                    "prevAlias": "updated_at",
+                    "origin": {
+                        "sourceBlockId": "projection_1775636267420",
+                        "originalFieldName": "updated_at",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "user_id",
+                    "type": "uuid",
+                    "column_comment": "ID пользователя (UUID)",
+                    "type_schema": "pg_catalog",
+                    "selected": true,
+                    "alias": "user_id",
+                    "isValid": 0,
+                    "prevAlias": "user_id",
+                    "origin": {
+                        "sourceBlockId": "projection_1775636267420",
+                        "originalFieldName": "user_id",
+                        "cascadeDepth": 0
+                    }
                 }
             ],
             "position": {
@@ -500,9 +556,16 @@
             "_fieldCache": [],
             "_cacheDirty": false,
             "_lastSourceHash": "{\"sourceIds\":[],\"fieldExclusions\":[],\"fieldAliases\":{},\"selectedTable\":{\"connect_key\":\"1775066342829@@127.0.0.1@GREENPLUM@demo\",\"instanceName\":\"GREENPLUM\",\"database\":\"demo\",\"schema\":\"analytics\",\"table\":\"table1_pg\",\"dbType\":\"PostgreSQL\",\"metadata\":{\"table_schema\":\"analytics\",\"table_name\":\"table1_pg\",\"table_comment\":\"Основная таблица аналитики событий: хранит транзакции, статусы и метаданные пользователей\",\"table_type\":\"TABLE\"}}}",
-            "__cvInvalidCountCacheAt": 1775636284495,
+            "selected": false,
+            "fieldOrder": [],
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__cvInvalidCountCacheAt": 1776352975843,
             "__cvInvalidCountCacheValue": 0,
-            "selected": false
+            "sqlScript": "-- =========================================\n-- ФУНКЦИЯ ДЛЯ БЛОКА: Projection_table1_pg\n-- =========================================\n-- Блок: Projection_table1_pg (projection)\n-- ID: projection_1775636267420\n-- CV: p_s\n-- Схема: analytics\n-- =========================================\n\nCREATE OR REPLACE FUNCTION demo.analytics.\"p_s$projection_table1_pg\"(\n  p_params JSONB DEFAULT '{}'\n)\nRETURNS TABLE(\n  \"amount\" NUMERIC,\n  \"country_code\" CHAR,\n  \"created_at\" TIMESTAMP WITH TIME ZONE,\n  \"id\" BIGINT,\n  \"is_active\" BOOLEAN,\n  \"metadata\" JSONB,\n  \"status\" VARCHAR,\n  \"t1_f1\" VARCHAR,\n  \"tags\" pg_catalog.text[],\n  \"updated_at\" TIMESTAMP WITH TIME ZONE,\n  \"user_id\" UUID\n)\nSTABLE\nAS $$\nDECLARE\n  _sql TEXT;\nBEGIN\n-- Функция для блока: Projection_table1_pg\n-- Тип блока: projection\n-- CV: p_s\n-- База данных: demo\n-- Схема: analytics\n  _sql := $inner$\n      -- Блок: Projection_table1_pg (projection)\n      SELECT\n        \"amount\",\n        \"country_code\"::pg_catalog.character,\n        \"created_at\"::pg_catalog.timestamp with time zone,\n        \"id\",\n        \"is_active\",\n        \"metadata\",\n        \"status\",\n        \"t1_f1\",\n        \"tags\"::pg_catalog.text[],\n        \"updated_at\"::pg_catalog.timestamp with time zone,\n        \"user_id\"::pg_catalog.uuid\n      FROM analytics.table1_pg;\n    \n  $inner$;\n  RETURN QUERY EXECUTE _sql USING p_params;\nEND;\n$$ LANGUAGE plpgsql;\n\n\n"
         }
     ],
     "connections": [

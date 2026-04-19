@@ -311,8 +311,9 @@
             "autoUpdateSchema": true,
             "enableCaching": true,
             "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- Тип: ClickHouse Parameterized View\n-- CV: ch_db_table\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"ch_db_table\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"created_at\" AS \"created_at\",\n  \"id\" AS \"id\",\n  \"amount\" AS \"amount\",\n  \"country_code\" AS \"country_code\",\n  \"is_active\" AS \"is_active\",\n  \"metadata\" AS \"metadata\",\n  \"status\" AS \"status\",\n  \"t1_f1\" AS \"t1_f1\",\n  \"tags\" AS \"tags\",\n  \"user_id\" AS \"user_id\"\nFROM analytics.\"ch_db_table$projection_table1_ch\"(ctx = ctx)\nGROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"\n)\nSELECT *\nFROM step_auto;\n",
-            "__cvInvalidCountCacheAt": 1776441123038,
-            "__cvInvalidCountCacheValue": 0
+            "__cvInvalidCountCacheAt": 1776441737904,
+            "__cvInvalidCountCacheValue": 0,
+            "commentSql": "ALTER TABLE default.\"ch_db_table\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"CV ch_db_table\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/first_cv/ffff\",\n  \"fields\": {\n    \"created_at\": \"Время создания события\",\n    \"id\": \"Уникальный идентификатор записи\",\n    \"amount\": \"Сумма транзакции\",\n    \"country_code\": \"Код страны\",\n    \"is_active\": \"Флаг активности\",\n    \"metadata\": \"Метаданные JSON-like\",\n    \"status\": \"Статус обработки\",\n    \"t1_f1\": \"Произвольное текстовое поле\",\n    \"tags\": \"Список тегов\",\n    \"user_id\": \"ID пользователя\"\n  },\n  \"version\": \"1.0\"\n}';"
         },
         {
             "id": "projection_1776441069944",
@@ -495,9 +496,10 @@
                 "childBlocks": [],
                 "fieldOrigins": {}
             },
-            "__cvInvalidCountCacheAt": 1776441123038,
+            "__cvInvalidCountCacheAt": 1776441737904,
             "__cvInvalidCountCacheValue": 0,
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_table1_ch\n-- =========================================\n-- Блок: Projection_table1_ch (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: ch_db_table\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"ch_db_table$projection_table1_ch\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"amount\",\n  \"country_code\",\n  \"created_at\",\n  \"id\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.table1_ch\n)\nSELECT *\nFROM step_auto;\n"
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_table1_ch\n-- =========================================\n-- Блок: Projection_table1_ch (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: ch_db_table\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"ch_db_table$projection_table1_ch\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"amount\",\n  \"country_code\",\n  \"created_at\",\n  \"id\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.table1_ch\n)\nSELECT *\nFROM step_auto;\n",
+            "commentSql": "ALTER TABLE default.\"ch_db_table$projection_table1_ch\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"CV ch_db_table\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/first_cv/ffff\",\n  \"fields\": {},\n  \"version\": \"1.0\"\n}';"
         }
     ],
     "connections": [

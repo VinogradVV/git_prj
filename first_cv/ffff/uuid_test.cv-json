@@ -1,0 +1,39 @@
+{
+    "blocks": [
+        {
+            "id": "semantics_block",
+            "name": "Semantics",
+            "type": "semantics",
+            "uuid": "40cb6fb2-69a8-4876-a296-99cc236e04a9",
+            "x": 2400,
+            "y": 1470,
+            "width": 200,
+            "height": 60,
+            "color": "#28a745",
+            "description": "CV uuid_test",
+            "tableFields": [],
+            "fields": [],
+            "variables": [],
+            "technicalName": "uuid_test",
+            "layerName": "Semantic Layer",
+            "implementation": "UDF",
+            "executionEngine": "Not selected",
+            "selected": false,
+            "fieldMapping": {},
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__invalidBadgeLastCount": 0,
+            "engine": "Not selected",
+            "engineDbType": "",
+            "__invalidBadgeValidatedAt": 1776503704247,
+            "__cvInvalidCountCacheAt": 1776503704551,
+            "__cvInvalidCountCacheValue": 0
+        }
+    ],
+    "connections": [],
+    "aggregationSumFields": {},
+    "rankPartitionFields": {}
+}

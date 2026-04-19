@@ -6,7 +6,7 @@
             "type": "semantics",
             "uuid": "a7156c12-467a-4d95-8a6b-87f08d0945e7",
             "x": 2400,
-            "y": 1470,
+            "y": 1390,
             "width": 200,
             "height": 60,
             "color": "#28a745",
@@ -292,7 +292,7 @@
             "engine": "CLICKHOUSE/analytics",
             "engineDbType": "Clickhouse",
             "__invalidBadgeValidatedAt": 1776450373732,
-            "commentSql": "ALTER TABLE analytics.\"test_uuid\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"CV test_uuid\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/first_cv/ffff\",\n  \"fields\": {},\n  \"version\": \"1.0\"\n}';",
+            "commentSql": "ALTER TABLE analytics.\"test_uuid\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"CV test_uuid\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/first_cv/ffff\",\n  \"fields\": {\n    \"created_at\": \"Время создания события\",\n    \"id\": \"Уникальный идентификатор записи\",\n    \"amount\": \"Сумма транзакции\",\n    \"country_code\": \"Код страны\",\n    \"is_active\": \"Флаг активности\",\n    \"metadata\": \"Метаданные JSON-like\",\n    \"status\": \"Статус обработки\",\n    \"t1_f1\": \"Произвольное текстовое поле\",\n    \"tags\": \"Список тегов\",\n    \"user_id\": \"ID пользователя\"\n  },\n  \"uuid\": \"a7156c12-467a-4d95-8a6b-87f08d0945e7\",\n  \"version\": \"1.0\"\n}';",
             "attributes": [
                 {
                     "name": "created_at",
@@ -313,15 +313,15 @@
             "autoUpdateSchema": true,
             "enableCaching": true,
             "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- Тип: ClickHouse Parameterized View\n-- CV: test_uuid\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"test_uuid\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"created_at\" AS \"created_at\",\n  \"id\" AS \"id\",\n  \"amount\" AS \"amount\",\n  \"country_code\" AS \"country_code\",\n  \"is_active\" AS \"is_active\",\n  \"metadata\" AS \"metadata\",\n  \"status\" AS \"status\",\n  \"t1_f1\" AS \"t1_f1\",\n  \"tags\" AS \"tags\",\n  \"user_id\" AS \"user_id\"\nFROM analytics.\"test_uuid$projection_table1_ch\"(ctx = ctx)\nGROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"\n)\nSELECT *\nFROM step_auto;\n",
-            "__cvInvalidCountCacheAt": 1776450396432,
+            "__cvInvalidCountCacheAt": 1776452896524,
             "__cvInvalidCountCacheValue": 0
         },
         {
             "id": "projection_1776450372300",
             "type": "projection",
             "name": "Projection_table1_ch",
-            "x": 2409.5,
-            "y": 1851.800048828125,
+            "x": 2400,
+            "y": 1550,
             "width": 200,
             "height": 60,
             "color": "#6f42c120",
@@ -342,31 +342,18 @@
             },
             "tableFields": [
                 {
-                    "name": "created_at",
-                    "type": "DateTime",
-                    "column_comment": "Время создания события",
-                    "type_schema": "",
-                    "selected": true,
-                    "isValid": 0,
-                    "prevAlias": "created_at"
-                },
-                {
-                    "name": "id",
-                    "type": "UInt64",
-                    "column_comment": "Уникальный идентификатор записи",
-                    "type_schema": "",
-                    "selected": true,
-                    "isValid": 0,
-                    "prevAlias": "id"
-                },
-                {
                     "name": "amount",
                     "type": "Decimal(18, 2)",
                     "column_comment": "Сумма транзакции",
                     "type_schema": "",
                     "selected": true,
                     "isValid": 0,
-                    "prevAlias": "amount"
+                    "prevAlias": "amount",
+                    "origin": {
+                        "sourceBlockId": "projection_1776450372300",
+                        "originalFieldName": "amount",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "country_code",
@@ -375,7 +362,40 @@
                     "type_schema": "",
                     "selected": true,
                     "isValid": 0,
-                    "prevAlias": "country_code"
+                    "prevAlias": "country_code",
+                    "origin": {
+                        "sourceBlockId": "projection_1776450372300",
+                        "originalFieldName": "country_code",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "created_at",
+                    "type": "DateTime",
+                    "column_comment": "Время создания события",
+                    "type_schema": "",
+                    "selected": true,
+                    "isValid": 0,
+                    "prevAlias": "created_at",
+                    "origin": {
+                        "sourceBlockId": "projection_1776450372300",
+                        "originalFieldName": "created_at",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "id",
+                    "type": "UInt64",
+                    "column_comment": "Уникальный идентификатор записи",
+                    "type_schema": "",
+                    "selected": true,
+                    "isValid": 0,
+                    "prevAlias": "id",
+                    "origin": {
+                        "sourceBlockId": "projection_1776450372300",
+                        "originalFieldName": "id",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "is_active",
@@ -384,7 +404,12 @@
                     "type_schema": "",
                     "selected": true,
                     "isValid": 0,
-                    "prevAlias": "is_active"
+                    "prevAlias": "is_active",
+                    "origin": {
+                        "sourceBlockId": "projection_1776450372300",
+                        "originalFieldName": "is_active",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "metadata",
@@ -393,7 +418,12 @@
                     "type_schema": "",
                     "selected": true,
                     "isValid": 0,
-                    "prevAlias": "metadata"
+                    "prevAlias": "metadata",
+                    "origin": {
+                        "sourceBlockId": "projection_1776450372300",
+                        "originalFieldName": "metadata",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "status",
@@ -402,7 +432,12 @@
                     "type_schema": "",
                     "selected": true,
                     "isValid": 0,
-                    "prevAlias": "status"
+                    "prevAlias": "status",
+                    "origin": {
+                        "sourceBlockId": "projection_1776450372300",
+                        "originalFieldName": "status",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "t1_f1",
@@ -411,7 +446,12 @@
                     "type_schema": "",
                     "selected": true,
                     "isValid": 0,
-                    "prevAlias": "t1_f1"
+                    "prevAlias": "t1_f1",
+                    "origin": {
+                        "sourceBlockId": "projection_1776450372300",
+                        "originalFieldName": "t1_f1",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "tags",
@@ -420,7 +460,12 @@
                     "type_schema": "",
                     "selected": true,
                     "isValid": 0,
-                    "prevAlias": "tags"
+                    "prevAlias": "tags",
+                    "origin": {
+                        "sourceBlockId": "projection_1776450372300",
+                        "originalFieldName": "tags",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "user_id",
@@ -429,7 +474,12 @@
                     "type_schema": "",
                     "selected": true,
                     "isValid": 0,
-                    "prevAlias": "user_id"
+                    "prevAlias": "user_id",
+                    "origin": {
+                        "sourceBlockId": "projection_1776450372300",
+                        "originalFieldName": "user_id",
+                        "cascadeDepth": 0
+                    }
                 }
             ],
             "position": {
@@ -440,10 +490,17 @@
             "_fieldCache": [],
             "_cacheDirty": false,
             "_lastSourceHash": "{\"sourceIds\":[],\"fieldExclusions\":[],\"fieldAliases\":{},\"selectedTable\":{\"connect_key\":\"1775066342937@@127.0.0.1@CLICKHOUSE@analytics\",\"instanceName\":\"CLICKHOUSE\",\"database\":\"analytics\",\"schema\":\"\",\"table\":\"table1_ch\",\"dbType\":\"Clickhouse\",\"table_type\":\"TABLE\",\"metadata\":{\"table_schema\":\"analytics\",\"table_name\":\"table1_ch\",\"table_comment\":\"Основная таблица аналитики событий: хранит транзакции и метаданные\",\"table_type\":\"TABLE\"}}}",
-            "__cvInvalidCountCacheAt": 1776450396432,
-            "__cvInvalidCountCacheValue": 0,
             "selected": false,
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_table1_ch\n-- =========================================\n-- Блок: Projection_table1_ch (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: test_uuid\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"test_uuid$projection_table1_ch\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"created_at\",\n  \"id\",\n  \"amount\",\n  \"country_code\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.table1_ch\n)\nSELECT *\nFROM step_auto;\n"
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_table1_ch\n-- =========================================\n-- Блок: Projection_table1_ch (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: test_uuid\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"test_uuid$projection_table1_ch\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"amount\",\n  \"country_code\",\n  \"created_at\",\n  \"id\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.table1_ch\n)\nSELECT *\nFROM step_auto;\n",
+            "fieldOrder": [],
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__cvInvalidCountCacheAt": 1776452896524,
+            "__cvInvalidCountCacheValue": 0,
+            "commentSql": "ALTER TABLE analytics.\"test_uuid$projection_table1_ch\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"CV test_uuid\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/first_cv/ffff\",\n  \"fields\": {\n    \"amount\": \"Сумма транзакции\",\n    \"country_code\": \"Код страны\",\n    \"created_at\": \"Время создания события\",\n    \"id\": \"Уникальный идентификатор записи\",\n    \"is_active\": \"Флаг активности\",\n    \"metadata\": \"Метаданные JSON-like\",\n    \"status\": \"Статус обработки\",\n    \"t1_f1\": \"Произвольное текстовое поле\",\n    \"tags\": \"Список тегов\",\n    \"user_id\": \"ID пользователя\"\n  },\n  \"uuid\": \"a7156c12-467a-4d95-8a6b-87f08d0945e7\",\n  \"version\": \"1.0\"\n}';"
         }
     ],
     "connections": [

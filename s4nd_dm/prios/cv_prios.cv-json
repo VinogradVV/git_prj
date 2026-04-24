@@ -5,8 +5,8 @@
             "name": "Semantics",
             "type": "semantics",
             "uuid": "3d843e60-e91a-4800-95e1-e8db910792dd",
-            "x": 2403,
-            "y": 1301,
+            "x": 2400,
+            "y": 1310,
             "width": 200,
             "height": 60,
             "color": "#28a745",
@@ -1253,7 +1253,7 @@
                     "name": "p_year_from",
                     "displayName": "Год с",
                     "type": "TEXT",
-                    "defaultValue": "2020",
+                    "defaultValue": "2025",
                     "description": "Фильтр",
                     "required": false,
                     "visibility": "public",
@@ -1265,10 +1265,10 @@
                 },
                 {
                     "id": "17ycll3ne",
-                    "name": "p_year_to_copy",
+                    "name": "p_year_to",
                     "displayName": "Год по",
                     "type": "TEXT",
-                    "defaultValue": "2020",
+                    "defaultValue": "2028",
                     "description": "Фильтр",
                     "required": false,
                     "visibility": "public",
@@ -1276,7 +1276,7 @@
                     "predefinedValues": "",
                     "minValue": "",
                     "maxValue": "",
-                    "expanded": false
+                    "expanded": true
                 },
                 {
                     "id": "zmyypiwfh",
@@ -1617,9 +1617,9 @@
             "__invalidBadgeLastCount": 0,
             "engine": "CLICKHOUSE/s4nd_dwh",
             "engineDbType": "CLICKHOUSE",
-            "__cvInvalidCountCacheAt": 1776922924963,
+            "__cvInvalidCountCacheAt": 1777021681353,
             "__cvInvalidCountCacheValue": 0,
-            "__invalidBadgeValidatedAt": 1776922924878,
+            "__invalidBadgeValidatedAt": 1777021681263,
             "attributes": [
                 {
                     "name": "date_from",
@@ -1819,8 +1819,8 @@
             "_fieldCache": [],
             "autoUpdateSchema": true,
             "enableCaching": true,
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- Тип: ClickHouse Parameterized View\n-- CV: cv_prios\n-- База данных: s4nd_dwh\n-- =========================================\n\nCREATE OR REPLACE VIEW s4nd_dwh.\"cv_prios\"(\n  \"date_from\" Date COMMENT 'Дата начала действия версии. Обязательное поле.',\n  \"id\" String COMMENT '2.0 Уникальный идентификатор версии записи',\n  \"project\" String COMMENT '2.1 Уникальный код проекта.',\n  \"address\" String COMMENT '2.14 Адрес реализации проекта.',\n  \"budget\" Decimal(17, 2) COMMENT '2.28 Бюджет проекта всего.',\n  \"chisl_max\" Int32 COMMENT '2.16 Максимальная численность, ШЕ (штатных единиц).',\n  \"cnt_gbl\" String COMMENT '2.6 Количество ГБЛ (генерирующих безопасных объектов).',\n  \"date_finans\" Date COMMENT '2.26 Фактическая дата выделения финансирования.',\n  \"date_norm_zav\" Date COMMENT '2.23 Нормативная дата завершения рассмотрения.',\n  \"date_realize\" Date COMMENT '2.17 Планируемая дата реализации проекта.',\n  \"date_to\" Nullable(Date) COMMENT 'Дата окончания действия версии. NULL означает \"действует бессрочно\".',\n  \"date_vipoln_otl_usl\" Date COMMENT '2.30.2 Дата выполнения отлагательного условия.',\n  \"date_zav_rassm\" Date COMMENT '2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).',\n  \"doc_link\" String COMMENT 'Ссылка на документацию по проекту',\n  \"executor\" String COMMENT '2.2 Исполнитель проекта (ФИО или подразделение).',\n  \"fdate_post\" Date COMMENT '2.20 Планируемая дата реализации проекта.',\n  \"fdate_zav\" Date COMMENT '2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.',\n  \"fin_1_year\" Int32 COMMENT '2.27 Первый год, на который было выделено финансирования (20NN).',\n  \"fin_plan_ahr_0\" Decimal(17, 2) COMMENT '2.29 Плановый объем финансирования АХР - 20NN.',\n  \"fin_plan_ahr_1\" Decimal(17, 2) COMMENT '2.31 Плановый объем финансирования АХР - 20NN+1.',\n  \"fin_plan_ahr_2\" Decimal(17, 2) COMMENT '2.33 Плановый объем финансирования АХР - 20NN+2.',\n  \"fin_plan_kv_0\" Decimal(17, 2) COMMENT '2.30 Плановый объем финансирования КВ - 20NN.',\n  \"fin_plan_kv_1\" Decimal(17, 2) COMMENT '2.32 Плановый объем финансирования КВ - 20NN+1.',\n  \"fin_plan_kv_2\" Decimal(17, 2) COMMENT '2.34 Плановый объем финансирования КВ - 20NN+2.',\n  \"first_column\" Int32,\n  \"fm_area\" String COMMENT '2.9 ПФМ основной ТП (обозначение площадки).',\n  \"format_tp\" String COMMENT '2.5 Формат ТП (технологического передела).',\n  \"full_format\" String COMMENT '2.4 Полный формат проекта (описание типа объекта).',\n  \"funds_ctr\" String COMMENT '2.9 ПФМ основной ТП (аналогично fm_area).',\n  \"funds_ctr_shtxt\" String COMMENT '2.11 Краткое наименование ТП.',\n  \"funds_ctr_union\" String COMMENT '2.10 ПФМ объединяемых ТП (перечисление через запятую).',\n  \"is_deleted\" UInt8 COMMENT 'Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.',\n  \"is_finans\" String COMMENT '2.24 Требуется ли финансирование проекта? (да/нет).',\n  \"otlag_usl\" String COMMENT '2.30.1 Тип отлагательного условия.',\n  \"prior_rassm\" String COMMENT '2.8 Приоритетность рассмотрения (высокий, средний, низкий).',\n  \"project_plan\" String COMMENT '2.1 Уникальный код проекта - плановый',\n  \"project_vid\" String COMMENT '2.3 Вид проекта (например, капитальный ремонт, строительство).',\n  \"region\" String COMMENT '2.13 Регион (уточнённое название).',\n  \"remark\" String COMMENT '2.18 Дополнительный комментарий.',\n  \"s_tp\" String COMMENT '2.15 Площадь ТП, кв.м.',\n  \"status\" String COMMENT '2.19 Текущий статус рассмотрения проекта.',\n  \"status_finans\" String COMMENT '2.25 Статус выделения финансирования?',\n  \"subject\" String COMMENT '2.12 Субъект Российской Федерации.',\n  \"vid_rassm\" String COMMENT '2.7 Вид рассмотрения (плановый, внеплановый).'\n) AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"date_from\",\n  \"id\",\n  \"project\",\n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM s4nd_dwh.\"cv_prios$join_1776921269763\"(ctx = ctx)\nGROUP BY \"date_from\", \"id\", \"project\", \"address\", \"budget\", \"chisl_max\", \"cnt_gbl\", \"date_finans\", \"date_norm_zav\", \"date_realize\", \"date_to\", \"date_vipoln_otl_usl\", \"date_zav_rassm\", \"doc_link\", \"executor\", \"fdate_post\", \"fdate_zav\", \"fin_1_year\", \"fin_plan_ahr_0\", \"fin_plan_ahr_1\", \"fin_plan_ahr_2\", \"fin_plan_kv_0\", \"fin_plan_kv_1\", \"fin_plan_kv_2\", \"first_column\", \"fm_area\", \"format_tp\", \"full_format\", \"funds_ctr\", \"funds_ctr_shtxt\", \"funds_ctr_union\", \"is_deleted\", \"is_finans\", \"otlag_usl\", \"prior_rassm\", \"project_plan\", \"project_vid\", \"region\", \"remark\", \"s_tp\", \"status\", \"status_finans\", \"subject\", \"vid_rassm\"\n)\nSELECT \n  \"date_from\",\n  \"id\",\n  \"project\",\n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM step_auto;\n",
-            "commentSql": "ALTER TABLE s4nd_dwh.\"cv_prios\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"отчет ПРиОС\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/s4nd_dm/prios\",\n  \"fields\": {\n    \"date_from\": \"Дата начала действия версии. Обязательное поле.\",\n    \"id\": \"2.0 Уникальный идентификатор версии записи\",\n    \"project\": \"2.1 Уникальный код проекта.\",\n    \"address\": \"2.14 Адрес реализации проекта.\",\n    \"budget\": \"2.28 Бюджет проекта всего.\",\n    \"chisl_max\": \"2.16 Максимальная численность, ШЕ (штатных единиц).\",\n    \"cnt_gbl\": \"2.6 Количество ГБЛ (генерирующих безопасных объектов).\",\n    \"date_finans\": \"2.26 Фактическая дата выделения финансирования.\",\n    \"date_norm_zav\": \"2.23 Нормативная дата завершения рассмотрения.\",\n    \"date_realize\": \"2.17 Планируемая дата реализации проекта.\",\n    \"date_to\": \"Дата окончания действия версии. NULL означает \\\"действует бессрочно\\\".\",\n    \"date_vipoln_otl_usl\": \"2.30.2 Дата выполнения отлагательного условия.\",\n    \"date_zav_rassm\": \"2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).\",\n    \"doc_link\": \"Ссылка на документацию по проекту\",\n    \"executor\": \"2.2 Исполнитель проекта (ФИО или подразделение).\",\n    \"fdate_post\": \"2.20 Планируемая дата реализации проекта.\",\n    \"fdate_zav\": \"2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.\",\n    \"fin_1_year\": \"2.27 Первый год, на который было выделено финансирования (20NN).\",\n    \"fin_plan_ahr_0\": \"2.29 Плановый объем финансирования АХР - 20NN.\",\n    \"fin_plan_ahr_1\": \"2.31 Плановый объем финансирования АХР - 20NN+1.\",\n    \"fin_plan_ahr_2\": \"2.33 Плановый объем финансирования АХР - 20NN+2.\",\n    \"fin_plan_kv_0\": \"2.30 Плановый объем финансирования КВ - 20NN.\",\n    \"fin_plan_kv_1\": \"2.32 Плановый объем финансирования КВ - 20NN+1.\",\n    \"fin_plan_kv_2\": \"2.34 Плановый объем финансирования КВ - 20NN+2.\",\n    \"fm_area\": \"2.9 ПФМ основной ТП (обозначение площадки).\",\n    \"format_tp\": \"2.5 Формат ТП (технологического передела).\",\n    \"full_format\": \"2.4 Полный формат проекта (описание типа объекта).\",\n    \"funds_ctr\": \"2.9 ПФМ основной ТП (аналогично fm_area).\",\n    \"funds_ctr_shtxt\": \"2.11 Краткое наименование ТП.\",\n    \"funds_ctr_union\": \"2.10 ПФМ объединяемых ТП (перечисление через запятую).\",\n    \"is_deleted\": \"Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.\",\n    \"is_finans\": \"2.24 Требуется ли финансирование проекта? (да/нет).\",\n    \"otlag_usl\": \"2.30.1 Тип отлагательного условия.\",\n    \"prior_rassm\": \"2.8 Приоритетность рассмотрения (высокий, средний, низкий).\",\n    \"project_plan\": \"2.1 Уникальный код проекта - плановый\",\n    \"project_vid\": \"2.3 Вид проекта (например, капитальный ремонт, строительство).\",\n    \"region\": \"2.13 Регион (уточнённое название).\",\n    \"remark\": \"2.18 Дополнительный комментарий.\",\n    \"s_tp\": \"2.15 Площадь ТП, кв.м.\",\n    \"status\": \"2.19 Текущий статус рассмотрения проекта.\",\n    \"status_finans\": \"2.25 Статус выделения финансирования?\",\n    \"subject\": \"2.12 Субъект Российской Федерации.\",\n    \"vid_rassm\": \"2.7 Вид рассмотрения (плановый, внеплановый).\"\n  },\n  \"variables\": [],\n  \"uuid\": \"3d843e60-e91a-4800-95e1-e8db910792dd\",\n  \"version\": \"1.0\"\n}';",
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- Тип: ClickHouse Parameterized View\n-- CV: cv_prios\n-- База данных: s4nd_dwh\n-- =========================================\n\nCREATE OR REPLACE VIEW s4nd_dwh.\"cv_prios\"(\n  \"date_from\" Date COMMENT 'Дата начала действия версии. Обязательное поле.',\n  \"id\" String COMMENT '2.0 Уникальный идентификатор версии записи',\n  \"project\" String COMMENT '2.1 Уникальный код проекта.',\n  \"address\" String COMMENT '2.14 Адрес реализации проекта.',\n  \"budget\" Decimal(17, 2) COMMENT '2.28 Бюджет проекта всего.',\n  \"chisl_max\" Int32 COMMENT '2.16 Максимальная численность, ШЕ (штатных единиц).',\n  \"cnt_gbl\" String COMMENT '2.6 Количество ГБЛ (генерирующих безопасных объектов).',\n  \"date_finans\" Date COMMENT '2.26 Фактическая дата выделения финансирования.',\n  \"date_norm_zav\" Date COMMENT '2.23 Нормативная дата завершения рассмотрения.',\n  \"date_realize\" Date COMMENT '2.17 Планируемая дата реализации проекта.',\n  \"date_to\" Nullable(Date) COMMENT 'Дата окончания действия версии. NULL означает \"действует бессрочно\".',\n  \"date_vipoln_otl_usl\" Date COMMENT '2.30.2 Дата выполнения отлагательного условия.',\n  \"date_zav_rassm\" Date COMMENT '2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).',\n  \"doc_link\" String COMMENT 'Ссылка на документацию по проекту',\n  \"executor\" String COMMENT '2.2 Исполнитель проекта (ФИО или подразделение).',\n  \"fdate_post\" Date COMMENT '2.20 Планируемая дата реализации проекта.',\n  \"fdate_zav\" Date COMMENT '2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.',\n  \"fin_1_year\" Int32 COMMENT '2.27 Первый год, на который было выделено финансирования (20NN).',\n  \"fin_plan_ahr_0\" Decimal(17, 2) COMMENT '2.29 Плановый объем финансирования АХР - 20NN.',\n  \"fin_plan_ahr_1\" Decimal(17, 2) COMMENT '2.31 Плановый объем финансирования АХР - 20NN+1.',\n  \"fin_plan_ahr_2\" Decimal(17, 2) COMMENT '2.33 Плановый объем финансирования АХР - 20NN+2.',\n  \"fin_plan_kv_0\" Decimal(17, 2) COMMENT '2.30 Плановый объем финансирования КВ - 20NN.',\n  \"fin_plan_kv_1\" Decimal(17, 2) COMMENT '2.32 Плановый объем финансирования КВ - 20NN+1.',\n  \"fin_plan_kv_2\" Decimal(17, 2) COMMENT '2.34 Плановый объем финансирования КВ - 20NN+2.',\n  \"first_column\" Int32,\n  \"fm_area\" String COMMENT '2.9 ПФМ основной ТП (обозначение площадки).',\n  \"format_tp\" String COMMENT '2.5 Формат ТП (технологического передела).',\n  \"full_format\" String COMMENT '2.4 Полный формат проекта (описание типа объекта).',\n  \"funds_ctr\" String COMMENT '2.9 ПФМ основной ТП (аналогично fm_area).',\n  \"funds_ctr_shtxt\" String COMMENT '2.11 Краткое наименование ТП.',\n  \"funds_ctr_union\" String COMMENT '2.10 ПФМ объединяемых ТП (перечисление через запятую).',\n  \"is_deleted\" UInt8 COMMENT 'Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.',\n  \"is_finans\" String COMMENT '2.24 Требуется ли финансирование проекта? (да/нет).',\n  \"otlag_usl\" String COMMENT '2.30.1 Тип отлагательного условия.',\n  \"prior_rassm\" String COMMENT '2.8 Приоритетность рассмотрения (высокий, средний, низкий).',\n  \"project_plan\" String COMMENT '2.1 Уникальный код проекта - плановый',\n  \"project_vid\" String COMMENT '2.3 Вид проекта (например, капитальный ремонт, строительство).',\n  \"region\" String COMMENT '2.13 Регион (уточнённое название).',\n  \"remark\" String COMMENT '2.18 Дополнительный комментарий.',\n  \"s_tp\" String COMMENT '2.15 Площадь ТП, кв.м.',\n  \"status\" String COMMENT '2.19 Текущий статус рассмотрения проекта.',\n  \"status_finans\" String COMMENT '2.25 Статус выделения финансирования?',\n  \"subject\" String COMMENT '2.12 Субъект Российской Федерации.',\n  \"vid_rassm\" String COMMENT '2.7 Вид рассмотрения (плановый, внеплановый).'\n) AS\nWITH \nifNull({ctx:String}, '{}') AS ctx_init,\n  if(isValidJSON(ctx_init), ctx_init, '{}') AS ctx_clean,\n  isValidJSON(ctx_init) AS is_ctx_ok,\n  ifNull(JSONExtractString(ctx_clean, 'p_year_from'), '2025') AS p_year_from,\n  ifNull(JSONExtractString(ctx_clean, 'p_year_to'), '2028') AS p_year_to,\n  ifNull(JSONExtractString(ctx_clean, 'p_actual_date'), '19700101') AS p_actual_date,\n  toJSONString((p_year_from, p_year_to, p_actual_date)::Tuple(p_year_from String, p_year_to String, p_actual_date String)) AS ctx,\nstep_auto AS (\nSELECT\n  \"date_from\",\n  \"id\",\n  \"project\",\n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM s4nd_dwh.\"cv_prios$join_1776921269763\"(ctx = ctx)\nGROUP BY \"date_from\", \"id\", \"project\", \"address\", \"budget\", \"chisl_max\", \"cnt_gbl\", \"date_finans\", \"date_norm_zav\", \"date_realize\", \"date_to\", \"date_vipoln_otl_usl\", \"date_zav_rassm\", \"doc_link\", \"executor\", \"fdate_post\", \"fdate_zav\", \"fin_1_year\", \"fin_plan_ahr_0\", \"fin_plan_ahr_1\", \"fin_plan_ahr_2\", \"fin_plan_kv_0\", \"fin_plan_kv_1\", \"fin_plan_kv_2\", \"first_column\", \"fm_area\", \"format_tp\", \"full_format\", \"funds_ctr\", \"funds_ctr_shtxt\", \"funds_ctr_union\", \"is_deleted\", \"is_finans\", \"otlag_usl\", \"prior_rassm\", \"project_plan\", \"project_vid\", \"region\", \"remark\", \"s_tp\", \"status\", \"status_finans\", \"subject\", \"vid_rassm\"\n)\nSELECT \n  \"date_from\",\n  \"id\",\n  \"project\",\n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM step_auto;\n",
+            "commentSql": "ALTER TABLE s4nd_dwh.\"cv_prios\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"отчет ПРиОС\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/s4nd_dm/prios\",\n  \"fields\": {\n    \"date_from\": \"Дата начала действия версии. Обязательное поле.\",\n    \"id\": \"2.0 Уникальный идентификатор версии записи\",\n    \"project\": \"2.1 Уникальный код проекта.\",\n    \"address\": \"2.14 Адрес реализации проекта.\",\n    \"budget\": \"2.28 Бюджет проекта всего.\",\n    \"chisl_max\": \"2.16 Максимальная численность, ШЕ (штатных единиц).\",\n    \"cnt_gbl\": \"2.6 Количество ГБЛ (генерирующих безопасных объектов).\",\n    \"date_finans\": \"2.26 Фактическая дата выделения финансирования.\",\n    \"date_norm_zav\": \"2.23 Нормативная дата завершения рассмотрения.\",\n    \"date_realize\": \"2.17 Планируемая дата реализации проекта.\",\n    \"date_to\": \"Дата окончания действия версии. NULL означает \\\"действует бессрочно\\\".\",\n    \"date_vipoln_otl_usl\": \"2.30.2 Дата выполнения отлагательного условия.\",\n    \"date_zav_rassm\": \"2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).\",\n    \"doc_link\": \"Ссылка на документацию по проекту\",\n    \"executor\": \"2.2 Исполнитель проекта (ФИО или подразделение).\",\n    \"fdate_post\": \"2.20 Планируемая дата реализации проекта.\",\n    \"fdate_zav\": \"2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.\",\n    \"fin_1_year\": \"2.27 Первый год, на который было выделено финансирования (20NN).\",\n    \"fin_plan_ahr_0\": \"2.29 Плановый объем финансирования АХР - 20NN.\",\n    \"fin_plan_ahr_1\": \"2.31 Плановый объем финансирования АХР - 20NN+1.\",\n    \"fin_plan_ahr_2\": \"2.33 Плановый объем финансирования АХР - 20NN+2.\",\n    \"fin_plan_kv_0\": \"2.30 Плановый объем финансирования КВ - 20NN.\",\n    \"fin_plan_kv_1\": \"2.32 Плановый объем финансирования КВ - 20NN+1.\",\n    \"fin_plan_kv_2\": \"2.34 Плановый объем финансирования КВ - 20NN+2.\",\n    \"fm_area\": \"2.9 ПФМ основной ТП (обозначение площадки).\",\n    \"format_tp\": \"2.5 Формат ТП (технологического передела).\",\n    \"full_format\": \"2.4 Полный формат проекта (описание типа объекта).\",\n    \"funds_ctr\": \"2.9 ПФМ основной ТП (аналогично fm_area).\",\n    \"funds_ctr_shtxt\": \"2.11 Краткое наименование ТП.\",\n    \"funds_ctr_union\": \"2.10 ПФМ объединяемых ТП (перечисление через запятую).\",\n    \"is_deleted\": \"Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.\",\n    \"is_finans\": \"2.24 Требуется ли финансирование проекта? (да/нет).\",\n    \"otlag_usl\": \"2.30.1 Тип отлагательного условия.\",\n    \"prior_rassm\": \"2.8 Приоритетность рассмотрения (высокий, средний, низкий).\",\n    \"project_plan\": \"2.1 Уникальный код проекта - плановый\",\n    \"project_vid\": \"2.3 Вид проекта (например, капитальный ремонт, строительство).\",\n    \"region\": \"2.13 Регион (уточнённое название).\",\n    \"remark\": \"2.18 Дополнительный комментарий.\",\n    \"s_tp\": \"2.15 Площадь ТП, кв.м.\",\n    \"status\": \"2.19 Текущий статус рассмотрения проекта.\",\n    \"status_finans\": \"2.25 Статус выделения финансирования?\",\n    \"subject\": \"2.12 Субъект Российской Федерации.\",\n    \"vid_rassm\": \"2.7 Вид рассмотрения (плановый, внеплановый).\"\n  },\n  \"variables\": [\n    {\n      \"id\": \"6xls5gyk5\",\n      \"name\": \"p_year_from\",\n      \"displayName\": \"Год с\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"2025\",\n      \"description\": \"Фильтр\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": false\n    },\n    {\n      \"id\": \"17ycll3ne\",\n      \"name\": \"p_year_to\",\n      \"displayName\": \"Год по\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"2028\",\n      \"description\": \"Фильтр\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": true\n    },\n    {\n      \"id\": \"zmyypiwfh\",\n      \"name\": \"p_actual_date\",\n      \"displayName\": \"Дата актуальности\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"19700101\",\n      \"description\": \"\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": false\n    }\n  ],\n  \"uuid\": \"3d843e60-e91a-4800-95e1-e8db910792dd\",\n  \"version\": \"1.0\"\n}';",
             "_cacheDirty": false,
             "_lastSourceHash": "{\"sourceIds\":[\"projection_1776921269762\"],\"fieldExclusions\":[],\"fieldAliases\":{}}"
         },
@@ -1828,8 +1828,8 @@
             "id": "projection_1776921269762",
             "type": "projection",
             "name": "Projection_zs4nd_d47",
-            "x": 2397,
-            "y": 1639,
+            "x": 2250,
+            "y": 1630,
             "width": 200,
             "height": 60,
             "color": "#6f42c120",
@@ -1854,45 +1854,6 @@
                 }
             },
             "tableFields": [
-                {
-                    "name": "date_from",
-                    "type": "Date",
-                    "column_comment": "Дата начала действия версии. Обязательное поле.",
-                    "type_schema": "",
-                    "selected": true,
-                    "prevAlias": "date_from",
-                    "origin": {
-                        "sourceBlockId": "projection_1776921269762",
-                        "originalFieldName": "date_from",
-                        "cascadeDepth": 0
-                    }
-                },
-                {
-                    "name": "id",
-                    "type": "String",
-                    "column_comment": "2.0 Уникальный идентификатор версии записи",
-                    "type_schema": "",
-                    "selected": true,
-                    "prevAlias": "id",
-                    "origin": {
-                        "sourceBlockId": "projection_1776921269762",
-                        "originalFieldName": "id",
-                        "cascadeDepth": 0
-                    }
-                },
-                {
-                    "name": "project",
-                    "type": "String",
-                    "column_comment": "2.1 Уникальный код проекта.",
-                    "type_schema": "",
-                    "selected": true,
-                    "prevAlias": "project",
-                    "origin": {
-                        "sourceBlockId": "projection_1776921269762",
-                        "originalFieldName": "project",
-                        "cascadeDepth": 0
-                    }
-                },
                 {
                     "name": "address",
                     "type": "String",
@@ -1955,6 +1916,19 @@
                     "origin": {
                         "sourceBlockId": "projection_1776921269762",
                         "originalFieldName": "date_finans",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "date_from",
+                    "type": "Date",
+                    "column_comment": "Дата начала действия версии. Обязательное поле.",
+                    "type_schema": "",
+                    "selected": true,
+                    "prevAlias": "date_from",
+                    "origin": {
+                        "sourceBlockId": "projection_1776921269762",
+                        "originalFieldName": "date_from",
                         "cascadeDepth": 0
                     }
                 },
@@ -2258,6 +2232,19 @@
                     }
                 },
                 {
+                    "name": "id",
+                    "type": "String",
+                    "column_comment": "2.0 Уникальный идентификатор версии записи",
+                    "type_schema": "",
+                    "selected": true,
+                    "prevAlias": "id",
+                    "origin": {
+                        "sourceBlockId": "projection_1776921269762",
+                        "originalFieldName": "id",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
                     "name": "is_deleted",
                     "type": "UInt8",
                     "column_comment": "Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.",
@@ -2306,6 +2293,19 @@
                     "origin": {
                         "sourceBlockId": "projection_1776921269762",
                         "originalFieldName": "prior_rassm",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "project",
+                    "type": "String",
+                    "column_comment": "2.1 Уникальный код проекта.",
+                    "type_schema": "",
+                    "selected": true,
+                    "prevAlias": "project",
+                    "origin": {
+                        "sourceBlockId": "projection_1776921269762",
+                        "originalFieldName": "project",
                         "cascadeDepth": 0
                     }
                 },
@@ -2438,15 +2438,15 @@
             },
             "description": "ПРиОС - факт",
             "variables": [],
-            "__cvInvalidCountCacheAt": 1776922924964,
+            "__cvInvalidCountCacheAt": 1777021681353,
             "__cvInvalidCountCacheValue": 0,
             "__invalidBadgeLastCount": 0,
             "_fieldCache": [],
             "_cacheDirty": false,
             "_lastSourceHash": "{\"sourceIds\":[],\"fieldExclusions\":[],\"fieldAliases\":{},\"selectedTable\":{\"connect_key\":\"1775066342937@@127.0.0.1@CLICKHOUSE@s4nd_dwh\",\"instanceName\":\"CLICKHOUSE\",\"database\":\"s4nd_dwh\",\"schema\":\"\",\"table\":\"zs4nd_d47\",\"dbType\":\"Clickhouse\",\"table_type\":\"TABLE\",\"metadata\":{\"table_schema\":\"s4nd_dwh\",\"table_name\":\"zs4nd_d47\",\"table_comment\":\"{\\\"app\\\": \\\"asapBI\\\",\\r\\n\\r\\n \\\"descr\\\": \\\"ПРиОС - факт\\\",\\r\\n\\r\\n \\\"folder\\\": \\\"tables/prios\\\"\\r\\n}\",\"table_type\":\"TABLE\"},\"jsonComment\":{\"app\":\"asapBI\",\"descr\":\"ПРиОС - факт\",\"folder\":\"tables/prios\"}}}",
             "selected": false,
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_zs4nd_d47\n-- =========================================\n-- Блок: Projection_zs4nd_d47 (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: cv_prios\n-- База данных: s4nd_dwh\n-- =========================================\n\nCREATE OR REPLACE VIEW s4nd_dwh.\"cv_prios$projection_zs4nd_d47\"(\n  \"date_from\" Date COMMENT 'Дата начала действия версии. Обязательное поле.',\n  \"id\" String COMMENT '2.0 Уникальный идентификатор версии записи',\n  \"project\" String COMMENT '2.1 Уникальный код проекта.',\n  \"address\" String COMMENT '2.14 Адрес реализации проекта.',\n  \"budget\" Decimal(17, 2) COMMENT '2.28 Бюджет проекта всего.',\n  \"chisl_max\" Int32 COMMENT '2.16 Максимальная численность, ШЕ (штатных единиц).',\n  \"cnt_gbl\" String COMMENT '2.6 Количество ГБЛ (генерирующих безопасных объектов).',\n  \"date_finans\" Date COMMENT '2.26 Фактическая дата выделения финансирования.',\n  \"date_norm_zav\" Date COMMENT '2.23 Нормативная дата завершения рассмотрения.',\n  \"date_realize\" Date COMMENT '2.17 Планируемая дата реализации проекта.',\n  \"date_to\" Nullable(Date) COMMENT 'Дата окончания действия версии. NULL означает \"действует бессрочно\".',\n  \"date_vipoln_otl_usl\" Date COMMENT '2.30.2 Дата выполнения отлагательного условия.',\n  \"date_zav_rassm\" Date COMMENT '2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).',\n  \"doc_link\" String COMMENT 'Ссылка на документацию по проекту',\n  \"executor\" String COMMENT '2.2 Исполнитель проекта (ФИО или подразделение).',\n  \"fdate_post\" Date COMMENT '2.20 Планируемая дата реализации проекта.',\n  \"fdate_zav\" Date COMMENT '2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.',\n  \"fin_1_year\" Int32 COMMENT '2.27 Первый год, на который было выделено финансирования (20NN).',\n  \"fin_plan_ahr_0\" Decimal(17, 2) COMMENT '2.29 Плановый объем финансирования АХР - 20NN.',\n  \"fin_plan_ahr_1\" Decimal(17, 2) COMMENT '2.31 Плановый объем финансирования АХР - 20NN+1.',\n  \"fin_plan_ahr_2\" Decimal(17, 2) COMMENT '2.33 Плановый объем финансирования АХР - 20NN+2.',\n  \"fin_plan_kv_0\" Decimal(17, 2) COMMENT '2.30 Плановый объем финансирования КВ - 20NN.',\n  \"fin_plan_kv_1\" Decimal(17, 2) COMMENT '2.32 Плановый объем финансирования КВ - 20NN+1.',\n  \"fin_plan_kv_2\" Decimal(17, 2) COMMENT '2.34 Плановый объем финансирования КВ - 20NN+2.',\n  \"first_column\" Int32,\n  \"fm_area\" String COMMENT '2.9 ПФМ основной ТП (обозначение площадки).',\n  \"format_tp\" String COMMENT '2.5 Формат ТП (технологического передела).',\n  \"full_format\" String COMMENT '2.4 Полный формат проекта (описание типа объекта).',\n  \"funds_ctr\" String COMMENT '2.9 ПФМ основной ТП (аналогично fm_area).',\n  \"funds_ctr_shtxt\" String COMMENT '2.11 Краткое наименование ТП.',\n  \"funds_ctr_union\" String COMMENT '2.10 ПФМ объединяемых ТП (перечисление через запятую).',\n  \"is_deleted\" UInt8 COMMENT 'Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.',\n  \"is_finans\" String COMMENT '2.24 Требуется ли финансирование проекта? (да/нет).',\n  \"otlag_usl\" String COMMENT '2.30.1 Тип отлагательного условия.',\n  \"prior_rassm\" String COMMENT '2.8 Приоритетность рассмотрения (высокий, средний, низкий).',\n  \"project_plan\" String COMMENT '2.1 Уникальный код проекта - плановый',\n  \"project_vid\" String COMMENT '2.3 Вид проекта (например, капитальный ремонт, строительство).',\n  \"region\" String COMMENT '2.13 Регион (уточнённое название).',\n  \"remark\" String COMMENT '2.18 Дополнительный комментарий.',\n  \"s_tp\" String COMMENT '2.15 Площадь ТП, кв.м.',\n  \"status\" String COMMENT '2.19 Текущий статус рассмотрения проекта.',\n  \"status_finans\" String COMMENT '2.25 Статус выделения финансирования?',\n  \"subject\" String COMMENT '2.12 Субъект Российской Федерации.',\n  \"vid_rassm\" String COMMENT '2.7 Вид рассмотрения (плановый, внеплановый).'\n)\nAS WITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"date_from\",\n  \"id\",\n  \"project\",\n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM s4nd_dwh.zs4nd_d47\n)\nSELECT \n  \"date_from\",\n  \"id\",\n  \"project\",\n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM step_auto;\n",
-            "commentSql": "ALTER TABLE s4nd_dwh.\"cv_prios$projection_zs4nd_d47\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"отчет ПРиОС\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/s4nd_dm/prios\",\n  \"fields\": {\n    \"date_from\": \"Дата начала действия версии. Обязательное поле.\",\n    \"id\": \"2.0 Уникальный идентификатор версии записи\",\n    \"project\": \"2.1 Уникальный код проекта.\",\n    \"address\": \"2.14 Адрес реализации проекта.\",\n    \"budget\": \"2.28 Бюджет проекта всего.\",\n    \"chisl_max\": \"2.16 Максимальная численность, ШЕ (штатных единиц).\",\n    \"cnt_gbl\": \"2.6 Количество ГБЛ (генерирующих безопасных объектов).\",\n    \"date_finans\": \"2.26 Фактическая дата выделения финансирования.\",\n    \"date_norm_zav\": \"2.23 Нормативная дата завершения рассмотрения.\",\n    \"date_realize\": \"2.17 Планируемая дата реализации проекта.\",\n    \"date_to\": \"Дата окончания действия версии. NULL означает \\\"действует бессрочно\\\".\",\n    \"date_vipoln_otl_usl\": \"2.30.2 Дата выполнения отлагательного условия.\",\n    \"date_zav_rassm\": \"2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).\",\n    \"doc_link\": \"Ссылка на документацию по проекту\",\n    \"executor\": \"2.2 Исполнитель проекта (ФИО или подразделение).\",\n    \"fdate_post\": \"2.20 Планируемая дата реализации проекта.\",\n    \"fdate_zav\": \"2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.\",\n    \"fin_1_year\": \"2.27 Первый год, на который было выделено финансирования (20NN).\",\n    \"fin_plan_ahr_0\": \"2.29 Плановый объем финансирования АХР - 20NN.\",\n    \"fin_plan_ahr_1\": \"2.31 Плановый объем финансирования АХР - 20NN+1.\",\n    \"fin_plan_ahr_2\": \"2.33 Плановый объем финансирования АХР - 20NN+2.\",\n    \"fin_plan_kv_0\": \"2.30 Плановый объем финансирования КВ - 20NN.\",\n    \"fin_plan_kv_1\": \"2.32 Плановый объем финансирования КВ - 20NN+1.\",\n    \"fin_plan_kv_2\": \"2.34 Плановый объем финансирования КВ - 20NN+2.\",\n    \"fm_area\": \"2.9 ПФМ основной ТП (обозначение площадки).\",\n    \"format_tp\": \"2.5 Формат ТП (технологического передела).\",\n    \"full_format\": \"2.4 Полный формат проекта (описание типа объекта).\",\n    \"funds_ctr\": \"2.9 ПФМ основной ТП (аналогично fm_area).\",\n    \"funds_ctr_shtxt\": \"2.11 Краткое наименование ТП.\",\n    \"funds_ctr_union\": \"2.10 ПФМ объединяемых ТП (перечисление через запятую).\",\n    \"is_deleted\": \"Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.\",\n    \"is_finans\": \"2.24 Требуется ли финансирование проекта? (да/нет).\",\n    \"otlag_usl\": \"2.30.1 Тип отлагательного условия.\",\n    \"prior_rassm\": \"2.8 Приоритетность рассмотрения (высокий, средний, низкий).\",\n    \"project_plan\": \"2.1 Уникальный код проекта - плановый\",\n    \"project_vid\": \"2.3 Вид проекта (например, капитальный ремонт, строительство).\",\n    \"region\": \"2.13 Регион (уточнённое название).\",\n    \"remark\": \"2.18 Дополнительный комментарий.\",\n    \"s_tp\": \"2.15 Площадь ТП, кв.м.\",\n    \"status\": \"2.19 Текущий статус рассмотрения проекта.\",\n    \"status_finans\": \"2.25 Статус выделения финансирования?\",\n    \"subject\": \"2.12 Субъект Российской Федерации.\",\n    \"vid_rassm\": \"2.7 Вид рассмотрения (плановый, внеплановый).\"\n  },\n  \"variables\": [],\n  \"uuid\": \"3d843e60-e91a-4800-95e1-e8db910792dd\",\n  \"version\": \"1.0\"\n}';",
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_zs4nd_d47\n-- =========================================\n-- Блок: Projection_zs4nd_d47 (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: cv_prios\n-- База данных: s4nd_dwh\n-- =========================================\n\nCREATE OR REPLACE VIEW s4nd_dwh.\"cv_prios$projection_zs4nd_d47\"(\n  \"address\" String COMMENT '2.14 Адрес реализации проекта.',\n  \"budget\" Decimal(17, 2) COMMENT '2.28 Бюджет проекта всего.',\n  \"chisl_max\" Int32 COMMENT '2.16 Максимальная численность, ШЕ (штатных единиц).',\n  \"cnt_gbl\" String COMMENT '2.6 Количество ГБЛ (генерирующих безопасных объектов).',\n  \"date_finans\" Date COMMENT '2.26 Фактическая дата выделения финансирования.',\n  \"date_from\" Date COMMENT 'Дата начала действия версии. Обязательное поле.',\n  \"date_norm_zav\" Date COMMENT '2.23 Нормативная дата завершения рассмотрения.',\n  \"date_realize\" Date COMMENT '2.17 Планируемая дата реализации проекта.',\n  \"date_to\" Nullable(Date) COMMENT 'Дата окончания действия версии. NULL означает \"действует бессрочно\".',\n  \"date_vipoln_otl_usl\" Date COMMENT '2.30.2 Дата выполнения отлагательного условия.',\n  \"date_zav_rassm\" Date COMMENT '2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).',\n  \"doc_link\" String COMMENT 'Ссылка на документацию по проекту',\n  \"executor\" String COMMENT '2.2 Исполнитель проекта (ФИО или подразделение).',\n  \"fdate_post\" Date COMMENT '2.20 Планируемая дата реализации проекта.',\n  \"fdate_zav\" Date COMMENT '2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.',\n  \"fin_1_year\" Int32 COMMENT '2.27 Первый год, на который было выделено финансирования (20NN).',\n  \"fin_plan_ahr_0\" Decimal(17, 2) COMMENT '2.29 Плановый объем финансирования АХР - 20NN.',\n  \"fin_plan_ahr_1\" Decimal(17, 2) COMMENT '2.31 Плановый объем финансирования АХР - 20NN+1.',\n  \"fin_plan_ahr_2\" Decimal(17, 2) COMMENT '2.33 Плановый объем финансирования АХР - 20NN+2.',\n  \"fin_plan_kv_0\" Decimal(17, 2) COMMENT '2.30 Плановый объем финансирования КВ - 20NN.',\n  \"fin_plan_kv_1\" Decimal(17, 2) COMMENT '2.32 Плановый объем финансирования КВ - 20NN+1.',\n  \"fin_plan_kv_2\" Decimal(17, 2) COMMENT '2.34 Плановый объем финансирования КВ - 20NN+2.',\n  \"first_column\" Int32,\n  \"fm_area\" String COMMENT '2.9 ПФМ основной ТП (обозначение площадки).',\n  \"format_tp\" String COMMENT '2.5 Формат ТП (технологического передела).',\n  \"full_format\" String COMMENT '2.4 Полный формат проекта (описание типа объекта).',\n  \"funds_ctr\" String COMMENT '2.9 ПФМ основной ТП (аналогично fm_area).',\n  \"funds_ctr_shtxt\" String COMMENT '2.11 Краткое наименование ТП.',\n  \"funds_ctr_union\" String COMMENT '2.10 ПФМ объединяемых ТП (перечисление через запятую).',\n  \"id\" String COMMENT '2.0 Уникальный идентификатор версии записи',\n  \"is_deleted\" UInt8 COMMENT 'Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.',\n  \"is_finans\" String COMMENT '2.24 Требуется ли финансирование проекта? (да/нет).',\n  \"otlag_usl\" String COMMENT '2.30.1 Тип отлагательного условия.',\n  \"prior_rassm\" String COMMENT '2.8 Приоритетность рассмотрения (высокий, средний, низкий).',\n  \"project\" String COMMENT '2.1 Уникальный код проекта.',\n  \"project_plan\" String COMMENT '2.1 Уникальный код проекта - плановый',\n  \"project_vid\" String COMMENT '2.3 Вид проекта (например, капитальный ремонт, строительство).',\n  \"region\" String COMMENT '2.13 Регион (уточнённое название).',\n  \"remark\" String COMMENT '2.18 Дополнительный комментарий.',\n  \"s_tp\" String COMMENT '2.15 Площадь ТП, кв.м.',\n  \"status\" String COMMENT '2.19 Текущий статус рассмотрения проекта.',\n  \"status_finans\" String COMMENT '2.25 Статус выделения финансирования?',\n  \"subject\" String COMMENT '2.12 Субъект Российской Федерации.',\n  \"vid_rassm\" String COMMENT '2.7 Вид рассмотрения (плановый, внеплановый).'\n) AS\nWITH \nifNull({ctx:String}, '{}') AS ctx_init,\n  if(isValidJSON(ctx_init), ctx_init, '{}') AS ctx_clean,\n  isValidJSON(ctx_init) AS is_ctx_ok,\n  ifNull(JSONExtractString(ctx_clean, 'p_year_from'), '2025') AS p_year_from,\n  ifNull(JSONExtractString(ctx_clean, 'p_year_to'), '2028') AS p_year_to,\n  ifNull(JSONExtractString(ctx_clean, 'p_actual_date'), '19700101') AS p_actual_date,\n  toJSONString((p_year_from, p_year_to, p_actual_date)::Tuple(p_year_from String, p_year_to String, p_actual_date String)) AS ctx,\nstep_auto AS (\nSELECT\n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_from\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"id\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM s4nd_dwh.zs4nd_d47\n)\nSELECT \n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_from\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"id\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM step_auto;\n",
+            "commentSql": "ALTER TABLE s4nd_dwh.\"cv_prios$projection_zs4nd_d47\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"отчет ПРиОС\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/s4nd_dm/prios\",\n  \"fields\": {\n    \"address\": \"2.14 Адрес реализации проекта.\",\n    \"budget\": \"2.28 Бюджет проекта всего.\",\n    \"chisl_max\": \"2.16 Максимальная численность, ШЕ (штатных единиц).\",\n    \"cnt_gbl\": \"2.6 Количество ГБЛ (генерирующих безопасных объектов).\",\n    \"date_finans\": \"2.26 Фактическая дата выделения финансирования.\",\n    \"date_from\": \"Дата начала действия версии. Обязательное поле.\",\n    \"date_norm_zav\": \"2.23 Нормативная дата завершения рассмотрения.\",\n    \"date_realize\": \"2.17 Планируемая дата реализации проекта.\",\n    \"date_to\": \"Дата окончания действия версии. NULL означает \\\"действует бессрочно\\\".\",\n    \"date_vipoln_otl_usl\": \"2.30.2 Дата выполнения отлагательного условия.\",\n    \"date_zav_rassm\": \"2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).\",\n    \"doc_link\": \"Ссылка на документацию по проекту\",\n    \"executor\": \"2.2 Исполнитель проекта (ФИО или подразделение).\",\n    \"fdate_post\": \"2.20 Планируемая дата реализации проекта.\",\n    \"fdate_zav\": \"2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.\",\n    \"fin_1_year\": \"2.27 Первый год, на который было выделено финансирования (20NN).\",\n    \"fin_plan_ahr_0\": \"2.29 Плановый объем финансирования АХР - 20NN.\",\n    \"fin_plan_ahr_1\": \"2.31 Плановый объем финансирования АХР - 20NN+1.\",\n    \"fin_plan_ahr_2\": \"2.33 Плановый объем финансирования АХР - 20NN+2.\",\n    \"fin_plan_kv_0\": \"2.30 Плановый объем финансирования КВ - 20NN.\",\n    \"fin_plan_kv_1\": \"2.32 Плановый объем финансирования КВ - 20NN+1.\",\n    \"fin_plan_kv_2\": \"2.34 Плановый объем финансирования КВ - 20NN+2.\",\n    \"fm_area\": \"2.9 ПФМ основной ТП (обозначение площадки).\",\n    \"format_tp\": \"2.5 Формат ТП (технологического передела).\",\n    \"full_format\": \"2.4 Полный формат проекта (описание типа объекта).\",\n    \"funds_ctr\": \"2.9 ПФМ основной ТП (аналогично fm_area).\",\n    \"funds_ctr_shtxt\": \"2.11 Краткое наименование ТП.\",\n    \"funds_ctr_union\": \"2.10 ПФМ объединяемых ТП (перечисление через запятую).\",\n    \"id\": \"2.0 Уникальный идентификатор версии записи\",\n    \"is_deleted\": \"Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.\",\n    \"is_finans\": \"2.24 Требуется ли финансирование проекта? (да/нет).\",\n    \"otlag_usl\": \"2.30.1 Тип отлагательного условия.\",\n    \"prior_rassm\": \"2.8 Приоритетность рассмотрения (высокий, средний, низкий).\",\n    \"project\": \"2.1 Уникальный код проекта.\",\n    \"project_plan\": \"2.1 Уникальный код проекта - плановый\",\n    \"project_vid\": \"2.3 Вид проекта (например, капитальный ремонт, строительство).\",\n    \"region\": \"2.13 Регион (уточнённое название).\",\n    \"remark\": \"2.18 Дополнительный комментарий.\",\n    \"s_tp\": \"2.15 Площадь ТП, кв.м.\",\n    \"status\": \"2.19 Текущий статус рассмотрения проекта.\",\n    \"status_finans\": \"2.25 Статус выделения финансирования?\",\n    \"subject\": \"2.12 Субъект Российской Федерации.\",\n    \"vid_rassm\": \"2.7 Вид рассмотрения (плановый, внеплановый).\"\n  },\n  \"variables\": [\n    {\n      \"id\": \"6xls5gyk5\",\n      \"name\": \"p_year_from\",\n      \"displayName\": \"Год с\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"2025\",\n      \"description\": \"Фильтр\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": false\n    },\n    {\n      \"id\": \"17ycll3ne\",\n      \"name\": \"p_year_to\",\n      \"displayName\": \"Год по\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"2028\",\n      \"description\": \"Фильтр\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": true\n    },\n    {\n      \"id\": \"zmyypiwfh\",\n      \"name\": \"p_actual_date\",\n      \"displayName\": \"Дата актуальности\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"19700101\",\n      \"description\": \"\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": false\n    }\n  ],\n  \"uuid\": \"3d843e60-e91a-4800-95e1-e8db910792dd\",\n  \"version\": \"1.0\"\n}';",
             "uuid": "39c0da28-3757-4fe8-8e67-a47fcae79c3b",
             "fieldOrder": [],
             "cascadeMetadata": {
@@ -2459,8 +2459,8 @@
             "id": "projection_1776922043026",
             "type": "projection",
             "name": "p_zs4nd_d47_latest_date",
-            "x": 2272,
-            "y": 1756.800048828125,
+            "x": 2550,
+            "y": 1630,
             "width": 200,
             "height": 60,
             "color": "#6f42c120",
@@ -2486,312 +2486,532 @@
             },
             "tableFields": [
                 {
-                    "name": "date_from",
-                    "type": "Date",
-                    "column_comment": "Дата начала действия версии. Обязательное поле.",
-                    "type_schema": "",
-                    "selected": true
-                },
-                {
-                    "name": "id",
-                    "type": "String",
-                    "column_comment": "2.0 Уникальный идентификатор версии записи",
-                    "type_schema": "",
-                    "selected": true
-                },
-                {
-                    "name": "project",
-                    "type": "String",
-                    "column_comment": "2.1 Уникальный код проекта.",
-                    "type_schema": "",
-                    "selected": true
-                },
-                {
                     "name": "address",
                     "type": "String",
                     "column_comment": "2.14 Адрес реализации проекта.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "address",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "budget",
                     "type": "Decimal(17, 2)",
                     "column_comment": "2.28 Бюджет проекта всего.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "budget",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "chisl_max",
                     "type": "Int32",
                     "column_comment": "2.16 Максимальная численность, ШЕ (штатных единиц).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "chisl_max",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "cnt_gbl",
                     "type": "String",
                     "column_comment": "2.6 Количество ГБЛ (генерирующих безопасных объектов).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "cnt_gbl",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "date_finans",
                     "type": "Date",
                     "column_comment": "2.26 Фактическая дата выделения финансирования.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "date_finans",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "date_from",
+                    "type": "Date",
+                    "column_comment": "Дата начала действия версии. Обязательное поле.",
+                    "type_schema": "",
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "date_from",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "date_norm_zav",
                     "type": "Date",
                     "column_comment": "2.23 Нормативная дата завершения рассмотрения.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "date_norm_zav",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "date_realize",
                     "type": "Date",
                     "column_comment": "2.17 Планируемая дата реализации проекта.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "date_realize",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "date_to",
                     "type": "Nullable(Date)",
                     "column_comment": "Дата окончания действия версии. NULL означает \"действует бессрочно\".",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "date_to",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "date_vipoln_otl_usl",
                     "type": "Date",
                     "column_comment": "2.30.2 Дата выполнения отлагательного условия.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "date_vipoln_otl_usl",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "date_zav_rassm",
                     "type": "Date",
                     "column_comment": "2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "date_zav_rassm",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "doc_link",
                     "type": "String",
                     "column_comment": "Ссылка на документацию по проекту",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "doc_link",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "executor",
                     "type": "String",
                     "column_comment": "2.2 Исполнитель проекта (ФИО или подразделение).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "executor",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "fdate_post",
                     "type": "Date",
                     "column_comment": "2.20 Планируемая дата реализации проекта.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "fdate_post",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "fdate_zav",
                     "type": "Date",
                     "column_comment": "2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "fdate_zav",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "fin_1_year",
                     "type": "Int32",
                     "column_comment": "2.27 Первый год, на который было выделено финансирования (20NN).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "fin_1_year",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "fin_plan_ahr_0",
                     "type": "Decimal(17, 2)",
                     "column_comment": "2.29 Плановый объем финансирования АХР - 20NN.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "fin_plan_ahr_0",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "fin_plan_ahr_1",
                     "type": "Decimal(17, 2)",
                     "column_comment": "2.31 Плановый объем финансирования АХР - 20NN+1.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "fin_plan_ahr_1",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "fin_plan_ahr_2",
                     "type": "Decimal(17, 2)",
                     "column_comment": "2.33 Плановый объем финансирования АХР - 20NN+2.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "fin_plan_ahr_2",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "fin_plan_kv_0",
                     "type": "Decimal(17, 2)",
                     "column_comment": "2.30 Плановый объем финансирования КВ - 20NN.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "fin_plan_kv_0",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "fin_plan_kv_1",
                     "type": "Decimal(17, 2)",
                     "column_comment": "2.32 Плановый объем финансирования КВ - 20NN+1.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "fin_plan_kv_1",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "fin_plan_kv_2",
                     "type": "Decimal(17, 2)",
                     "column_comment": "2.34 Плановый объем финансирования КВ - 20NN+2.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "fin_plan_kv_2",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "first_column",
                     "type": "Int32",
                     "column_comment": "",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "first_column",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "fm_area",
                     "type": "String",
                     "column_comment": "2.9 ПФМ основной ТП (обозначение площадки).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "fm_area",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "format_tp",
                     "type": "String",
                     "column_comment": "2.5 Формат ТП (технологического передела).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "format_tp",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "full_format",
                     "type": "String",
                     "column_comment": "2.4 Полный формат проекта (описание типа объекта).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "full_format",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "funds_ctr",
                     "type": "String",
                     "column_comment": "2.9 ПФМ основной ТП (аналогично fm_area).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "funds_ctr",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "funds_ctr_shtxt",
                     "type": "String",
                     "column_comment": "2.11 Краткое наименование ТП.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "funds_ctr_shtxt",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "funds_ctr_union",
                     "type": "String",
                     "column_comment": "2.10 ПФМ объединяемых ТП (перечисление через запятую).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "funds_ctr_union",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "column_comment": "2.0 Уникальный идентификатор версии записи",
+                    "type_schema": "",
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "id",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "is_deleted",
                     "type": "UInt8",
                     "column_comment": "Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "is_deleted",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "is_finans",
                     "type": "String",
                     "column_comment": "2.24 Требуется ли финансирование проекта? (да/нет).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "is_finans",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "otlag_usl",
                     "type": "String",
                     "column_comment": "2.30.1 Тип отлагательного условия.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "otlag_usl",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "prior_rassm",
                     "type": "String",
                     "column_comment": "2.8 Приоритетность рассмотрения (высокий, средний, низкий).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "prior_rassm",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "project",
+                    "type": "String",
+                    "column_comment": "2.1 Уникальный код проекта.",
+                    "type_schema": "",
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "project",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "project_plan",
                     "type": "String",
                     "column_comment": "2.1 Уникальный код проекта - плановый",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "project_plan",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "project_vid",
                     "type": "String",
                     "column_comment": "2.3 Вид проекта (например, капитальный ремонт, строительство).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "project_vid",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "region",
                     "type": "String",
                     "column_comment": "2.13 Регион (уточнённое название).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "region",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "remark",
                     "type": "String",
                     "column_comment": "2.18 Дополнительный комментарий.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "remark",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "s_tp",
                     "type": "String",
                     "column_comment": "2.15 Площадь ТП, кв.м.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "s_tp",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "status",
                     "type": "String",
                     "column_comment": "2.19 Текущий статус рассмотрения проекта.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "status",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "status_finans",
                     "type": "String",
                     "column_comment": "2.25 Статус выделения финансирования?",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "status_finans",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "subject",
                     "type": "String",
                     "column_comment": "2.12 Субъект Российской Федерации.",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "subject",
+                        "cascadeDepth": 0
+                    }
                 },
                 {
                     "name": "vid_rassm",
                     "type": "String",
                     "column_comment": "2.7 Вид рассмотрения (плановый, внеплановый).",
                     "type_schema": "",
-                    "selected": true
+                    "selected": true,
+                    "origin": {
+                        "sourceBlockId": "projection_1776922043026",
+                        "originalFieldName": "vid_rassm",
+                        "cascadeDepth": 0
+                    }
                 }
             ],
             "position": {
@@ -2805,22 +3025,30 @@
             },
             "description": "ПРиОС - факт",
             "variables": [],
-            "__cvInvalidCountCacheAt": 1776922924964,
+            "__cvInvalidCountCacheAt": 1777021681354,
             "__cvInvalidCountCacheValue": 0,
             "__invalidBadgeLastCount": 0,
             "selected": false,
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: p_zs4nd_d47_latest_date\n-- =========================================\n-- Блок: p_zs4nd_d47_latest_date (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: cv_prios\n-- База данных: s4nd_dwh\n-- =========================================\n\nCREATE OR REPLACE VIEW s4nd_dwh.\"cv_prios$p_zs4nd_d47_latest_date\"(\n  \"date_from\" Date COMMENT 'Дата начала действия версии. Обязательное поле.',\n  \"id\" String COMMENT '2.0 Уникальный идентификатор версии записи',\n  \"project\" String COMMENT '2.1 Уникальный код проекта.',\n  \"address\" String COMMENT '2.14 Адрес реализации проекта.',\n  \"budget\" Decimal(17, 2) COMMENT '2.28 Бюджет проекта всего.',\n  \"chisl_max\" Int32 COMMENT '2.16 Максимальная численность, ШЕ (штатных единиц).',\n  \"cnt_gbl\" String COMMENT '2.6 Количество ГБЛ (генерирующих безопасных объектов).',\n  \"date_finans\" Date COMMENT '2.26 Фактическая дата выделения финансирования.',\n  \"date_norm_zav\" Date COMMENT '2.23 Нормативная дата завершения рассмотрения.',\n  \"date_realize\" Date COMMENT '2.17 Планируемая дата реализации проекта.',\n  \"date_to\" Nullable(Date) COMMENT 'Дата окончания действия версии. NULL означает \"действует бессрочно\".',\n  \"date_vipoln_otl_usl\" Date COMMENT '2.30.2 Дата выполнения отлагательного условия.',\n  \"date_zav_rassm\" Date COMMENT '2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).',\n  \"doc_link\" String COMMENT 'Ссылка на документацию по проекту',\n  \"executor\" String COMMENT '2.2 Исполнитель проекта (ФИО или подразделение).',\n  \"fdate_post\" Date COMMENT '2.20 Планируемая дата реализации проекта.',\n  \"fdate_zav\" Date COMMENT '2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.',\n  \"fin_1_year\" Int32 COMMENT '2.27 Первый год, на который было выделено финансирования (20NN).',\n  \"fin_plan_ahr_0\" Decimal(17, 2) COMMENT '2.29 Плановый объем финансирования АХР - 20NN.',\n  \"fin_plan_ahr_1\" Decimal(17, 2) COMMENT '2.31 Плановый объем финансирования АХР - 20NN+1.',\n  \"fin_plan_ahr_2\" Decimal(17, 2) COMMENT '2.33 Плановый объем финансирования АХР - 20NN+2.',\n  \"fin_plan_kv_0\" Decimal(17, 2) COMMENT '2.30 Плановый объем финансирования КВ - 20NN.',\n  \"fin_plan_kv_1\" Decimal(17, 2) COMMENT '2.32 Плановый объем финансирования КВ - 20NN+1.',\n  \"fin_plan_kv_2\" Decimal(17, 2) COMMENT '2.34 Плановый объем финансирования КВ - 20NN+2.',\n  \"first_column\" Int32,\n  \"fm_area\" String COMMENT '2.9 ПФМ основной ТП (обозначение площадки).',\n  \"format_tp\" String COMMENT '2.5 Формат ТП (технологического передела).',\n  \"full_format\" String COMMENT '2.4 Полный формат проекта (описание типа объекта).',\n  \"funds_ctr\" String COMMENT '2.9 ПФМ основной ТП (аналогично fm_area).',\n  \"funds_ctr_shtxt\" String COMMENT '2.11 Краткое наименование ТП.',\n  \"funds_ctr_union\" String COMMENT '2.10 ПФМ объединяемых ТП (перечисление через запятую).',\n  \"is_deleted\" UInt8 COMMENT 'Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.',\n  \"is_finans\" String COMMENT '2.24 Требуется ли финансирование проекта? (да/нет).',\n  \"otlag_usl\" String COMMENT '2.30.1 Тип отлагательного условия.',\n  \"prior_rassm\" String COMMENT '2.8 Приоритетность рассмотрения (высокий, средний, низкий).',\n  \"project_plan\" String COMMENT '2.1 Уникальный код проекта - плановый',\n  \"project_vid\" String COMMENT '2.3 Вид проекта (например, капитальный ремонт, строительство).',\n  \"region\" String COMMENT '2.13 Регион (уточнённое название).',\n  \"remark\" String COMMENT '2.18 Дополнительный комментарий.',\n  \"s_tp\" String COMMENT '2.15 Площадь ТП, кв.м.',\n  \"status\" String COMMENT '2.19 Текущий статус рассмотрения проекта.',\n  \"status_finans\" String COMMENT '2.25 Статус выделения финансирования?',\n  \"subject\" String COMMENT '2.12 Субъект Российской Федерации.',\n  \"vid_rassm\" String COMMENT '2.7 Вид рассмотрения (плановый, внеплановый).'\n)\nAS WITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"date_from\",\n  \"id\",\n  \"project\",\n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM s4nd_dwh.zs4nd_d47\n)\nSELECT \n    project,\n    max(date_from) AS latest_date_from\nFROM step_auto\nWHERE \n    is_deleted = FALSE\n    AND date_realize IS NOT NULL\n    AND EXTRACT(YEAR FROM date_realize) IN \n        (JSONExtractString(ctx, 'p_year_from'), \n         JSONExtractString(ctx, 'p_year_to'))\n    AND date_from <= \n      (CASE \n          WHEN JSONExtractString(ctx, 'p_actual_date') = '19700101' \n          THEN today() \n          ELSE toDate(JSONExtractString(ctx, 'p_actual_date')) \n        END)\nGROUP BY project;\n",
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: p_zs4nd_d47_latest_date\n-- =========================================\n-- Блок: p_zs4nd_d47_latest_date (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: cv_prios\n-- База данных: s4nd_dwh\n-- =========================================\n\nCREATE OR REPLACE VIEW s4nd_dwh.\"cv_prios$p_zs4nd_d47_latest_date\"(\n  \"address\" String COMMENT '2.14 Адрес реализации проекта.',\n  \"budget\" Decimal(17, 2) COMMENT '2.28 Бюджет проекта всего.',\n  \"chisl_max\" Int32 COMMENT '2.16 Максимальная численность, ШЕ (штатных единиц).',\n  \"cnt_gbl\" String COMMENT '2.6 Количество ГБЛ (генерирующих безопасных объектов).',\n  \"date_finans\" Date COMMENT '2.26 Фактическая дата выделения финансирования.',\n  \"date_from\" Date COMMENT 'Дата начала действия версии. Обязательное поле.',\n  \"date_norm_zav\" Date COMMENT '2.23 Нормативная дата завершения рассмотрения.',\n  \"date_realize\" Date COMMENT '2.17 Планируемая дата реализации проекта.',\n  \"date_to\" Nullable(Date) COMMENT 'Дата окончания действия версии. NULL означает \"действует бессрочно\".',\n  \"date_vipoln_otl_usl\" Date COMMENT '2.30.2 Дата выполнения отлагательного условия.',\n  \"date_zav_rassm\" Date COMMENT '2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).',\n  \"doc_link\" String COMMENT 'Ссылка на документацию по проекту',\n  \"executor\" String COMMENT '2.2 Исполнитель проекта (ФИО или подразделение).',\n  \"fdate_post\" Date COMMENT '2.20 Планируемая дата реализации проекта.',\n  \"fdate_zav\" Date COMMENT '2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.',\n  \"fin_1_year\" Int32 COMMENT '2.27 Первый год, на который было выделено финансирования (20NN).',\n  \"fin_plan_ahr_0\" Decimal(17, 2) COMMENT '2.29 Плановый объем финансирования АХР - 20NN.',\n  \"fin_plan_ahr_1\" Decimal(17, 2) COMMENT '2.31 Плановый объем финансирования АХР - 20NN+1.',\n  \"fin_plan_ahr_2\" Decimal(17, 2) COMMENT '2.33 Плановый объем финансирования АХР - 20NN+2.',\n  \"fin_plan_kv_0\" Decimal(17, 2) COMMENT '2.30 Плановый объем финансирования КВ - 20NN.',\n  \"fin_plan_kv_1\" Decimal(17, 2) COMMENT '2.32 Плановый объем финансирования КВ - 20NN+1.',\n  \"fin_plan_kv_2\" Decimal(17, 2) COMMENT '2.34 Плановый объем финансирования КВ - 20NN+2.',\n  \"first_column\" Int32,\n  \"fm_area\" String COMMENT '2.9 ПФМ основной ТП (обозначение площадки).',\n  \"format_tp\" String COMMENT '2.5 Формат ТП (технологического передела).',\n  \"full_format\" String COMMENT '2.4 Полный формат проекта (описание типа объекта).',\n  \"funds_ctr\" String COMMENT '2.9 ПФМ основной ТП (аналогично fm_area).',\n  \"funds_ctr_shtxt\" String COMMENT '2.11 Краткое наименование ТП.',\n  \"funds_ctr_union\" String COMMENT '2.10 ПФМ объединяемых ТП (перечисление через запятую).',\n  \"id\" String COMMENT '2.0 Уникальный идентификатор версии записи',\n  \"is_deleted\" UInt8 COMMENT 'Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.',\n  \"is_finans\" String COMMENT '2.24 Требуется ли финансирование проекта? (да/нет).',\n  \"otlag_usl\" String COMMENT '2.30.1 Тип отлагательного условия.',\n  \"prior_rassm\" String COMMENT '2.8 Приоритетность рассмотрения (высокий, средний, низкий).',\n  \"project\" String COMMENT '2.1 Уникальный код проекта.',\n  \"project_plan\" String COMMENT '2.1 Уникальный код проекта - плановый',\n  \"project_vid\" String COMMENT '2.3 Вид проекта (например, капитальный ремонт, строительство).',\n  \"region\" String COMMENT '2.13 Регион (уточнённое название).',\n  \"remark\" String COMMENT '2.18 Дополнительный комментарий.',\n  \"s_tp\" String COMMENT '2.15 Площадь ТП, кв.м.',\n  \"status\" String COMMENT '2.19 Текущий статус рассмотрения проекта.',\n  \"status_finans\" String COMMENT '2.25 Статус выделения финансирования?',\n  \"subject\" String COMMENT '2.12 Субъект Российской Федерации.',\n  \"vid_rassm\" String COMMENT '2.7 Вид рассмотрения (плановый, внеплановый).'\n) AS\nWITH \nifNull({ctx:String}, '{}') AS ctx_init,\n  if(isValidJSON(ctx_init), ctx_init, '{}') AS ctx_clean,\n  isValidJSON(ctx_init) AS is_ctx_ok,\n  ifNull(JSONExtractString(ctx_clean, 'p_year_from'), '2025') AS p_year_from,\n  ifNull(JSONExtractString(ctx_clean, 'p_year_to'), '2028') AS p_year_to,\n  ifNull(JSONExtractString(ctx_clean, 'p_actual_date'), '19700101') AS p_actual_date,\n  toJSONString((p_year_from, p_year_to, p_actual_date)::Tuple(p_year_from String, p_year_to String, p_actual_date String)) AS ctx,\nstep_auto AS (\nSELECT\n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_from\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"id\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM s4nd_dwh.zs4nd_d47\n)\nSELECT \n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_from\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"id\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM step_auto;\n",
             "_fieldCache": [],
             "_cacheDirty": false,
-            "_lastSourceHash": "{\"sourceIds\":[],\"fieldExclusions\":[],\"fieldAliases\":{},\"selectedTable\":{\"connect_key\":\"1775066342937@@127.0.0.1@CLICKHOUSE@s4nd_dwh\",\"instanceName\":\"CLICKHOUSE\",\"database\":\"s4nd_dwh\",\"schema\":\"\",\"table\":\"zs4nd_d47\",\"dbType\":\"Clickhouse\",\"table_type\":\"TABLE\",\"metadata\":{\"table_schema\":\"s4nd_dwh\",\"table_name\":\"zs4nd_d47\",\"table_comment\":\"{\\\"app\\\": \\\"asapBI\\\",\\r\\n\\r\\n \\\"descr\\\": \\\"ПРиОС - факт\\\",\\r\\n\\r\\n \\\"folder\\\": \\\"tables/prios\\\"\\r\\n}\",\"table_type\":\"TABLE\"},\"jsonComment\":{\"app\":\"asapBI\",\"descr\":\"ПРиОС - факт\",\"folder\":\"tables/prios\"}}}"
+            "_lastSourceHash": "{\"sourceIds\":[],\"fieldExclusions\":[],\"fieldAliases\":{},\"selectedTable\":{\"connect_key\":\"1775066342937@@127.0.0.1@CLICKHOUSE@s4nd_dwh\",\"instanceName\":\"CLICKHOUSE\",\"database\":\"s4nd_dwh\",\"schema\":\"\",\"table\":\"zs4nd_d47\",\"dbType\":\"Clickhouse\",\"table_type\":\"TABLE\",\"metadata\":{\"table_schema\":\"s4nd_dwh\",\"table_name\":\"zs4nd_d47\",\"table_comment\":\"{\\\"app\\\": \\\"asapBI\\\",\\r\\n\\r\\n \\\"descr\\\": \\\"ПРиОС - факт\\\",\\r\\n\\r\\n \\\"folder\\\": \\\"tables/prios\\\"\\r\\n}\",\"table_type\":\"TABLE\"},\"jsonComment\":{\"app\":\"asapBI\",\"descr\":\"ПРиОС - факт\",\"folder\":\"tables/prios\"}}}",
+            "uuid": "f7c4afcf-aaf7-4d28-9109-1d5cbe517bee",
+            "fieldOrder": [],
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "commentSql": "ALTER TABLE s4nd_dwh.\"cv_prios$p_zs4nd_d47_latest_date\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"отчет ПРиОС\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/s4nd_dm/prios\",\n  \"fields\": {\n    \"address\": \"2.14 Адрес реализации проекта.\",\n    \"budget\": \"2.28 Бюджет проекта всего.\",\n    \"chisl_max\": \"2.16 Максимальная численность, ШЕ (штатных единиц).\",\n    \"cnt_gbl\": \"2.6 Количество ГБЛ (генерирующих безопасных объектов).\",\n    \"date_finans\": \"2.26 Фактическая дата выделения финансирования.\",\n    \"date_from\": \"Дата начала действия версии. Обязательное поле.\",\n    \"date_norm_zav\": \"2.23 Нормативная дата завершения рассмотрения.\",\n    \"date_realize\": \"2.17 Планируемая дата реализации проекта.\",\n    \"date_to\": \"Дата окончания действия версии. NULL означает \\\"действует бессрочно\\\".\",\n    \"date_vipoln_otl_usl\": \"2.30.2 Дата выполнения отлагательного условия.\",\n    \"date_zav_rassm\": \"2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).\",\n    \"doc_link\": \"Ссылка на документацию по проекту\",\n    \"executor\": \"2.2 Исполнитель проекта (ФИО или подразделение).\",\n    \"fdate_post\": \"2.20 Планируемая дата реализации проекта.\",\n    \"fdate_zav\": \"2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.\",\n    \"fin_1_year\": \"2.27 Первый год, на который было выделено финансирования (20NN).\",\n    \"fin_plan_ahr_0\": \"2.29 Плановый объем финансирования АХР - 20NN.\",\n    \"fin_plan_ahr_1\": \"2.31 Плановый объем финансирования АХР - 20NN+1.\",\n    \"fin_plan_ahr_2\": \"2.33 Плановый объем финансирования АХР - 20NN+2.\",\n    \"fin_plan_kv_0\": \"2.30 Плановый объем финансирования КВ - 20NN.\",\n    \"fin_plan_kv_1\": \"2.32 Плановый объем финансирования КВ - 20NN+1.\",\n    \"fin_plan_kv_2\": \"2.34 Плановый объем финансирования КВ - 20NN+2.\",\n    \"fm_area\": \"2.9 ПФМ основной ТП (обозначение площадки).\",\n    \"format_tp\": \"2.5 Формат ТП (технологического передела).\",\n    \"full_format\": \"2.4 Полный формат проекта (описание типа объекта).\",\n    \"funds_ctr\": \"2.9 ПФМ основной ТП (аналогично fm_area).\",\n    \"funds_ctr_shtxt\": \"2.11 Краткое наименование ТП.\",\n    \"funds_ctr_union\": \"2.10 ПФМ объединяемых ТП (перечисление через запятую).\",\n    \"id\": \"2.0 Уникальный идентификатор версии записи\",\n    \"is_deleted\": \"Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.\",\n    \"is_finans\": \"2.24 Требуется ли финансирование проекта? (да/нет).\",\n    \"otlag_usl\": \"2.30.1 Тип отлагательного условия.\",\n    \"prior_rassm\": \"2.8 Приоритетность рассмотрения (высокий, средний, низкий).\",\n    \"project\": \"2.1 Уникальный код проекта.\",\n    \"project_plan\": \"2.1 Уникальный код проекта - плановый\",\n    \"project_vid\": \"2.3 Вид проекта (например, капитальный ремонт, строительство).\",\n    \"region\": \"2.13 Регион (уточнённое название).\",\n    \"remark\": \"2.18 Дополнительный комментарий.\",\n    \"s_tp\": \"2.15 Площадь ТП, кв.м.\",\n    \"status\": \"2.19 Текущий статус рассмотрения проекта.\",\n    \"status_finans\": \"2.25 Статус выделения финансирования?\",\n    \"subject\": \"2.12 Субъект Российской Федерации.\",\n    \"vid_rassm\": \"2.7 Вид рассмотрения (плановый, внеплановый).\"\n  },\n  \"variables\": [\n    {\n      \"id\": \"6xls5gyk5\",\n      \"name\": \"p_year_from\",\n      \"displayName\": \"Год с\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"2025\",\n      \"description\": \"Фильтр\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": false\n    },\n    {\n      \"id\": \"17ycll3ne\",\n      \"name\": \"p_year_to\",\n      \"displayName\": \"Год по\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"2028\",\n      \"description\": \"Фильтр\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": true\n    },\n    {\n      \"id\": \"zmyypiwfh\",\n      \"name\": \"p_actual_date\",\n      \"displayName\": \"Дата актуальности\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"19700101\",\n      \"description\": \"\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": false\n    }\n  ],\n  \"uuid\": \"3d843e60-e91a-4800-95e1-e8db910792dd\",\n  \"version\": \"1.0\"\n}';"
         },
         {
             "id": "block_1776921269763",
             "name": "Join_1776921269763",
             "type": "join",
             "uuid": "2980914a-c08b-4119-a1d9-9180b6d6a8b9",
-            "x": 2262,
-            "y": 1468.7999992370605,
+            "x": 2400,
+            "y": 1470,
             "width": 200,
             "height": 60,
             "color": "#0d6efd20",
@@ -6185,15 +6413,16 @@
                     "prevAlias": "vid_rassm_1"
                 }
             ],
-            "__cvInvalidCountCacheAt": 1776922924965,
+            "__cvInvalidCountCacheAt": 1777021681354,
             "__cvInvalidCountCacheValue": 0,
-            "__cvJoinBadgeDbgAt": 1776922924880,
+            "__cvJoinBadgeDbgAt": 1777021681265,
             "__invalidBadgeLastCount": 0,
             "_fieldCache": [],
             "_cacheDirty": false,
             "_lastSourceHash": "{\"sourceIds\":[\"projection_1776921269762\",\"projection_1776922043026\"],\"fieldExclusions\":[],\"fieldAliases\":{}}",
             "lastFieldSelectionUpdate": "2026-04-23T05:40:38.417Z",
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Join_1776921269763\n-- =========================================\n-- Блок: Join_1776921269763 (join)\n-- Тип: ClickHouse Parameterized View\n-- CV: cv_prios\n-- База данных: s4nd_dwh\n-- =========================================\n\nCREATE OR REPLACE VIEW s4nd_dwh.\"cv_prios$join_1776921269763\"(\n  \"date_from\" Date COMMENT 'Дата начала действия версии. Обязательное поле.',\n  \"id\" String COMMENT '2.0 Уникальный идентификатор версии записи',\n  \"project\" String COMMENT '2.1 Уникальный код проекта.',\n  \"address\" String COMMENT '2.14 Адрес реализации проекта.',\n  \"budget\" Decimal(17, 2) COMMENT '2.28 Бюджет проекта всего.',\n  \"chisl_max\" Int32 COMMENT '2.16 Максимальная численность, ШЕ (штатных единиц).',\n  \"cnt_gbl\" String COMMENT '2.6 Количество ГБЛ (генерирующих безопасных объектов).',\n  \"date_finans\" Date COMMENT '2.26 Фактическая дата выделения финансирования.',\n  \"date_norm_zav\" Date COMMENT '2.23 Нормативная дата завершения рассмотрения.',\n  \"date_realize\" Date COMMENT '2.17 Планируемая дата реализации проекта.',\n  \"date_to\" Nullable(Date) COMMENT 'Дата окончания действия версии. NULL означает \"действует бессрочно\".',\n  \"date_vipoln_otl_usl\" Date COMMENT '2.30.2 Дата выполнения отлагательного условия.',\n  \"date_zav_rassm\" Date COMMENT '2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).',\n  \"doc_link\" String COMMENT 'Ссылка на документацию по проекту',\n  \"executor\" String COMMENT '2.2 Исполнитель проекта (ФИО или подразделение).',\n  \"fdate_post\" Date COMMENT '2.20 Планируемая дата реализации проекта.',\n  \"fdate_zav\" Date COMMENT '2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.',\n  \"fin_1_year\" Int32 COMMENT '2.27 Первый год, на который было выделено финансирования (20NN).',\n  \"fin_plan_ahr_0\" Decimal(17, 2) COMMENT '2.29 Плановый объем финансирования АХР - 20NN.',\n  \"fin_plan_ahr_1\" Decimal(17, 2) COMMENT '2.31 Плановый объем финансирования АХР - 20NN+1.',\n  \"fin_plan_ahr_2\" Decimal(17, 2) COMMENT '2.33 Плановый объем финансирования АХР - 20NN+2.',\n  \"fin_plan_kv_0\" Decimal(17, 2) COMMENT '2.30 Плановый объем финансирования КВ - 20NN.',\n  \"fin_plan_kv_1\" Decimal(17, 2) COMMENT '2.32 Плановый объем финансирования КВ - 20NN+1.',\n  \"fin_plan_kv_2\" Decimal(17, 2) COMMENT '2.34 Плановый объем финансирования КВ - 20NN+2.',\n  \"first_column\" Int32,\n  \"fm_area\" String COMMENT '2.9 ПФМ основной ТП (обозначение площадки).',\n  \"format_tp\" String COMMENT '2.5 Формат ТП (технологического передела).',\n  \"full_format\" String COMMENT '2.4 Полный формат проекта (описание типа объекта).',\n  \"funds_ctr\" String COMMENT '2.9 ПФМ основной ТП (аналогично fm_area).',\n  \"funds_ctr_shtxt\" String COMMENT '2.11 Краткое наименование ТП.',\n  \"funds_ctr_union\" String COMMENT '2.10 ПФМ объединяемых ТП (перечисление через запятую).',\n  \"is_deleted\" UInt8 COMMENT 'Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.',\n  \"is_finans\" String COMMENT '2.24 Требуется ли финансирование проекта? (да/нет).',\n  \"otlag_usl\" String COMMENT '2.30.1 Тип отлагательного условия.',\n  \"prior_rassm\" String COMMENT '2.8 Приоритетность рассмотрения (высокий, средний, низкий).',\n  \"project_plan\" String COMMENT '2.1 Уникальный код проекта - плановый',\n  \"project_vid\" String COMMENT '2.3 Вид проекта (например, капитальный ремонт, строительство).',\n  \"region\" String COMMENT '2.13 Регион (уточнённое название).',\n  \"remark\" String COMMENT '2.18 Дополнительный комментарий.',\n  \"s_tp\" String COMMENT '2.15 Площадь ТП, кв.м.',\n  \"status\" String COMMENT '2.19 Текущий статус рассмотрения проекта.',\n  \"status_finans\" String COMMENT '2.25 Статус выделения финансирования?',\n  \"subject\" String COMMENT '2.12 Субъект Российской Федерации.',\n  \"vid_rassm\" String COMMENT '2.7 Вид рассмотрения (плановый, внеплановый).'\n) AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  l.*,\n  r.*\nFROM s4nd_dwh.\"cv_prios$projection_zs4nd_d47\" AS l(ctx = ctx)\nINNER JOIN s4nd_dwh.\"cv_prios$p_zs4nd_d47_latest_date\" AS r\nON l.\"project\" = r.\"project\"\n)\nSELECT \n  \"date_from\",\n  \"id\",\n  \"project\",\n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM step_auto;\n"
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Join_1776921269763\n-- =========================================\n-- Блок: Join_1776921269763 (join)\n-- Тип: ClickHouse Parameterized View\n-- CV: cv_prios\n-- База данных: s4nd_dwh\n-- =========================================\n\nCREATE OR REPLACE VIEW s4nd_dwh.\"cv_prios$join_1776921269763\"(\n  \"date_from\" Date COMMENT 'Дата начала действия версии. Обязательное поле.',\n  \"id\" String COMMENT '2.0 Уникальный идентификатор версии записи',\n  \"project\" String COMMENT '2.1 Уникальный код проекта.',\n  \"address\" String COMMENT '2.14 Адрес реализации проекта.',\n  \"budget\" Decimal(17, 2) COMMENT '2.28 Бюджет проекта всего.',\n  \"chisl_max\" Int32 COMMENT '2.16 Максимальная численность, ШЕ (штатных единиц).',\n  \"cnt_gbl\" String COMMENT '2.6 Количество ГБЛ (генерирующих безопасных объектов).',\n  \"date_finans\" Date COMMENT '2.26 Фактическая дата выделения финансирования.',\n  \"date_norm_zav\" Date COMMENT '2.23 Нормативная дата завершения рассмотрения.',\n  \"date_realize\" Date COMMENT '2.17 Планируемая дата реализации проекта.',\n  \"date_to\" Nullable(Date) COMMENT 'Дата окончания действия версии. NULL означает \"действует бессрочно\".',\n  \"date_vipoln_otl_usl\" Date COMMENT '2.30.2 Дата выполнения отлагательного условия.',\n  \"date_zav_rassm\" Date COMMENT '2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).',\n  \"doc_link\" String COMMENT 'Ссылка на документацию по проекту',\n  \"executor\" String COMMENT '2.2 Исполнитель проекта (ФИО или подразделение).',\n  \"fdate_post\" Date COMMENT '2.20 Планируемая дата реализации проекта.',\n  \"fdate_zav\" Date COMMENT '2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.',\n  \"fin_1_year\" Int32 COMMENT '2.27 Первый год, на который было выделено финансирования (20NN).',\n  \"fin_plan_ahr_0\" Decimal(17, 2) COMMENT '2.29 Плановый объем финансирования АХР - 20NN.',\n  \"fin_plan_ahr_1\" Decimal(17, 2) COMMENT '2.31 Плановый объем финансирования АХР - 20NN+1.',\n  \"fin_plan_ahr_2\" Decimal(17, 2) COMMENT '2.33 Плановый объем финансирования АХР - 20NN+2.',\n  \"fin_plan_kv_0\" Decimal(17, 2) COMMENT '2.30 Плановый объем финансирования КВ - 20NN.',\n  \"fin_plan_kv_1\" Decimal(17, 2) COMMENT '2.32 Плановый объем финансирования КВ - 20NN+1.',\n  \"fin_plan_kv_2\" Decimal(17, 2) COMMENT '2.34 Плановый объем финансирования КВ - 20NN+2.',\n  \"first_column\" Int32,\n  \"fm_area\" String COMMENT '2.9 ПФМ основной ТП (обозначение площадки).',\n  \"format_tp\" String COMMENT '2.5 Формат ТП (технологического передела).',\n  \"full_format\" String COMMENT '2.4 Полный формат проекта (описание типа объекта).',\n  \"funds_ctr\" String COMMENT '2.9 ПФМ основной ТП (аналогично fm_area).',\n  \"funds_ctr_shtxt\" String COMMENT '2.11 Краткое наименование ТП.',\n  \"funds_ctr_union\" String COMMENT '2.10 ПФМ объединяемых ТП (перечисление через запятую).',\n  \"is_deleted\" UInt8 COMMENT 'Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.',\n  \"is_finans\" String COMMENT '2.24 Требуется ли финансирование проекта? (да/нет).',\n  \"otlag_usl\" String COMMENT '2.30.1 Тип отлагательного условия.',\n  \"prior_rassm\" String COMMENT '2.8 Приоритетность рассмотрения (высокий, средний, низкий).',\n  \"project_plan\" String COMMENT '2.1 Уникальный код проекта - плановый',\n  \"project_vid\" String COMMENT '2.3 Вид проекта (например, капитальный ремонт, строительство).',\n  \"region\" String COMMENT '2.13 Регион (уточнённое название).',\n  \"remark\" String COMMENT '2.18 Дополнительный комментарий.',\n  \"s_tp\" String COMMENT '2.15 Площадь ТП, кв.м.',\n  \"status\" String COMMENT '2.19 Текущий статус рассмотрения проекта.',\n  \"status_finans\" String COMMENT '2.25 Статус выделения финансирования?',\n  \"subject\" String COMMENT '2.12 Субъект Российской Федерации.',\n  \"vid_rassm\" String COMMENT '2.7 Вид рассмотрения (плановый, внеплановый).'\n) AS\nWITH \nifNull({ctx:String}, '{}') AS ctx_init,\n  if(isValidJSON(ctx_init), ctx_init, '{}') AS ctx_clean,\n  isValidJSON(ctx_init) AS is_ctx_ok,\n  ifNull(JSONExtractString(ctx_clean, 'p_year_from'), '2025') AS p_year_from,\n  ifNull(JSONExtractString(ctx_clean, 'p_year_to'), '2028') AS p_year_to,\n  ifNull(JSONExtractString(ctx_clean, 'p_actual_date'), '19700101') AS p_actual_date,\n  toJSONString((p_year_from, p_year_to, p_actual_date)::Tuple(p_year_from String, p_year_to String, p_actual_date String)) AS ctx,\nstep_auto AS (\nSELECT\n  l.*,\n  r.*\nFROM s4nd_dwh.\"cv_prios$projection_zs4nd_d47\"(ctx = ctx) AS l\nINNER JOIN s4nd_dwh.\"cv_prios$p_zs4nd_d47_latest_date\"(ctx = ctx) AS r\nON l.\"project\" = r.\"project\"\n)\nSELECT \n  \"date_from\",\n  \"id\",\n  \"project\",\n  \"address\",\n  \"budget\",\n  \"chisl_max\",\n  \"cnt_gbl\",\n  \"date_finans\",\n  \"date_norm_zav\",\n  \"date_realize\",\n  \"date_to\",\n  \"date_vipoln_otl_usl\",\n  \"date_zav_rassm\",\n  \"doc_link\",\n  \"executor\",\n  \"fdate_post\",\n  \"fdate_zav\",\n  \"fin_1_year\",\n  \"fin_plan_ahr_0\",\n  \"fin_plan_ahr_1\",\n  \"fin_plan_ahr_2\",\n  \"fin_plan_kv_0\",\n  \"fin_plan_kv_1\",\n  \"fin_plan_kv_2\",\n  \"first_column\",\n  \"fm_area\",\n  \"format_tp\",\n  \"full_format\",\n  \"funds_ctr\",\n  \"funds_ctr_shtxt\",\n  \"funds_ctr_union\",\n  \"is_deleted\",\n  \"is_finans\",\n  \"otlag_usl\",\n  \"prior_rassm\",\n  \"project_plan\",\n  \"project_vid\",\n  \"region\",\n  \"remark\",\n  \"s_tp\",\n  \"status\",\n  \"status_finans\",\n  \"subject\",\n  \"vid_rassm\"\nFROM step_auto;\n",
+            "commentSql": "ALTER TABLE s4nd_dwh.\"cv_prios$join_1776921269763\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"отчет ПРиОС\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/s4nd_dm/prios\",\n  \"fields\": {\n    \"date_from\": \"Дата начала действия версии. Обязательное поле.\",\n    \"id\": \"2.0 Уникальный идентификатор версии записи\",\n    \"project\": \"2.1 Уникальный код проекта.\",\n    \"address\": \"2.14 Адрес реализации проекта.\",\n    \"budget\": \"2.28 Бюджет проекта всего.\",\n    \"chisl_max\": \"2.16 Максимальная численность, ШЕ (штатных единиц).\",\n    \"cnt_gbl\": \"2.6 Количество ГБЛ (генерирующих безопасных объектов).\",\n    \"date_finans\": \"2.26 Фактическая дата выделения финансирования.\",\n    \"date_norm_zav\": \"2.23 Нормативная дата завершения рассмотрения.\",\n    \"date_realize\": \"2.17 Планируемая дата реализации проекта.\",\n    \"date_to\": \"Дата окончания действия версии. NULL означает \\\"действует бессрочно\\\".\",\n    \"date_vipoln_otl_usl\": \"2.30.2 Дата выполнения отлагательного условия.\",\n    \"date_zav_rassm\": \"2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).\",\n    \"doc_link\": \"Ссылка на документацию по проекту\",\n    \"executor\": \"2.2 Исполнитель проекта (ФИО или подразделение).\",\n    \"fdate_post\": \"2.20 Планируемая дата реализации проекта.\",\n    \"fdate_zav\": \"2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.\",\n    \"fin_1_year\": \"2.27 Первый год, на который было выделено финансирования (20NN).\",\n    \"fin_plan_ahr_0\": \"2.29 Плановый объем финансирования АХР - 20NN.\",\n    \"fin_plan_ahr_1\": \"2.31 Плановый объем финансирования АХР - 20NN+1.\",\n    \"fin_plan_ahr_2\": \"2.33 Плановый объем финансирования АХР - 20NN+2.\",\n    \"fin_plan_kv_0\": \"2.30 Плановый объем финансирования КВ - 20NN.\",\n    \"fin_plan_kv_1\": \"2.32 Плановый объем финансирования КВ - 20NN+1.\",\n    \"fin_plan_kv_2\": \"2.34 Плановый объем финансирования КВ - 20NN+2.\",\n    \"fm_area\": \"2.9 ПФМ основной ТП (обозначение площадки).\",\n    \"format_tp\": \"2.5 Формат ТП (технологического передела).\",\n    \"full_format\": \"2.4 Полный формат проекта (описание типа объекта).\",\n    \"funds_ctr\": \"2.9 ПФМ основной ТП (аналогично fm_area).\",\n    \"funds_ctr_shtxt\": \"2.11 Краткое наименование ТП.\",\n    \"funds_ctr_union\": \"2.10 ПФМ объединяемых ТП (перечисление через запятую).\",\n    \"is_deleted\": \"Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.\",\n    \"is_finans\": \"2.24 Требуется ли финансирование проекта? (да/нет).\",\n    \"otlag_usl\": \"2.30.1 Тип отлагательного условия.\",\n    \"prior_rassm\": \"2.8 Приоритетность рассмотрения (высокий, средний, низкий).\",\n    \"project_plan\": \"2.1 Уникальный код проекта - плановый\",\n    \"project_vid\": \"2.3 Вид проекта (например, капитальный ремонт, строительство).\",\n    \"region\": \"2.13 Регион (уточнённое название).\",\n    \"remark\": \"2.18 Дополнительный комментарий.\",\n    \"s_tp\": \"2.15 Площадь ТП, кв.м.\",\n    \"status\": \"2.19 Текущий статус рассмотрения проекта.\",\n    \"status_finans\": \"2.25 Статус выделения финансирования?\",\n    \"subject\": \"2.12 Субъект Российской Федерации.\",\n    \"vid_rassm\": \"2.7 Вид рассмотрения (плановый, внеплановый).\",\n    \"date_from_1\": \"Дата начала действия версии. Обязательное поле.\",\n    \"id_1\": \"2.0 Уникальный идентификатор версии записи\",\n    \"project_1\": \"2.1 Уникальный код проекта.\",\n    \"address_1\": \"2.14 Адрес реализации проекта.\",\n    \"budget_1\": \"2.28 Бюджет проекта всего.\",\n    \"chisl_max_1\": \"2.16 Максимальная численность, ШЕ (штатных единиц).\",\n    \"cnt_gbl_1\": \"2.6 Количество ГБЛ (генерирующих безопасных объектов).\",\n    \"date_finans_1\": \"2.26 Фактическая дата выделения финансирования.\",\n    \"date_norm_zav_1\": \"2.23 Нормативная дата завершения рассмотрения.\",\n    \"date_realize_1\": \"2.17 Планируемая дата реализации проекта.\",\n    \"date_to_1\": \"Дата окончания действия версии. NULL означает \\\"действует бессрочно\\\".\",\n    \"date_vipoln_otl_usl_1\": \"2.30.2 Дата выполнения отлагательного условия.\",\n    \"date_zav_rassm_1\": \"2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).\",\n    \"doc_link_1\": \"Ссылка на документацию по проекту\",\n    \"executor_1\": \"2.2 Исполнитель проекта (ФИО или подразделение).\",\n    \"fdate_post_1\": \"2.20 Планируемая дата реализации проекта.\",\n    \"fdate_zav_1\": \"2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.\",\n    \"fin_1_year_1\": \"2.27 Первый год, на который было выделено финансирования (20NN).\",\n    \"fin_plan_ahr_0_1\": \"2.29 Плановый объем финансирования АХР - 20NN.\",\n    \"fin_plan_ahr_1_1\": \"2.31 Плановый объем финансирования АХР - 20NN+1.\",\n    \"fin_plan_ahr_2_1\": \"2.33 Плановый объем финансирования АХР - 20NN+2.\",\n    \"fin_plan_kv_0_1\": \"2.30 Плановый объем финансирования КВ - 20NN.\",\n    \"fin_plan_kv_1_1\": \"2.32 Плановый объем финансирования КВ - 20NN+1.\",\n    \"fin_plan_kv_2_1\": \"2.34 Плановый объем финансирования КВ - 20NN+2.\",\n    \"fm_area_1\": \"2.9 ПФМ основной ТП (обозначение площадки).\",\n    \"format_tp_1\": \"2.5 Формат ТП (технологического передела).\",\n    \"full_format_1\": \"2.4 Полный формат проекта (описание типа объекта).\",\n    \"funds_ctr_1\": \"2.9 ПФМ основной ТП (аналогично fm_area).\",\n    \"funds_ctr_shtxt_1\": \"2.11 Краткое наименование ТП.\",\n    \"funds_ctr_union_1\": \"2.10 ПФМ объединяемых ТП (перечисление через запятую).\",\n    \"is_deleted_1\": \"Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.\",\n    \"is_finans_1\": \"2.24 Требуется ли финансирование проекта? (да/нет).\",\n    \"otlag_usl_1\": \"2.30.1 Тип отлагательного условия.\",\n    \"prior_rassm_1\": \"2.8 Приоритетность рассмотрения (высокий, средний, низкий).\",\n    \"project_plan_1\": \"2.1 Уникальный код проекта - плановый\",\n    \"project_vid_1\": \"2.3 Вид проекта (например, капитальный ремонт, строительство).\",\n    \"region_1\": \"2.13 Регион (уточнённое название).\",\n    \"remark_1\": \"2.18 Дополнительный комментарий.\",\n    \"s_tp_1\": \"2.15 Площадь ТП, кв.м.\",\n    \"status_1\": \"2.19 Текущий статус рассмотрения проекта.\",\n    \"status_finans_1\": \"2.25 Статус выделения финансирования?\",\n    \"subject_1\": \"2.12 Субъект Российской Федерации.\",\n    \"vid_rassm_1\": \"2.7 Вид рассмотрения (плановый, внеплановый).\"\n  },\n  \"variables\": [\n    {\n      \"id\": \"6xls5gyk5\",\n      \"name\": \"p_year_from\",\n      \"displayName\": \"Год с\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"2025\",\n      \"description\": \"Фильтр\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": false\n    },\n    {\n      \"id\": \"17ycll3ne\",\n      \"name\": \"p_year_to\",\n      \"displayName\": \"Год по\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"2028\",\n      \"description\": \"Фильтр\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": true\n    },\n    {\n      \"id\": \"zmyypiwfh\",\n      \"name\": \"p_actual_date\",\n      \"displayName\": \"Дата актуальности\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"19700101\",\n      \"description\": \"\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": false\n    }\n  ],\n  \"uuid\": \"3d843e60-e91a-4800-95e1-e8db910792dd\",\n  \"version\": \"1.0\"\n}';"
         }
     ],
     "connections": [

@@ -1,60 +1,112 @@
-CREATE DATABASE IF NOT EXISTS s4nd_dwh;
+-- 1. Создание схемы (если отсутствует)
+CREATE SCHEMA IF NOT EXISTS s4nd_dwh;
 
-drop table IF EXISTS s4nd_dwh.zs4nd_d47;
-
+-- 2. Создание таблицы
 CREATE TABLE IF NOT EXISTS s4nd_dwh.zs4nd_d47
 (
-    `first_column` Int32 DEFAULT 0,
-    `id` String COMMENT '2.0 Уникальный идентификатор версии записи',
-    `project` String COMMENT '2.1 Уникальный код проекта.',
-    `executor` String COMMENT '2.2 Исполнитель проекта (ФИО или подразделение).',
-    `project_vid` String COMMENT '2.3 Вид проекта (например, капитальный ремонт, строительство).',
-    `full_format` String COMMENT '2.4 Полный формат проекта (описание типа объекта).',
-    `format_tp` String COMMENT '2.5 Формат ТП (технологического передела).',
-    `cnt_gbl` String COMMENT '2.6 Количество ГБЛ (генерирующих безопасных объектов).',
-    `vid_rassm` String COMMENT '2.7 Вид рассмотрения (плановый, внеплановый).',
-    `prior_rassm` String COMMENT '2.8 Приоритетность рассмотрения (высокий, средний, низкий).',
-    `fm_area` String COMMENT '2.9 ПФМ основной ТП (обозначение площадки).',
-    `funds_ctr` String COMMENT '2.9 ПФМ основной ТП (аналогично fm_area).',
-    `funds_ctr_union` String COMMENT '2.10 ПФМ объединяемых ТП (перечисление через запятую).',
-    `funds_ctr_shtxt` String COMMENT '2.11 Краткое наименование ТП.',
-    `subject` String COMMENT '2.12 Субъект Российской Федерации.',
-    `region` String COMMENT '2.13 Регион (уточнённое название).',
-    `address` String COMMENT '2.14 Адрес реализации проекта.',
-    `s_tp` String COMMENT '2.15 Площадь ТП, кв.м.',
-    `chisl_max` Int32 COMMENT '2.16 Максимальная численность, ШЕ (штатных единиц).',
-    `date_realize` Date COMMENT '2.17 Планируемая дата реализации проекта.',
-    `remark` String COMMENT '2.18 Дополнительный комментарий.',
-    `status` String COMMENT '2.19 Текущий статус рассмотрения проекта.',
-    `fdate_post` Date COMMENT '2.20 Планируемая дата реализации проекта.',
-    `fdate_zav` Date COMMENT '2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.',
-    `date_zav_rassm` Date COMMENT '2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).',
-    `date_norm_zav` Date COMMENT '2.23 Нормативная дата завершения рассмотрения.',
-    `is_finans` String COMMENT '2.24 Требуется ли финансирование проекта? (да/нет).',
-    `status_finans` String COMMENT '2.25 Статус выделения финансирования?',
-    `date_finans` Date COMMENT '2.26 Фактическая дата выделения финансирования.',
-    `fin_1_year` Int32 COMMENT '2.27 Первый год, на который было выделено финансирования (20NN).',
-    `budget` Decimal(17, 2) COMMENT '2.28 Бюджет проекта всего.',
-    `fin_plan_ahr_0` Decimal(17, 2) COMMENT '2.29 Плановый объем финансирования АХР - 20NN.',
-    `fin_plan_kv_0` Decimal(17, 2) COMMENT '2.30 Плановый объем финансирования КВ - 20NN.',
-    `otlag_usl` String COMMENT '2.30.1 Тип отлагательного условия.',
-    `date_vipoln_otl_usl` Date COMMENT '2.30.2 Дата выполнения отлагательного условия.',
-    `fin_plan_ahr_1` Decimal(17, 2) COMMENT '2.31 Плановый объем финансирования АХР - 20NN+1.',
-    `fin_plan_kv_1` Decimal(17, 2) COMMENT '2.32 Плановый объем финансирования КВ - 20NN+1.',
-    `fin_plan_ahr_2` Decimal(17, 2) COMMENT '2.33 Плановый объем финансирования АХР - 20NN+2.',
-    `fin_plan_kv_2` Decimal(17, 2) COMMENT '2.34 Плановый объем финансирования КВ - 20NN+2.',
-    `project_plan` String COMMENT '2.1 Уникальный код проекта - плановый',
-    `doc_link` String COMMENT 'Ссылка на документацию по проекту',
-    `date_from` Date DEFAULT today() COMMENT 'Дата начала действия версии. Обязательное поле.',
-    `date_to` Nullable(Date) COMMENT 'Дата окончания действия версии. NULL означает "действует бессрочно".',
-    `is_deleted` UInt8 DEFAULT 0 COMMENT 'Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.'
-)
-ENGINE = ReplacingMergeTree()
-ORDER BY (project, id, date_from)
-PARTITION BY toYYYYMM(date_from)
-COMMENT '{"app": "asapBI",
+    first_column        INTEGER DEFAULT 0,
+    id                  TEXT,
+    project             TEXT,
+    executor            TEXT,
+    project_vid         TEXT,
+    full_format         TEXT,
+    format_tp           TEXT,
+    cnt_gbl             TEXT,
+    vid_rassm           TEXT,
+    prior_rassm         TEXT,
+    fm_area             TEXT,
+    funds_ctr           TEXT,
+    funds_ctr_union     TEXT,
+    funds_ctr_shtxt     TEXT,
+    subject             TEXT,
+    region              TEXT,
+    address             TEXT,
+    s_tp                TEXT,
+    chisl_max           INTEGER,
+    date_realize        DATE,
+    remark              TEXT,
+    status              TEXT,
+    fdate_post          DATE,
+    fdate_zav           DATE,
+    date_zav_rassm      DATE,
+    date_norm_zav       DATE,
+    is_finans           TEXT,
+    status_finans       TEXT,
+    date_finans         DATE,
+    fin_1_year          INTEGER,
+    budget              NUMERIC(17, 2),
+    fin_plan_ahr_0      NUMERIC(17, 2),
+    fin_plan_kv_0       NUMERIC(17, 2),
+    otlag_usl           TEXT,
+    date_vipoln_otl_usl DATE,
+    fin_plan_ahr_1      NUMERIC(17, 2),
+    fin_plan_kv_1       NUMERIC(17, 2),
+    fin_plan_ahr_2      NUMERIC(17, 2),
+    fin_plan_kv_2       NUMERIC(17, 2),
+    project_plan        TEXT,
+    doc_link            TEXT,
+    date_from           DATE DEFAULT CURRENT_DATE,
+    date_to             DATE, -- В PostgreSQL колонки по умолчанию Nullable
+    is_deleted          SMALLINT DEFAULT 0
+);
+
+-- 3. Комментарии к таблице
+COMMENT ON TABLE s4nd_dwh.zs4nd_d47 IS
+'{"app": "asapBI",
 \r\n "descr": "ПРиОС - факт",
 \r\n "folder": "tables/prios"\r\n}';
+
+-- 4. Комментарии к колонкам
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.id IS '2.0 Уникальный идентификатор версии записи';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.project IS '2.1 Уникальный код проекта.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.executor IS '2.2 Исполнитель проекта (ФИО или подразделение).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.project_vid IS '2.3 Вид проекта (например, капитальный ремонт, строительство).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.full_format IS '2.4 Полный формат проекта (описание типа объекта).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.format_tp IS '2.5 Формат ТП (технологического передела).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.cnt_gbl IS '2.6 Количество ГБЛ (генерирующих безопасных объектов).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.vid_rassm IS '2.7 Вид рассмотрения (плановый, внеплановый).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.prior_rassm IS '2.8 Приоритетность рассмотрения (высокий, средний, низкий).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.fm_area IS '2.9 ПФМ основной ТП (обозначение площадки).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.funds_ctr IS '2.9 ПФМ основной ТП (аналогично fm_area).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.funds_ctr_union IS '2.10 ПФМ объединяемых ТП (перечисление через запятую).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.funds_ctr_shtxt IS '2.11 Краткое наименование ТП.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.subject IS '2.12 Субъект Российской Федерации.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.region IS '2.13 Регион (уточнённое название).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.address IS '2.14 Адрес реализации проекта.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.s_tp IS '2.15 Площадь ТП, кв.м.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.chisl_max IS '2.16 Максимальная численность, ШЕ (штатных единиц).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.date_realize IS '2.17 Планируемая дата реализации проекта.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.remark IS '2.18 Дополнительный комментарий.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.status IS '2.19 Текущий статус рассмотрения проекта.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.fdate_post IS '2.20 Планируемая дата реализации проекта.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.fdate_zav IS '2.21 Фактическая дата завершения рассмотрения проекта УБ ФД.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.date_zav_rassm IS '2.22 Плановая дата завершения рассмотрения (устанавливается рук-вом УБ ФД).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.date_norm_zav IS '2.23 Нормативная дата завершения рассмотрения.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.is_finans IS '2.24 Требуется ли финансирование проекта? (да/нет).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.status_finans IS '2.25 Статус выделения финансирования?';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.date_finans IS '2.26 Фактическая дата выделения финансирования.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.fin_1_year IS '2.27 Первый год, на который было выделено финансирования (20NN).';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.budget IS '2.28 Бюджет проекта всего.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.fin_plan_ahr_0 IS '2.29 Плановый объем финансирования АХР - 20NN.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.fin_plan_kv_0 IS '2.30 Плановый объем финансирования КВ - 20NN.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.otlag_usl IS '2.30.1 Тип отлагательного условия.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.date_vipoln_otl_usl IS '2.30.2 Дата выполнения отлагательного условия.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.fin_plan_ahr_1 IS '2.31 Плановый объем финансирования АХР - 20NN+1.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.fin_plan_kv_1 IS '2.32 Плановый объем финансирования КВ - 20NN+1.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.fin_plan_ahr_2 IS '2.33 Плановый объем финансирования АХР - 20NN+2.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.fin_plan_kv_2 IS '2.34 Плановый объем финансирования КВ - 20NN+2.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.project_plan IS '2.1 Уникальный код проекта - плановый';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.doc_link IS 'Ссылка на документацию по проекту';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.date_from IS 'Дата начала действия версии. Обязательное поле.';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.date_to IS 'Дата окончания действия версии. NULL означает "действует бессрочно".';
+COMMENT ON COLUMN s4nd_dwh.zs4nd_d47.is_deleted IS 'Флаг логического удаления. 1 — версия исключена из активного учёта, но сохранена в истории.';
+
+-- 5. Индексы (аналог ORDER BY и оптимизация выборок)
+-- Уникальный индекс обеспечивает запрет дублей версий (поведение ReplacingMergeTree на уровне БД)
+CREATE UNIQUE INDEX uk_zs4nd_d47_scd ON s4nd_dwh.zs4nd_d47 (project, id, date_from);
+-- Индекс для фильтрации по периоду действия
+CREATE INDEX idx_zs4nd_d47_date_from ON s4nd_dwh.zs4nd_d47 (date_from);
+
 
 INSERT INTO s4nd_dwh.zs4nd_d47 (first_column,id,project,executor,project_vid,full_format,format_tp,cnt_gbl,vid_rassm,prior_rassm,fm_area,funds_ctr,funds_ctr_union,funds_ctr_shtxt,subject,region,address,s_tp,chisl_max,date_realize,remark,status,fdate_post,fdate_zav,date_zav_rassm,date_norm_zav,is_finans,status_finans,date_finans,fin_1_year,budget,fin_plan_ahr_0,fin_plan_kv_0,otlag_usl,date_vipoln_otl_usl,fin_plan_ahr_1,fin_plan_kv_1,fin_plan_ahr_2,fin_plan_kv_2,project_plan,doc_link,date_from,date_to,is_deleted) VALUES
 	 (0,'0017','TYPE4-00007-2025-PLN','Иванов И.И.','Реконструкция','','','','','','','','','','','','','',0,'1970-01-01','','','1970-01-01','1970-01-01','1970-01-01','1970-01-01','','','1970-01-01',0,0.00,0.00,0.00,'','1970-01-01',0.00,0.00,0.00,0.00,'','','2025-11-03',NULL,0),

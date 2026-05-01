@@ -436,7 +436,7 @@
                     "expanded": true
                 }
             ],
-            "technicalName": "cv_test_sql",
+            "technicalName": "pp_u_pa_s",
             "layerName": "Semantic Layer",
             "implementation": "UDF",
             "executionEngine": "CLICKHOUSE/analytics",
@@ -709,7 +709,7 @@
                     "expanded": false
                 }
             ],
-            "__cvInvalidCountCacheAt": 1775893786278,
+            "__cvInvalidCountCacheAt": 1775893857993,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -910,7 +910,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775893786279,
+            "__cvInvalidCountCacheAt": 1775893857993,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -1096,7 +1096,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775893786279,
+            "__cvInvalidCountCacheAt": 1775893857993,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -1666,7 +1666,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775893786279,
+            "__cvInvalidCountCacheAt": 1775893857994,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -2004,7 +2004,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775893786279,
+            "__cvInvalidCountCacheAt": 1775893857994,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -2324,7 +2324,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775893786279,
+            "__cvInvalidCountCacheAt": 1775893857994,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -2894,7 +2894,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1775893786279,
+            "__cvInvalidCountCacheAt": 1775893857994,
             "__cvInvalidCountCacheValue": 0
         }
     ],

@@ -54,6 +54,41 @@ services:
     networks:
       - asapbi-net
 
+  asapbi-cube:
+    image: cubejs/cube:latest
+    container_name: asapbi-cube
+    restart: unless-stopped
+    ports:
+      - "4000:4000"   # API / UI
+      - "15433:5432"  # SQL-интерфейс для Superset (мапим на 15433, чтобы не занять порт Postgres)
+    environment:
+      # Основной коннект по умолчанию (Clickhouse)
+      - CUBEJS_DB_TYPE=clickhouse
+      - CUBEJS_DB_HOST=asapbi-clickhouse
+      - CUBEJS_DB_NAME=analytics
+      - CUBEJS_DB_USER=admin
+      - CUBEJS_DB_PASS=admin
+      
+      # Настройки самого Cube
+      - CUBEJS_API_SECRET=asapbi_secret_key_999
+      - CUBEJS_SQL_PORT=5432
+      - CUBEJS_DEV_MODE=true  # Позволяет подхватывать изменения в JS без рестарта
+      - CUBEJS_WEB_SOCKETS=true
+      
+      # Если нужно подключить вторую базу (Postgres), настраиваем через префиксы (Multi-DB)
+      - CUBEJS_DS_POSTGRES_TYPE=postgres
+      - CUBEJS_DS_POSTGRES_HOST=asapbi-postgres
+      - CUBEJS_DS_POSTGRES_PORT=5432
+      - CUBEJS_DS_POSTGRES_NAME=demo
+      - CUBEJS_DS_POSTGRES_USER=admin
+      - CUBEJS_DS_POSTGRES_PASS=admin
+    volumes:
+      # Маппим папку со схемами. 
+      # Теперь вы можете класть .js файлы в локальную папку ./cube-model на хосте
+      - ./cube-model:/cube/conf/model
+    networks:
+      - asapbi-net
+
 volumes:
   postgres-data:
     driver: local

@@ -4,8 +4,8 @@
             "id": "semantics_block",
             "name": "Semantics",
             "type": "semantics",
-            "x": 2520.9713656387667,
-            "y": 1142.2907488986784,
+            "x": 2400,
+            "y": 1150,
             "width": 200,
             "height": 60,
             "color": "#28a745",
@@ -709,7 +709,7 @@
                     "expanded": false
                 }
             ],
-            "__cvInvalidCountCacheAt": 1777623931133,
+            "__cvInvalidCountCacheAt": 1777704486234,
             "__cvInvalidCountCacheValue": 0,
             "uuid": "3dc24265-0873-4143-a884-4c8fed103b6a"
         },
@@ -717,7 +717,7 @@
             "id": "projection_1775479171850",
             "name": "Projection_table1_pg",
             "type": "projection",
-            "x": 2261.5,
+            "x": 2250,
             "y": 1790,
             "width": 200,
             "height": 60,
@@ -911,15 +911,18 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1777623931133,
+            "__cvInvalidCountCacheAt": 1777704486234,
             "__cvInvalidCountCacheValue": 0,
-            "uuid": "573d6469-4fd2-4783-9ed9-c2352c62e20a"
+            "uuid": "573d6469-4fd2-4783-9ed9-c2352c62e20a",
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_table1_pg\n-- =========================================\n-- Блок: Projection_table1_pg (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: pp_u_pa_s\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"pp_u_pa_s$projection_table1_pg\"(\n  \"amount\" numeric COMMENT 'Сумма транзакции с точностью до 2 знаков',\n  \"country_code\" character COMMENT 'Код страны (ISO 3166-1 alpha-2: RU, US)',\n  \"created_at\" timestamp with time zone COMMENT 'Дата и время создания записи (с часовым поясом)',\n  \"id\" bigint COMMENT 'Уникальный идентификатор записи (автоинкремент)',\n  \"is_active\" boolean COMMENT 'Флаг активности записи (NULL = неизвестно)',\n  \"metadata\" jsonb COMMENT 'Гибкие метаданные в формате JSONB',\n  \"status\" varchar COMMENT 'Статус обработки: new, processed, error',\n  \"t1_f1\" varchar COMMENT 'Произвольное текстовое поле (название или описание)',\n  \"tags\" text[] COMMENT 'Массив тегов или категорий',\n  \"updated_at\" timestamp with time zone COMMENT 'Дата последнего обновления записи',\n  \"user_id\" uuid COMMENT 'ID пользователя (UUID)'\n) AS\nWITH \nifNull({ctx:String}, '{}') AS ctx_init,\n  if(isValidJSON(ctx_init), ctx_init, '{}') AS ctx_clean,\n  isValidJSON(ctx_init) AS is_ctx_ok,\n  ifNull(JSONExtractString(ctx_clean, 'test_var'), 'Москва') AS test_var,\n  toJSONString((test_var)::Tuple(test_var String)) AS ctx,\nstep_auto AS (\nSELECT\n  \"amount\",\n  \"country_code\",\n  \"created_at\",\n  \"id\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"updated_at\",\n  \"user_id\"\nFROM analytics.table1_pg\n)\nSELECT \n  \"amount\",\n  \"country_code\",\n  \"created_at\",\n  \"id\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"updated_at\",\n  \"user_id\"\nFROM step_auto;\n",
+            "savedScrollTop": 250,
+            "savedScrollLeft": 0
         },
         {
             "id": "projection_1775479174020",
             "name": "Projection_table2_pg",
             "type": "projection",
-            "x": 2561.5,
+            "x": 2550,
             "y": 1790,
             "width": 200,
             "height": 60,
@@ -1098,15 +1101,20 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1777623931133,
+            "__cvInvalidCountCacheAt": 1777704486234,
             "__cvInvalidCountCacheValue": 0,
-            "uuid": "13210c33-0c97-432c-a453-ef2b8d298dd6"
+            "uuid": "13210c33-0c97-432c-a453-ef2b8d298dd6",
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_table2_pg\n-- =========================================\n-- Блок: Projection_table2_pg (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: pp_u_pa_s\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"pp_u_pa_s$projection_table2_pg\"(\n  \"bytes_sent\" bigint COMMENT 'Размер ответа сервера в байтах',\n  \"http_status\" http_status_enum COMMENT 'HTTP код ответа (через ENUM тип)',\n  \"ip_address\" inet COMMENT 'IP-адрес клиента (тип INET поддерживает IPv4/IPv6)',\n  \"is_bot\" boolean COMMENT 'Флаг: является ли запрос ботом',\n  \"referrer\" text COMMENT 'URL страницы перехода (может быть NULL)',\n  \"request_time\" timestamp with time zone COMMENT 'Время запроса с точностью до миллисекунд (с часовым поясом)',\n  \"response_time_ms\" integer COMMENT 'Время обработки запроса в миллисекундах',\n  \"session_id\" uuid COMMENT 'Уникальный идентификатор пользовательской сессии (UUID)',\n  \"url\" text COMMENT 'Полный URL запрашиваемой страницы',\n  \"user_agent\" text COMMENT 'Строка User-Agent браузера или клиента'\n) AS\nWITH \nifNull({ctx:String}, '{}') AS ctx_init,\n  if(isValidJSON(ctx_init), ctx_init, '{}') AS ctx_clean,\n  isValidJSON(ctx_init) AS is_ctx_ok,\n  ifNull(JSONExtractString(ctx_clean, 'test_var'), 'Москва') AS test_var,\n  toJSONString((test_var)::Tuple(test_var String)) AS ctx,\nstep_auto AS (\nSELECT\n  \"bytes_sent\",\n  \"http_status\",\n  \"ip_address\",\n  \"is_bot\",\n  \"referrer\",\n  \"request_time\",\n  \"response_time_ms\",\n  \"session_id\",\n  \"url\",\n  \"user_agent\"\nFROM analytics.table2_pg\n)\nSELECT \n  \"bytes_sent\",\n  \"http_status\",\n  \"ip_address\",\n  \"is_bot\",\n  \"referrer\",\n  \"request_time\",\n  \"response_time_ms\",\n  \"session_id\",\n  \"url\",\n  \"user_agent\"\nFROM step_auto;\n",
+            "savedScrollTop": 680,
+            "savedScrollLeft": 0,
+            "savedCursorLine": 1,
+            "savedCursorColumn": 1
         },
         {
             "id": "block_8",
             "name": "Union_8",
             "type": "union",
-            "x": 2411.5,
+            "x": 2400,
             "y": 1630,
             "width": 200,
             "height": 60,
@@ -1114,298 +1122,193 @@
             "description": "",
             "tableFields": [
                 {
-                    "name": "amount",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "amount",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "amount"
-                },
-                {
-                    "name": "bytes_sent",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "bytes_sent",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "bytes_sent"
-                },
-                {
-                    "name": "country_code",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "country_code",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "country_code"
-                },
-                {
-                    "name": "created_at",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "created_at",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "created_at"
-                },
-                {
-                    "name": "http_status",
-                    "type": "VARCHAR",
-                    "type_schema": "analytics",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "http_status",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "http_status"
-                },
-                {
                     "name": "id",
                     "type": "VARCHAR",
                     "type_schema": "pg_catalog",
+                    "column_comment": "Уникальный идентификатор записи (автоинкремент)",
                     "selected": true,
                     "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "id",
-                        "cascadeDepth": 0
-                    },
                     "prevAlias": "id"
                 },
                 {
-                    "name": "ip_address",
+                    "name": "user_id",
                     "type": "VARCHAR",
                     "type_schema": "pg_catalog",
+                    "column_comment": "ID пользователя (UUID)",
                     "selected": true,
                     "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "ip_address",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "ip_address"
-                },
-                {
-                    "name": "is_active",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "is_active",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "is_active"
-                },
-                {
-                    "name": "is_bot",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "is_bot",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "is_bot"
+                    "prevAlias": "user_id"
                 },
                 {
                     "name": "metadata",
                     "type": "VARCHAR",
                     "type_schema": "pg_catalog",
+                    "column_comment": "Гибкие метаданные в формате JSONB",
                     "selected": true,
                     "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "metadata",
-                        "cascadeDepth": 0
-                    },
                     "prevAlias": "metadata"
+                },
+                {
+                    "name": "created_at",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "column_comment": "Дата и время создания записи (с часовым поясом)",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "prevAlias": "created_at"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "column_comment": "Дата последнего обновления записи",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "prevAlias": "updated_at"
+                },
+                {
+                    "name": "country_code",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "column_comment": "Код страны (ISO 3166-1 alpha-2: RU, US)",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "prevAlias": "country_code"
+                },
+                {
+                    "name": "tags",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "column_comment": "Массив тегов или категорий",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "prevAlias": "tags"
+                },
+                {
+                    "name": "t1_f1",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "column_comment": "Произвольное текстовое поле (название или описание)",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "prevAlias": "t1_f1"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "column_comment": "Статус обработки: new, processed, error",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "prevAlias": "status"
+                },
+                {
+                    "name": "amount",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "column_comment": "Сумма транзакции с точностью до 2 знаков",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "prevAlias": "amount"
+                },
+                {
+                    "name": "is_active",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "column_comment": "Флаг активности записи (NULL = неизвестно)",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "prevAlias": "is_active"
+                },
+                {
+                    "name": "session_id",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "column_comment": "Уникальный идентификатор пользовательской сессии (UUID)",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "prevAlias": "session_id"
+                },
+                {
+                    "name": "http_status",
+                    "type": "VARCHAR",
+                    "type_schema": "analytics",
+                    "column_comment": "HTTP код ответа (через ENUM тип)",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "prevAlias": "http_status"
+                },
+                {
+                    "name": "ip_address",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "column_comment": "IP-адрес клиента (тип INET поддерживает IPv4/IPv6)",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "prevAlias": "ip_address"
                 },
                 {
                     "name": "referrer",
                     "type": "VARCHAR",
                     "type_schema": "pg_catalog",
+                    "column_comment": "URL страницы перехода (может быть NULL)",
                     "selected": true,
                     "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "referrer",
-                        "cascadeDepth": 0
-                    },
                     "prevAlias": "referrer"
                 },
                 {
                     "name": "request_time",
                     "type": "VARCHAR",
                     "type_schema": "pg_catalog",
+                    "column_comment": "Время запроса с точностью до миллисекунд (с часовым поясом)",
                     "selected": true,
                     "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "request_time",
-                        "cascadeDepth": 0
-                    },
                     "prevAlias": "request_time"
                 },
                 {
                     "name": "response_time_ms",
                     "type": "VARCHAR",
                     "type_schema": "pg_catalog",
+                    "column_comment": "Время обработки запроса в миллисекундах",
                     "selected": true,
                     "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "response_time_ms",
-                        "cascadeDepth": 0
-                    },
                     "prevAlias": "response_time_ms"
-                },
-                {
-                    "name": "session_id",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "session_id",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "session_id"
-                },
-                {
-                    "name": "status",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "status",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "status"
-                },
-                {
-                    "name": "t1_f1",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "t1_f1",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "t1_f1"
-                },
-                {
-                    "name": "tags",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "tags",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "tags"
-                },
-                {
-                    "name": "updated_at",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "updated_at",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "updated_at"
                 },
                 {
                     "name": "url",
                     "type": "VARCHAR",
                     "type_schema": "pg_catalog",
+                    "column_comment": "Полный URL запрашиваемой страницы",
                     "selected": true,
                     "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "url",
-                        "cascadeDepth": 0
-                    },
                     "prevAlias": "url"
+                },
+                {
+                    "name": "bytes_sent",
+                    "type": "VARCHAR",
+                    "type_schema": "pg_catalog",
+                    "column_comment": "Размер ответа сервера в байтах",
+                    "selected": true,
+                    "isUnionOutput": true,
+                    "prevAlias": "bytes_sent"
                 },
                 {
                     "name": "user_agent",
                     "type": "VARCHAR",
                     "type_schema": "pg_catalog",
+                    "column_comment": "Строка User-Agent браузера или клиента",
                     "selected": true,
                     "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "user_agent",
-                        "cascadeDepth": 0
-                    },
                     "prevAlias": "user_agent"
                 },
                 {
-                    "name": "user_id",
+                    "name": "is_bot",
                     "type": "VARCHAR",
                     "type_schema": "pg_catalog",
+                    "column_comment": "Флаг: является ли запрос ботом",
                     "selected": true,
                     "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "user_id",
-                        "cascadeDepth": 0
-                    },
-                    "prevAlias": "user_id"
+                    "prevAlias": "is_bot"
                 }
             ],
             "fieldMappings": {
@@ -1669,337 +1572,27 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1777623931134,
+            "__cvInvalidCountCacheAt": 1777704486234,
             "__cvInvalidCountCacheValue": 0,
-            "uuid": "215b5d2a-60d7-4243-b3c7-152ef989245c"
+            "uuid": "215b5d2a-60d7-4243-b3c7-152ef989245c",
+            "activeTab": "sql",
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Union_8\n-- =========================================\n-- Блок: Union_8 (union)\n-- Тип: ClickHouse Parameterized View\n-- CV: pp_u_pa_s\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"pp_u_pa_s$union_8\"(\n  \"id\" VARCHAR COMMENT 'Уникальный идентификатор записи (автоинкремент)',\n  \"user_id\" VARCHAR COMMENT 'ID пользователя (UUID)',\n  \"metadata\" VARCHAR COMMENT 'Гибкие метаданные в формате JSONB',\n  \"created_at\" VARCHAR COMMENT 'Дата и время создания записи (с часовым поясом)',\n  \"updated_at\" VARCHAR COMMENT 'Дата последнего обновления записи',\n  \"country_code\" VARCHAR COMMENT 'Код страны (ISO 3166-1 alpha-2: RU, US)',\n  \"tags\" VARCHAR COMMENT 'Массив тегов или категорий',\n  \"t1_f1\" VARCHAR COMMENT 'Произвольное текстовое поле (название или описание)',\n  \"status\" VARCHAR COMMENT 'Статус обработки: new, processed, error',\n  \"amount\" VARCHAR COMMENT 'Сумма транзакции с точностью до 2 знаков',\n  \"is_active\" VARCHAR COMMENT 'Флаг активности записи (NULL = неизвестно)',\n  \"session_id\" VARCHAR COMMENT 'Уникальный идентификатор пользовательской сессии (UUID)',\n  \"http_status\" VARCHAR COMMENT 'HTTP код ответа (через ENUM тип)',\n  \"ip_address\" VARCHAR COMMENT 'IP-адрес клиента (тип INET поддерживает IPv4/IPv6)',\n  \"referrer\" VARCHAR COMMENT 'URL страницы перехода (может быть NULL)',\n  \"request_time\" VARCHAR COMMENT 'Время запроса с точностью до миллисекунд (с часовым поясом)',\n  \"response_time_ms\" VARCHAR COMMENT 'Время обработки запроса в миллисекундах',\n  \"url\" VARCHAR COMMENT 'Полный URL запрашиваемой страницы',\n  \"bytes_sent\" VARCHAR COMMENT 'Размер ответа сервера в байтах',\n  \"user_agent\" VARCHAR COMMENT 'Строка User-Agent браузера или клиента',\n  \"is_bot\" VARCHAR COMMENT 'Флаг: является ли запрос ботом'\n) AS\nWITH \nifNull({ctx:String}, '{}') AS ctx_init,\n  if(isValidJSON(ctx_init), ctx_init, '{}') AS ctx_clean,\n  isValidJSON(ctx_init) AS is_ctx_ok,\n  ifNull(JSONExtractString(ctx_clean, 'test_var'), 'Москва') AS test_var,\n  toJSONString((test_var)::Tuple(test_var String)) AS ctx,\nstep_auto AS (\nSELECT\n    \"id\" AS \"id\",\n    \"user_id\" AS \"user_id\",\n    \"metadata\" AS \"metadata\",\n    \"created_at\" AS \"created_at\",\n    \"updated_at\" AS \"updated_at\",\n    \"country_code\" AS \"country_code\",\n    \"tags\" AS \"tags\",\n    \"t1_f1\" AS \"t1_f1\",\n    \"status\" AS \"status\",\n    \"amount\" AS \"amount\",\n    \"is_active\" AS \"is_active\",\n    NULL AS \"session_id\",\n    NULL AS \"http_status\",\n    NULL AS \"ip_address\",\n    NULL AS \"referrer\",\n    NULL AS \"request_time\",\n    NULL AS \"response_time_ms\",\n    NULL AS \"url\",\n    NULL AS \"bytes_sent\",\n    NULL AS \"user_agent\",\n    NULL AS \"is_bot\"\n  FROM analytics.\"pp_u_pa_s$projection_table1_pg\"(ctx = ctx)\nUNION\nSELECT\n    NULL AS \"id\",\n    NULL AS \"user_id\",\n    NULL AS \"metadata\",\n    NULL AS \"created_at\",\n    NULL AS \"updated_at\",\n    NULL AS \"country_code\",\n    NULL AS \"tags\",\n    NULL AS \"t1_f1\",\n    \"http_status\" AS \"status\",\n    NULL AS \"amount\",\n    NULL AS \"is_active\",\n    \"session_id\" AS \"session_id\",\n    \"http_status\" AS \"http_status\",\n    \"ip_address\" AS \"ip_address\",\n    \"referrer\" AS \"referrer\",\n    \"request_time\" AS \"request_time\",\n    \"response_time_ms\" AS \"response_time_ms\",\n    \"url\" AS \"url\",\n    \"bytes_sent\" AS \"bytes_sent\",\n    \"user_agent\" AS \"user_agent\",\n    \"is_bot\" AS \"is_bot\"\n  FROM analytics.\"pp_u_pa_s$projection_table2_pg\"(ctx = ctx)\n)\nSELECT \n  \"id\",\n  \"user_id\",\n  \"metadata\",\n  \"created_at\",\n  \"updated_at\",\n  \"country_code\",\n  \"tags\",\n  \"t1_f1\",\n  \"status\",\n  \"amount\",\n  \"is_active\",\n  \"session_id\",\n  \"http_status\",\n  \"ip_address\",\n  \"referrer\",\n  \"request_time\",\n  \"response_time_ms\",\n  \"url\",\n  \"bytes_sent\",\n  \"user_agent\",\n  \"is_bot\"\nFROM step_auto;\n",
+            "savedCursorLine": 28,
+            "savedCursorColumn": 28,
+            "savedScrollTop": 450,
+            "savedScrollLeft": 0
         },
         {
             "id": "block_9",
             "name": "Projection_9",
             "type": "projection",
-            "x": 2238.5,
-            "y": 1479,
+            "x": 2250,
+            "y": 1470,
             "width": 200,
             "height": 60,
             "color": "#6f42c120",
             "description": "",
-            "tableFields": [
-                {
-                    "name": "amount",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "amount",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "amount",
-                    "prevAlias": "amount"
-                },
-                {
-                    "name": "bytes_sent",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "bytes_sent",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "bytes_sent",
-                    "prevAlias": "bytes_sent"
-                },
-                {
-                    "name": "country_code",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "country_code",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "country_code",
-                    "prevAlias": "country_code"
-                },
-                {
-                    "name": "created_at",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "created_at",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "created_at",
-                    "prevAlias": "created_at"
-                },
-                {
-                    "name": "http_status",
-                    "type": "VARCHAR",
-                    "type_schema": "analytics",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "http_status",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "http_status",
-                    "prevAlias": "http_status"
-                },
-                {
-                    "name": "id",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "id",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "id",
-                    "prevAlias": "id"
-                },
-                {
-                    "name": "ip_address",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "ip_address",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "ip_address",
-                    "prevAlias": "ip_address"
-                },
-                {
-                    "name": "is_active",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "is_active",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "is_active",
-                    "prevAlias": "is_active"
-                },
-                {
-                    "name": "is_bot",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "is_bot",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "is_bot",
-                    "prevAlias": "is_bot"
-                },
-                {
-                    "name": "metadata",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "metadata",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "metadata",
-                    "prevAlias": "metadata"
-                },
-                {
-                    "name": "referrer",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "referrer",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "referrer",
-                    "prevAlias": "referrer"
-                },
-                {
-                    "name": "request_time",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "request_time",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "request_time",
-                    "prevAlias": "request_time"
-                },
-                {
-                    "name": "response_time_ms",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "response_time_ms",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "response_time_ms",
-                    "prevAlias": "response_time_ms"
-                },
-                {
-                    "name": "session_id",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "session_id",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "session_id",
-                    "prevAlias": "session_id"
-                },
-                {
-                    "name": "status",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "status",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "status",
-                    "prevAlias": "status"
-                },
-                {
-                    "name": "t1_f1",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "t1_f1",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "t1_f1",
-                    "prevAlias": "t1_f1"
-                },
-                {
-                    "name": "tags",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "tags",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "tags",
-                    "prevAlias": "tags"
-                },
-                {
-                    "name": "updated_at",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "updated_at",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "updated_at",
-                    "prevAlias": "updated_at"
-                },
-                {
-                    "name": "url",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "url",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "url",
-                    "prevAlias": "url"
-                },
-                {
-                    "name": "user_agent",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "user_agent",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "user_agent",
-                    "prevAlias": "user_agent"
-                },
-                {
-                    "name": "user_id",
-                    "type": "VARCHAR",
-                    "type_schema": "pg_catalog",
-                    "selected": true,
-                    "isUnionOutput": true,
-                    "isValid": 0,
-                    "origin": {
-                        "sourceBlockId": "block_8",
-                        "originalFieldName": "user_id",
-                        "cascadeDepth": 0
-                    },
-                    "alias": "user_id",
-                    "prevAlias": "user_id"
-                }
-            ],
+            "tableFields": [],
             "selected": false,
             "fieldOrder": [],
             "cascadeMetadata": {
@@ -2008,7 +1601,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1777623931134,
+            "__cvInvalidCountCacheAt": 1777704486234,
             "__cvInvalidCountCacheValue": 0,
             "uuid": "4fbe6a01-3130-455d-80a4-6f26562e29d2"
         },
@@ -2016,7 +1609,7 @@
             "id": "block_10",
             "name": "Aggregation_10",
             "type": "aggregation",
-            "x": 2561.5,
+            "x": 2550,
             "y": 1470,
             "width": 200,
             "height": 60,
@@ -2329,15 +1922,21 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1777623931135,
+            "__cvInvalidCountCacheAt": 1777704486234,
             "__cvInvalidCountCacheValue": 0,
-            "uuid": "a36e4984-da7b-46bf-a94e-7e93908c4415"
+            "uuid": "a36e4984-da7b-46bf-a94e-7e93908c4415",
+            "activeTab": "sql",
+            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Aggregation_10\n-- =========================================\n-- Блок: Aggregation_10 (aggregation)\n-- Тип: ClickHouse Parameterized View\n-- CV: pp_u_pa_s\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"pp_u_pa_s$aggregation_10\"(\n  \"id\" VARCHAR,\n  \"user_id\" VARCHAR,\n  \"metadata\" VARCHAR,\n  \"created_at\" VARCHAR,\n  \"updated_at\" VARCHAR,\n  \"country_code\" VARCHAR,\n  \"tags\" VARCHAR,\n  \"t1_f1\" VARCHAR,\n  \"status\" VARCHAR,\n  \"amount\" VARCHAR,\n  \"is_active\" VARCHAR,\n  \"session_id\" VARCHAR,\n  \"http_status\" VARCHAR,\n  \"ip_address\" VARCHAR,\n  \"referrer\" VARCHAR,\n  \"request_time\" VARCHAR,\n  \"response_time_ms\" VARCHAR,\n  \"url\" VARCHAR,\n  \"bytes_sent\" VARCHAR,\n  \"user_agent\" VARCHAR,\n  \"is_bot\" VARCHAR\n) AS\nWITH \nifNull({ctx:String}, '{}') AS ctx_init,\n  if(isValidJSON(ctx_init), ctx_init, '{}') AS ctx_clean,\n  isValidJSON(ctx_init) AS is_ctx_ok,\n  ifNull(JSONExtractString(ctx_clean, 'test_var'), 'Москва') AS test_var,\n  toJSONString((test_var)::Tuple(test_var String)) AS ctx,\nstep_auto AS (\nSELECT\n  \"id\" AS \"id\",\n  \"user_id\" AS \"user_id\",\n  \"metadata\" AS \"metadata\",\n  \"created_at\" AS \"created_at\",\n  \"updated_at\" AS \"updated_at\",\n  \"country_code\" AS \"country_code\",\n  \"tags\" AS \"tags\",\n  \"t1_f1\" AS \"t1_f1\",\n  \"status\" AS \"status\",\n  SUM(\"amount\") AS \"amount\",\n  \"is_active\" AS \"is_active\",\n  \"session_id\" AS \"session_id\",\n  \"http_status\" AS \"http_status\",\n  \"ip_address\" AS \"ip_address\",\n  \"referrer\" AS \"referrer\",\n  \"request_time\" AS \"request_time\",\n  \"response_time_ms\" AS \"response_time_ms\",\n  \"url\" AS \"url\",\n  \"bytes_sent\" AS \"bytes_sent\",\n  \"user_agent\" AS \"user_agent\",\n  \"is_bot\" AS \"is_bot\"\nFROM analytics.\"pp_u_pa_s$union_8\"(ctx = ctx)\nGROUP BY \"id\", \"user_id\", \"metadata\", \"created_at\", \"updated_at\", \"country_code\", \"tags\", \"t1_f1\", \"status\", \"is_active\", \"session_id\", \"http_status\", \"ip_address\", \"referrer\", \"request_time\", \"response_time_ms\", \"url\", \"bytes_sent\", \"user_agent\", \"is_bot\"\n)\nSELECT \n  \"id\",\n  \"user_id\",\n  \"metadata\",\n  \"created_at\",\n  \"updated_at\",\n  \"country_code\",\n  \"tags\",\n  \"t1_f1\",\n  \"status\",\n  \"amount\",\n  \"is_active\",\n  \"session_id\",\n  \"http_status\",\n  \"ip_address\",\n  \"referrer\",\n  \"request_time\",\n  \"response_time_ms\",\n  \"url\",\n  \"bytes_sent\",\n  \"user_agent\",\n  \"is_bot\"\nFROM step_auto;\n",
+            "savedScrollTop": 700,
+            "savedScrollLeft": 0,
+            "savedCursorLine": 46,
+            "savedCursorColumn": 36
         },
         {
             "id": "block_1775479174021",
             "name": "Union_1775479174021",
             "type": "union",
-            "x": 2411.5,
+            "x": 2400,
             "y": 1310,
             "width": 200,
             "height": 60,
@@ -2900,7 +2499,7 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "__cvInvalidCountCacheAt": 1777623931135,
+            "__cvInvalidCountCacheAt": 1777704486235,
             "__cvInvalidCountCacheValue": 0,
             "uuid": "694ee427-5def-4773-a128-0d222251b0fb"
         }

@@ -359,7 +359,7 @@
             "autoUpdateSchema": true,
             "enableCaching": true,
             "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- Тип: ClickHouse Parameterized View\n-- CV: top_cv\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"top_cv\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"created_at\" AS \"created_at\",\n  \"id\" AS \"id\",\n  \"amount\" AS \"amount\",\n  \"country_code\" AS \"country_code\",\n  \"is_active\" AS \"is_active\",\n  \"metadata\" AS \"metadata\",\n  \"status\" AS \"status\",\n  \"t1_f1\" AS \"t1_f1\",\n  \"tags\" AS \"tags\",\n  \"user_id\" AS \"user_id\"\nFROM analytics.\"top_cv$projection_test\"(ctx = ctx)\nGROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"\n)\nSELECT *\nFROM step_auto;\n",
-            "__cvInvalidCountCacheAt": 1776424152936,
+            "__cvInvalidCountCacheAt": 1776424796821,
             "__cvInvalidCountCacheValue": 0
         },
         {
@@ -562,7 +562,7 @@
                 "childBlocks": [],
                 "fieldOrigins": {}
             },
-            "__cvInvalidCountCacheAt": 1776424152936,
+            "__cvInvalidCountCacheAt": 1776424796821,
             "__cvInvalidCountCacheValue": 0
         }
     ],

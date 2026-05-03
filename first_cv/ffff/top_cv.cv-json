@@ -19,7 +19,8 @@
                     "selected": true,
                     "alias": "created_at",
                     "isValid": 0,
-                    "prevAlias": "created_at"
+                    "prevAlias": "created_at",
+                    "calculateAfterAggregation": true
                 },
                 {
                     "name": "id",
@@ -39,7 +40,8 @@
                     "selected": true,
                     "alias": "amount",
                     "isValid": 0,
-                    "prevAlias": "amount"
+                    "prevAlias": "amount",
+                    "calculateAfterAggregation": true
                 },
                 {
                     "name": "country_code",
@@ -120,7 +122,8 @@
                     "alias": "created_at",
                     "nullable": true,
                     "primaryKey": false,
-                    "isValid": 0
+                    "isValid": 0,
+                    "calculateAfterAggregation": true
                 },
                 {
                     "name": "id",
@@ -138,7 +141,8 @@
                     "alias": "amount",
                     "nullable": true,
                     "primaryKey": false,
-                    "isValid": 0
+                    "isValid": 0,
+                    "calculateAfterAggregation": true
                 },
                 {
                     "name": "country_code",
@@ -294,63 +298,123 @@
             "attributes": [
                 {
                     "name": "created_at",
-                    "type": "String",
+                    "displayName": "created_at",
+                    "sourceField": "created_at",
+                    "dataType": "string",
                     "description": "",
-                    "displayName": "created_at"
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
                 },
                 {
                     "name": "id",
-                    "type": "String",
+                    "displayName": "id",
+                    "sourceField": "id",
+                    "dataType": "string",
                     "description": "",
-                    "displayName": "id"
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
                 },
                 {
                     "name": "amount",
-                    "type": "String",
+                    "displayName": "amount",
+                    "sourceField": "amount",
+                    "dataType": "string",
                     "description": "",
-                    "displayName": "amount"
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
                 },
                 {
                     "name": "country_code",
-                    "type": "String",
+                    "displayName": "country_code",
+                    "sourceField": "country_code",
+                    "dataType": "string",
                     "description": "",
-                    "displayName": "country_code"
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
                 },
                 {
                     "name": "is_active",
-                    "type": "String",
+                    "displayName": "is_active",
+                    "sourceField": "is_active",
+                    "dataType": "string",
                     "description": "",
-                    "displayName": "is_active"
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
                 },
                 {
                     "name": "metadata",
-                    "type": "String",
+                    "displayName": "metadata",
+                    "sourceField": "metadata",
+                    "dataType": "string",
                     "description": "",
-                    "displayName": "metadata"
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
                 },
                 {
                     "name": "status",
-                    "type": "String",
+                    "displayName": "status",
+                    "sourceField": "status",
+                    "dataType": "string",
                     "description": "",
-                    "displayName": "status"
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
                 },
                 {
                     "name": "t1_f1",
-                    "type": "String",
+                    "displayName": "t1_f1",
+                    "sourceField": "t1_f1",
+                    "dataType": "string",
                     "description": "",
-                    "displayName": "t1_f1"
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
                 },
                 {
                     "name": "tags",
-                    "type": "String",
+                    "displayName": "tags",
+                    "sourceField": "tags",
+                    "dataType": "string",
                     "description": "",
-                    "displayName": "tags"
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
                 },
                 {
                     "name": "user_id",
-                    "type": "String",
+                    "displayName": "user_id",
+                    "sourceField": "user_id",
+                    "dataType": "string",
                     "description": "",
-                    "displayName": "user_id"
+                    "isKey": false,
+                    "allowDrillDown": true,
+                    "includeInHierarchy": false,
+                    "categoryValues": "",
+                    "expanded": false
                 }
             ],
             "measures": [],
@@ -359,8 +423,9 @@
             "autoUpdateSchema": true,
             "enableCaching": true,
             "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- Тип: ClickHouse Parameterized View\n-- CV: top_cv\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"top_cv\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"created_at\" AS \"created_at\",\n  \"id\" AS \"id\",\n  \"amount\" AS \"amount\",\n  \"country_code\" AS \"country_code\",\n  \"is_active\" AS \"is_active\",\n  \"metadata\" AS \"metadata\",\n  \"status\" AS \"status\",\n  \"t1_f1\" AS \"t1_f1\",\n  \"tags\" AS \"tags\",\n  \"user_id\" AS \"user_id\"\nFROM analytics.\"top_cv$projection_test\"(ctx = ctx)\nGROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"\n)\nSELECT *\nFROM step_auto;\n",
-            "__cvInvalidCountCacheAt": 1776424796821,
-            "__cvInvalidCountCacheValue": 0
+            "__cvInvalidCountCacheAt": 1777751683443,
+            "__cvInvalidCountCacheValue": 0,
+            "uuid": "d650aaea-3593-4222-bedf-3735a109d196"
         },
         {
             "id": "projection_1776199760388",
@@ -562,8 +627,9 @@
                 "childBlocks": [],
                 "fieldOrigins": {}
             },
-            "__cvInvalidCountCacheAt": 1776424796821,
-            "__cvInvalidCountCacheValue": 0
+            "__cvInvalidCountCacheAt": 1777751683444,
+            "__cvInvalidCountCacheValue": 0,
+            "uuid": "91bce538-999a-4c21-b229-010a30440ec5"
         }
     ],
     "connections": [

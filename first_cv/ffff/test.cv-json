@@ -224,7 +224,7 @@
             "technicalName": "test",
             "layerName": "Semantic Layer",
             "implementation": "UDF",
-            "executionEngine": "CLICKHOUSE/analytics",
+            "executionEngine": "CUBE_CLICK localhost@4000 (Cube.js)",
             "selected": false,
             "fieldMapping": {
                 "created_at": {
@@ -304,8 +304,8 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "engine": "CLICKHOUSE/analytics",
-            "engineDbType": "Clickhouse",
+            "engine": "CUBE_CLICK localhost@4000 (Cube.js)",
+            "engineDbType": "Cube.js",
             "__invalidBadgeValidatedAt": 1776159852289,
             "attributes": [
                 {
@@ -326,10 +326,17 @@
             "_fieldCache": [],
             "autoUpdateSchema": true,
             "enableCaching": true,
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- Тип: ClickHouse Parameterized View\n-- CV: test\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"test\"(\n  \"created_at\" DateTime COMMENT 'Время создания события',\n  \"id\" UInt64 COMMENT 'Уникальный идентификатор записи',\n  \"amount\" Decimal(18, 2) COMMENT 'Сумма транзакции',\n  \"country_code\" FixedString(2) COMMENT 'Код страны',\n  \"is_active\" Nullable(Bool) COMMENT 'Флаг активности',\n  \"metadata\" Map(String, String) COMMENT 'Метаданные JSON-like',\n  \"status\" LowCardinality(String) COMMENT 'Статус обработки',\n  \"t1_f1\" String COMMENT 'Произвольное текстовое поле',\n  \"tags\" Array(String) COMMENT 'Список тегов',\n  \"user_id\" UUID COMMENT 'ID пользователя'\n) AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"created_at\",\n  \"id\",\n  \"amount\",\n  \"country_code\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.\"test$projection_table1_ch\"(ctx = ctx)\nGROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"\n)\nSELECT \n  \"created_at\",\n  \"id\",\n  \"amount\",\n  \"country_code\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM step_auto;\n",
+            "sqlScript": "// schema/test.js\ncube(`Test`, {\n  sql: `SELECT \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\" FROM public.\"test$projection_table1_ch\" GROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"(${FILTER_PARAMS.Test.ctx.filter('equals', v => `ctx = '${v.replace(/'/g, \"''\")}'`)})`,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    createdAt: { sql: `created_at`, type: `time` },\n    id: { sql: `id`, type: `number` },\n    amount: { sql: `amount`, type: `number` },\n    countryCode: { sql: `country_code`, type: `string` },\n    isActive: { sql: `is_active`, type: `boolean` },\n    metadata: { sql: `metadata`, type: `string` },\n    status: { sql: `status`, type: `string` },\n    t1F1: { sql: `t1_f1`, type: `string` },\n    tags: { sql: `tags`, type: `string` },\n    userId: { sql: `user_id`, type: `string` },\n    ctx: { sql: `'__ctx_placeholder__'`, type: `string` }\n  }\n});\n",
             "uuid": "45d15e09-6403-49b3-be2b-569e80bb9851",
-            "__cvInvalidCountCacheAt": 1776876070753,
-            "__cvInvalidCountCacheValue": 0
+            "__cvInvalidCountCacheAt": 1778428553337,
+            "__cvInvalidCountCacheValue": 0,
+            "sqlScripts": {
+                "Cube.js": "// schema/test.js\ncube(`Test`, {\n  sql: `SELECT \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\" FROM public.\"test$projection_table1_ch\" GROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"(${FILTER_PARAMS.Test.ctx.filter('equals', v => `ctx = '${v.replace(/'/g, \"''\")}'`)})`,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    createdAt: { sql: `created_at`, type: `time` },\n    id: { sql: `id`, type: `number` },\n    amount: { sql: `amount`, type: `number` },\n    countryCode: { sql: `country_code`, type: `string` },\n    isActive: { sql: `is_active`, type: `boolean` },\n    metadata: { sql: `metadata`, type: `string` },\n    status: { sql: `status`, type: `string` },\n    t1F1: { sql: `t1_f1`, type: `string` },\n    tags: { sql: `tags`, type: `string` },\n    userId: { sql: `user_id`, type: `string` },\n    ctx: { sql: `'__ctx_placeholder__'`, type: `string` }\n  }\n});\n"
+            },
+            "savedScrollTop": 0,
+            "savedScrollLeft": 0,
+            "savedCursorLine": 1,
+            "savedCursorColumn": 1
         },
         {
             "id": "projection_1776159850798",
@@ -506,7 +513,7 @@
             "_cacheDirty": false,
             "_lastSourceHash": "{\"sourceIds\":[],\"fieldExclusions\":[],\"fieldAliases\":{},\"selectedTable\":{\"connect_key\":\"1775066342937@@127.0.0.1@CLICKHOUSE@analytics\",\"instanceName\":\"CLICKHOUSE\",\"database\":\"analytics\",\"schema\":\"\",\"table\":\"table1_ch\",\"dbType\":\"Clickhouse\",\"table_type\":\"TABLE\",\"metadata\":{\"table_schema\":\"analytics\",\"table_name\":\"table1_ch\",\"table_comment\":\"Основная таблица аналитики событий: хранит транзакции и метаданные\",\"table_type\":\"TABLE\"}}}",
             "selected": false,
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_table1_ch\n-- =========================================\n-- Блок: Projection_table1_ch (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: test\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"test$projection_table1_ch\"(\n  \"amount\" Decimal(18, 2) COMMENT 'Сумма транзакции',\n  \"country_code\" FixedString(2) COMMENT 'Код страны',\n  \"created_at\" DateTime COMMENT 'Время создания события',\n  \"id\" UInt64 COMMENT 'Уникальный идентификатор записи',\n  \"is_active\" Nullable(Bool) COMMENT 'Флаг активности',\n  \"metadata\" Map(String, String) COMMENT 'Метаданные JSON-like',\n  \"status\" LowCardinality(String) COMMENT 'Статус обработки',\n  \"t1_f1\" String COMMENT 'Произвольное текстовое поле',\n  \"tags\" Array(String) COMMENT 'Список тегов',\n  \"user_id\" UUID COMMENT 'ID пользователя'\n)\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"amount\",\n  \"country_code\",\n  \"created_at\",\n  \"id\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.table1_ch\n)\nSELECT \n  \"amount\",\n  \"country_code\",\n  \"created_at\",\n  \"id\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM step_auto;\n",
+            "sqlScript": "// schema/test_projection_table1_ch.js\ncube(`TestProjectionTable1Ch`, {\n  sql: `\n    SELECT \n      amount,\n      country_code,\n      created_at,\n      id,\n      is_active,\n      metadata,\n      status,\n      t1_f1,\n      tags,\n      user_id\n    FROM analytics.table1_ch\n  (${FILTER_PARAMS.TestProjectionTable1Ch.ctx.filter('equals', v => `ctx = '${v.replace(/'/g, \"''\")}'`)})`,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    amount: { sql: `amount`, type: `number` },\n    countryCode: { sql: `country_code`, type: `string` },\n    createdAt: { sql: `created_at`, type: `time` },\n    id: { sql: `id`, type: `number` },\n    isActive: { sql: `is_active`, type: `boolean` },\n    metadata: { sql: `metadata`, type: `string` },\n    status: { sql: `status`, type: `string` },\n    t1F1: { sql: `t1_f1`, type: `string` },\n    tags: { sql: `tags`, type: `string` },\n    userId: { sql: `user_id`, type: `string` },\n    ctx: { sql: `'__ctx_placeholder__'`, type: `string` }\n  }\n});\n",
             "fieldOrder": [],
             "cascadeMetadata": {
                 "parentBlocks": [],
@@ -514,8 +521,15 @@
                 "fieldOrigins": {}
             },
             "uuid": "8fc7e095-281e-4eeb-b56d-ed9917962e6e",
-            "__cvInvalidCountCacheAt": 1776876070753,
-            "__cvInvalidCountCacheValue": 0
+            "__cvInvalidCountCacheAt": 1778428553337,
+            "__cvInvalidCountCacheValue": 0,
+            "savedScrollTop": 448,
+            "savedScrollLeft": 0,
+            "savedCursorLine": 1,
+            "savedCursorColumn": 1,
+            "sqlScripts": {
+                "Cube.js": "// schema/test_projection_table1_ch.js\ncube(`TestProjectionTable1Ch`, {\n  sql: `\n    SELECT \n      amount,\n      country_code,\n      created_at,\n      id,\n      is_active,\n      metadata,\n      status,\n      t1_f1,\n      tags,\n      user_id\n    FROM analytics.table1_ch\n  (${FILTER_PARAMS.TestProjectionTable1Ch.ctx.filter('equals', v => `ctx = '${v.replace(/'/g, \"''\")}'`)})`,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    amount: { sql: `amount`, type: `number` },\n    countryCode: { sql: `country_code`, type: `string` },\n    createdAt: { sql: `created_at`, type: `time` },\n    id: { sql: `id`, type: `number` },\n    isActive: { sql: `is_active`, type: `boolean` },\n    metadata: { sql: `metadata`, type: `string` },\n    status: { sql: `status`, type: `string` },\n    t1F1: { sql: `t1_f1`, type: `string` },\n    tags: { sql: `tags`, type: `string` },\n    userId: { sql: `user_id`, type: `string` },\n    ctx: { sql: `'__ctx_placeholder__'`, type: `string` }\n  }\n});\n"
+            }
         }
     ],
     "connections": [

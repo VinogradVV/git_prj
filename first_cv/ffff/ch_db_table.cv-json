@@ -224,7 +224,7 @@
             "technicalName": "ch_db_table",
             "layerName": "Semantic Layer",
             "implementation": "UDF",
-            "executionEngine": "CLICKHOUSE/analytics",
+            "executionEngine": "CUBE_CLICK localhost@4000 (Cube.js)",
             "selected": false,
             "fieldMapping": {
                 "created_at": {
@@ -304,8 +304,8 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "engine": "CLICKHOUSE/analytics",
-            "engineDbType": "Clickhouse",
+            "engine": "CUBE_CLICK localhost@4000 (Cube.js)",
+            "engineDbType": "Cube.js",
             "__invalidBadgeValidatedAt": 1776441072012,
             "attributes": [
                 {
@@ -326,11 +326,18 @@
             "_fieldCache": [],
             "autoUpdateSchema": true,
             "enableCaching": true,
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- Тип: ClickHouse Parameterized View\n-- CV: ch_db_table\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"ch_db_table\"(\n  \"created_at\" DateTime COMMENT 'Время создания события',\n  \"id\" UInt64 COMMENT 'Уникальный идентификатор записи',\n  \"amount\" Decimal(18, 2) COMMENT 'Сумма транзакции',\n  \"country_code\" FixedString(2) COMMENT 'Код страны',\n  \"is_active\" Nullable(Bool) COMMENT 'Флаг активности',\n  \"metadata\" Map(String, String) COMMENT 'Метаданные JSON-like',\n  \"status\" LowCardinality(String) COMMENT 'Статус обработки',\n  \"t1_f1\" String COMMENT 'Произвольное текстовое поле',\n  \"tags\" Array(String) COMMENT 'Список тегов',\n  \"user_id\" UUID COMMENT 'ID пользователя'\n) AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"created_at\",\n  \"id\",\n  \"amount\",\n  \"country_code\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.\"ch_db_table$projection_table1_ch\"(ctx = ctx)\nGROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"\n)\nSELECT \n  \"created_at\",\n  \"id\",\n  \"amount\",\n  \"country_code\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM step_auto;\n",
-            "commentSql": "ALTER TABLE default.\"ch_db_table\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"CV ch_db_table\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/first_cv/ffff\",\n  \"fields\": {\n    \"created_at\": \"Время создания события\",\n    \"id\": \"Уникальный идентификатор записи\",\n    \"amount\": \"Сумма транзакции\",\n    \"country_code\": \"Код страны\",\n    \"is_active\": \"Флаг активности\",\n    \"metadata\": \"Метаданные JSON-like\",\n    \"status\": \"Статус обработки\",\n    \"t1_f1\": \"Произвольное текстовое поле\",\n    \"tags\": \"Список тегов\",\n    \"user_id\": \"ID пользователя\"\n  },\n  \"version\": \"1.0\"\n}';",
+            "sqlScript": "// schema/ch_db_table.js\ncube(`ChDbTable`, {\n  sql: `SELECT \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\" FROM public.\"ch_db_table$projection_table1_ch\" GROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"(${FILTER_PARAMS.ChDbTable.ctx.filter('equals', v => `ctx = '${v.replace(/'/g, \"''\")}'`)})`,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    createdAt: { sql: `created_at`, type: `time` },\n    id: { sql: `id`, type: `number` },\n    amount: { sql: `amount`, type: `number` },\n    countryCode: { sql: `country_code`, type: `string` },\n    isActive: { sql: `is_active`, type: `boolean` },\n    metadata: { sql: `metadata`, type: `string` },\n    status: { sql: `status`, type: `string` },\n    t1F1: { sql: `t1_f1`, type: `string` },\n    tags: { sql: `tags`, type: `string` },\n    userId: { sql: `user_id`, type: `string` },\n    ctx: { sql: `'__ctx_placeholder__'`, type: `string` }\n  }\n});\n",
+            "commentSql": "ALTER TABLE analytics.\"ch_db_table\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"CV ch_db_table\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/first_cv/ffff\",\n  \"fields\": {\n    \"created_at\": \"Время создания события\",\n    \"id\": \"Уникальный идентификатор записи\",\n    \"amount\": \"Сумма транзакции\",\n    \"country_code\": \"Код страны\",\n    \"is_active\": \"Флаг активности\",\n    \"metadata\": \"Метаданные JSON-like\",\n    \"status\": \"Статус обработки\",\n    \"t1_f1\": \"Произвольное текстовое поле\",\n    \"tags\": \"Список тегов\",\n    \"user_id\": \"ID пользователя\"\n  },\n  \"variables\": [\n    {\n      \"id\": \"j4gyswus9\",\n      \"name\": \"p_test\",\n      \"displayName\": \"Пример текстовой переменной\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"Москва\",\n      \"description\": \"\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": true\n    }\n  ],\n  \"uuid\": \"e096b424-bcd4-442e-b006-34e4ad9a3522\",\n  \"version\": \"1.0\"\n}';",
             "uuid": "e096b424-bcd4-442e-b006-34e4ad9a3522",
-            "__cvInvalidCountCacheAt": 1776876076408,
-            "__cvInvalidCountCacheValue": 0
+            "__cvInvalidCountCacheAt": 1778509879688,
+            "__cvInvalidCountCacheValue": 0,
+            "sqlScripts": {
+                "Cube.js": "// schema/ch_db_table.js\ncube(`ChDbTable`, {\n  sql: `SELECT \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\" FROM public.\"ch_db_table$projection_table1_ch\" GROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"(${FILTER_PARAMS.ChDbTable.ctx.filter('equals', v => `ctx = '${v.replace(/'/g, \"''\")}'`)})`,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    createdAt: { sql: `created_at`, type: `time` },\n    id: { sql: `id`, type: `number` },\n    amount: { sql: `amount`, type: `number` },\n    countryCode: { sql: `country_code`, type: `string` },\n    isActive: { sql: `is_active`, type: `boolean` },\n    metadata: { sql: `metadata`, type: `string` },\n    status: { sql: `status`, type: `string` },\n    t1F1: { sql: `t1_f1`, type: `string` },\n    tags: { sql: `tags`, type: `string` },\n    userId: { sql: `user_id`, type: `string` },\n    ctx: { sql: `'__ctx_placeholder__'`, type: `string` }\n  }\n});\n"
+            },
+            "savedCursorLine": 1,
+            "savedCursorColumn": 1,
+            "savedScrollTop": 0,
+            "savedScrollLeft": 0
         },
         {
             "id": "projection_1776441069944",
@@ -513,11 +520,18 @@
                 "childBlocks": [],
                 "fieldOrigins": {}
             },
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_table1_ch\n-- =========================================\n-- Блок: Projection_table1_ch (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: ch_db_table\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"ch_db_table$projection_table1_ch\"(\n  \"amount\" Decimal(18, 2) COMMENT 'Сумма транзакции',\n  \"country_code\" FixedString(2) COMMENT 'Код страны',\n  \"created_at\" DateTime COMMENT 'Время создания события',\n  \"id\" UInt64 COMMENT 'Уникальный идентификатор записи',\n  \"is_active\" Nullable(Bool) COMMENT 'Флаг активности',\n  \"metadata\" Map(String, String) COMMENT 'Метаданные JSON-like',\n  \"status\" LowCardinality(String) COMMENT 'Статус обработки',\n  \"t1_f1\" String COMMENT 'Произвольное текстовое поле',\n  \"tags\" Array(String) COMMENT 'Список тегов',\n  \"user_id\" UUID COMMENT 'ID пользователя'\n)\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"amount\",\n  \"country_code\",\n  \"created_at\",\n  \"id\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.table1_ch\n)\nSELECT \n  \"amount\",\n  \"country_code\",\n  \"created_at\",\n  \"id\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM step_auto;\n",
-            "commentSql": "ALTER TABLE default.\"ch_db_table$projection_table1_ch\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"CV ch_db_table\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/first_cv/ffff\",\n  \"fields\": {},\n  \"version\": \"1.0\"\n}';",
+            "sqlScript": "// schema/ch_db_table_projection_table1_ch.js\ncube(`ChDbTableProjectionTable1Ch`, {\n  sql: `\n    SELECT \n      amount,\n      country_code,\n      created_at,\n      id,\n      is_active,\n      metadata,\n      status,\n      t1_f1,\n      tags,\n      user_id\n    FROM analytics.table1_ch\n  `,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    amount: { sql: `amount`, type: `number` },\n    countryCode: { sql: `country_code`, type: `string` },\n    createdAt: { sql: `created_at`, type: `time` },\n    id: { sql: `id`, type: `number` },\n    isActive: { sql: `is_active`, type: `boolean` },\n    metadata: { sql: `metadata`, type: `string` },\n    status: { sql: `status`, type: `string` },\n    t1F1: { sql: `t1_f1`, type: `string` },\n    tags: { sql: `tags`, type: `string` },\n    userId: { sql: `user_id`, type: `string` },\n    ctx: { sql: `'__ctx_placeholder__'`, type: `string` }\n  }\n});\n",
+            "commentSql": "ALTER TABLE analytics.\"ch_db_table$projection_table1_ch\" MODIFY COMMENT '{\n  \"app\": \"asapBI\",\n  \"descr\": \"CV ch_db_table\",\n  \"type\": \"VIEW\",\n  \"folder\": \"git_prj/first_cv/ffff\",\n  \"fields\": {\n    \"amount\": \"Сумма транзакции\",\n    \"country_code\": \"Код страны\",\n    \"created_at\": \"Время создания события\",\n    \"id\": \"Уникальный идентификатор записи\",\n    \"is_active\": \"Флаг активности\",\n    \"metadata\": \"Метаданные JSON-like\",\n    \"status\": \"Статус обработки\",\n    \"t1_f1\": \"Произвольное текстовое поле\",\n    \"tags\": \"Список тегов\",\n    \"user_id\": \"ID пользователя\"\n  },\n  \"variables\": [\n    {\n      \"id\": \"j4gyswus9\",\n      \"name\": \"p_test\",\n      \"displayName\": \"Пример текстовой переменной\",\n      \"type\": \"TEXT\",\n      \"defaultValue\": \"Москва\",\n      \"description\": \"\",\n      \"required\": false,\n      \"visibility\": \"public\",\n      \"category\": \"filter\",\n      \"predefinedValues\": \"\",\n      \"minValue\": \"\",\n      \"maxValue\": \"\",\n      \"expanded\": true\n    }\n  ],\n  \"uuid\": \"e096b424-bcd4-442e-b006-34e4ad9a3522\",\n  \"version\": \"1.0\"\n}';",
             "uuid": "40c22638-9e66-4ac4-ae61-fb32f2e902a1",
-            "__cvInvalidCountCacheAt": 1776876076408,
-            "__cvInvalidCountCacheValue": 0
+            "__cvInvalidCountCacheAt": 1778509879689,
+            "__cvInvalidCountCacheValue": 0,
+            "savedCursorLine": 1,
+            "savedCursorColumn": 1,
+            "savedScrollTop": 0,
+            "savedScrollLeft": 0,
+            "sqlScripts": {
+                "Cube.js": "// schema/ch_db_table_projection_table1_ch.js\ncube(`ChDbTableProjectionTable1Ch`, {\n  sql: `\n    SELECT \n      amount,\n      country_code,\n      created_at,\n      id,\n      is_active,\n      metadata,\n      status,\n      t1_f1,\n      tags,\n      user_id\n    FROM analytics.table1_ch\n  `,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    amount: { sql: `amount`, type: `number` },\n    countryCode: { sql: `country_code`, type: `string` },\n    createdAt: { sql: `created_at`, type: `time` },\n    id: { sql: `id`, type: `number` },\n    isActive: { sql: `is_active`, type: `boolean` },\n    metadata: { sql: `metadata`, type: `string` },\n    status: { sql: `status`, type: `string` },\n    t1F1: { sql: `t1_f1`, type: `string` },\n    tags: { sql: `tags`, type: `string` },\n    userId: { sql: `user_id`, type: `string` },\n    ctx: { sql: `'__ctx_placeholder__'`, type: `string` }\n  }\n});\n"
+            }
         }
     ],
     "connections": [

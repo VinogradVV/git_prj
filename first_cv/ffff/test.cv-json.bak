@@ -224,7 +224,7 @@
             "technicalName": "test",
             "layerName": "Semantic Layer",
             "implementation": "UDF",
-            "executionEngine": "CLICKHOUSE/analytics",
+            "executionEngine": "CUBE_CLICK localhost@4000 (Cube.js)",
             "selected": false,
             "fieldMapping": {
                 "created_at": {
@@ -304,8 +304,8 @@
                 "fieldOrigins": {}
             },
             "__invalidBadgeLastCount": 0,
-            "engine": "CLICKHOUSE/analytics",
-            "engineDbType": "Clickhouse",
+            "engine": "CUBE_CLICK localhost@4000 (Cube.js)",
+            "engineDbType": "Cube.js",
             "__invalidBadgeValidatedAt": 1776159852289,
             "attributes": [
                 {
@@ -326,9 +326,17 @@
             "_fieldCache": [],
             "autoUpdateSchema": true,
             "enableCaching": true,
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Semantics\n-- =========================================\n-- Блок: Semantics (semantics)\n-- Тип: ClickHouse Parameterized View\n-- CV: test\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"test\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"created_at\" AS \"created_at\",\n  \"id\" AS \"id\",\n  \"amount\" AS \"amount\",\n  \"country_code\" AS \"country_code\",\n  \"is_active\" AS \"is_active\",\n  \"metadata\" AS \"metadata\",\n  \"status\" AS \"status\",\n  \"t1_f1\" AS \"t1_f1\",\n  \"tags\" AS \"tags\",\n  \"user_id\" AS \"user_id\"\nFROM analytics.\"test$projection_table1_ch\"(ctx = ctx)\nGROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"\n)\nSELECT *\nFROM step_auto;\n\n-- пример вызова:\n--SELECT *\n--  FROM analytics.\"test\"(ctx = '{\"p_test\":\"Москва\"}')\n",
-            "__cvInvalidCountCacheAt": 1776254806518,
-            "__cvInvalidCountCacheValue": 0
+            "sqlScript": "// schema/test.js\ncube(`Test`, {\n  sql: `SELECT \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\" FROM public.\"test$projection_table1_ch\" GROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"`,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    createdAt: { sql: `created_at`, type: `time` },\n    id: { sql: `id`, type: `number` },\n    amount: { sql: `amount`, type: `number` },\n    countryCode: { sql: `country_code`, type: `string` },\n    isActive: { sql: `is_active`, type: `boolean` },\n    metadata: { sql: `metadata`, type: `string` },\n    status: { sql: `status`, type: `string` },\n    t1F1: { sql: `t1_f1`, type: `string` },\n    tags: { sql: `tags`, type: `string` },\n    userId: { sql: `user_id`, type: `string` }\n  }\n});\n",
+            "uuid": "45d15e09-6403-49b3-be2b-569e80bb9851",
+            "__cvInvalidCountCacheAt": 1778419139783,
+            "__cvInvalidCountCacheValue": 0,
+            "sqlScripts": {
+                "Cube.js": "// schema/test.js\ncube(`Test`, {\n  sql: `SELECT \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\" FROM public.\"test$projection_table1_ch\" GROUP BY \"created_at\", \"id\", \"amount\", \"country_code\", \"is_active\", \"metadata\", \"status\", \"t1_f1\", \"tags\", \"user_id\"`,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    createdAt: { sql: `created_at`, type: `time` },\n    id: { sql: `id`, type: `number` },\n    amount: { sql: `amount`, type: `number` },\n    countryCode: { sql: `country_code`, type: `string` },\n    isActive: { sql: `is_active`, type: `boolean` },\n    metadata: { sql: `metadata`, type: `string` },\n    status: { sql: `status`, type: `string` },\n    t1F1: { sql: `t1_f1`, type: `string` },\n    tags: { sql: `tags`, type: `string` },\n    userId: { sql: `user_id`, type: `string` }\n  }\n});\n"
+            },
+            "savedScrollTop": 150,
+            "savedScrollLeft": 0,
+            "savedCursorLine": 12,
+            "savedCursorColumn": 16
         },
         {
             "id": "projection_1776159850798",
@@ -505,15 +513,23 @@
             "_cacheDirty": false,
             "_lastSourceHash": "{\"sourceIds\":[],\"fieldExclusions\":[],\"fieldAliases\":{},\"selectedTable\":{\"connect_key\":\"1775066342937@@127.0.0.1@CLICKHOUSE@analytics\",\"instanceName\":\"CLICKHOUSE\",\"database\":\"analytics\",\"schema\":\"\",\"table\":\"table1_ch\",\"dbType\":\"Clickhouse\",\"table_type\":\"TABLE\",\"metadata\":{\"table_schema\":\"analytics\",\"table_name\":\"table1_ch\",\"table_comment\":\"Основная таблица аналитики событий: хранит транзакции и метаданные\",\"table_type\":\"TABLE\"}}}",
             "selected": false,
-            "sqlScript": "-- =========================================\n-- PARAMETRIZED VIEW ДЛЯ БЛОКА: Projection_table1_ch\n-- =========================================\n-- Блок: Projection_table1_ch (projection)\n-- Тип: ClickHouse Parameterized View\n-- CV: test\n-- База данных: analytics\n-- =========================================\n\nCREATE OR REPLACE VIEW analytics.\"test$projection_table1_ch\" AS\nWITH {ctx:String} AS ctx,\nstep_auto AS (\nSELECT\n  \"amount\",\n  \"country_code\",\n  \"created_at\",\n  \"id\",\n  \"is_active\",\n  \"metadata\",\n  \"status\",\n  \"t1_f1\",\n  \"tags\",\n  \"user_id\"\nFROM analytics.table1_ch\n)\nSELECT *\nFROM step_auto;\n",
+            "sqlScript": "// schema/test_projection_table1_ch.js\ncube(`TestProjectionTable1Ch`, {\n  sql: `\n    SELECT \n      amount,\n      country_code,\n      created_at,\n      id,\n      is_active,\n      metadata,\n      status,\n      t1_f1,\n      tags,\n      user_id\n    FROM analytics.table1_ch\n  `,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    amount: { sql: `amount`, type: `number` },\n    countryCode: { sql: `country_code`, type: `string` },\n    createdAt: { sql: `created_at`, type: `time` },\n    id: { sql: `id`, type: `number` },\n    isActive: { sql: `is_active`, type: `boolean` },\n    metadata: { sql: `metadata`, type: `string` },\n    status: { sql: `status`, type: `string` },\n    t1F1: { sql: `t1_f1`, type: `string` },\n    tags: { sql: `tags`, type: `string` },\n    userId: { sql: `user_id`, type: `string` }\n  }\n});\n",
             "fieldOrder": [],
             "cascadeMetadata": {
                 "parentBlocks": [],
                 "childBlocks": [],
                 "fieldOrigins": {}
             },
-            "__cvInvalidCountCacheAt": 1776254806518,
-            "__cvInvalidCountCacheValue": 0
+            "uuid": "8fc7e095-281e-4eeb-b56d-ed9917962e6e",
+            "__cvInvalidCountCacheAt": 1778419139784,
+            "__cvInvalidCountCacheValue": 0,
+            "savedScrollTop": 410,
+            "savedScrollLeft": 0,
+            "savedCursorLine": 31,
+            "savedCursorColumn": 30,
+            "sqlScripts": {
+                "Cube.js": "// schema/test_projection_table1_ch.js\ncube(`TestProjectionTable1Ch`, {\n  sql: `\n    SELECT \n      amount,\n      country_code,\n      created_at,\n      id,\n      is_active,\n      metadata,\n      status,\n      t1_f1,\n      tags,\n      user_id\n    FROM analytics.table1_ch\n  `,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    amount: { sql: `amount`, type: `number` },\n    countryCode: { sql: `country_code`, type: `string` },\n    createdAt: { sql: `created_at`, type: `time` },\n    id: { sql: `id`, type: `number` },\n    isActive: { sql: `is_active`, type: `boolean` },\n    metadata: { sql: `metadata`, type: `string` },\n    status: { sql: `status`, type: `string` },\n    t1F1: { sql: `t1_f1`, type: `string` },\n    tags: { sql: `tags`, type: `string` },\n    userId: { sql: `user_id`, type: `string` }\n  }\n});\n"
+            }
         }
     ],
     "connections": [

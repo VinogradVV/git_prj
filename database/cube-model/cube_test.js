@@ -1,42 +1,47 @@
+// Вспомогательная функция для безопасной работы с фильтром
+// Она гарантирует, что в ClickHouse всегда попадет валидная строка, а не "1=1"
+const getSafeCtx = (filterObj) => {
+  // .filter() с колбэком — самый стабильный способ вытащить значение
+  const ctxVal = filterObj.filter(v => v, () => '{}');
+  
+  // Если фильтр не задан или вернул логическое выражение (1=1), сбрасываем в пустой JSON
+  const isInvalid = typeof ctxVal !== 'string' || ctxVal === '1=1' || ctxVal.includes('=');
+  const cleanCtx = isInvalid ? '{}' : ctxVal.replace(/^'|'$/g, '').replace(/'/g, "''");
+  
+  return `'${cleanCtx}'`;
+};
+
 cube(`ch_db_table__projection`, {
   sql: () => {
-    // Извлекаем значение фильтра. 
-    // Если фильтр не применен, Cube.js вернет "1=1" во втором аргументе.
-    let ctxVal = FILTER_PARAMS.ch_db_table__projection.ctx.filter(
-      (v) => v, 
-      () => '{}'
-    );
-
-    // Защита: если фильтра нет или он некорректен для JSON-парсинга
-    if (typeof ctxVal !== 'string' || ctxVal === '1=1' || ctxVal.includes('=') ) {
-      ctxVal = '{}';
-    }
-
-    // Чистим от лишних кавычек (BI иногда их дублирует) и экранируем
-    const cleanCtx = ctxVal.replace(/^'|'$/g, '').replace(/'/g, "''");
-    const safeCtx = `'${cleanCtx}'`;
+    const safeCtx = getSafeCtx(FILTER_PARAMS.ch_db_table__projection.ctx);
 
     return `
       SELECT id, amount, region, status, created_at
       FROM analytics.raw_table
       WHERE 
+        -- Парсим JSON прямо из строкового литерала, который вшил Cube.js
         (visitParamExtractString(${safeCtx}, 'p_region') = '' 
          OR region = visitParamExtractString(${safeCtx}, 'p_region'))
     `;
   },
 
   measures: {
-    total_amount: { sql: `amount`, type: `sum` },
-    count: { type: `count` }
+    total_amount: {
+      sql: `amount`,
+      type: `sum`
+    }
   },
-  
+
   dimensions: {
     id: { sql: `id`, type: `string`, primaryKey: true },
     region: { sql: `region`, type: `string` },
     status: { sql: `status`, type: `string` },
     createdAt: { sql: `created_at`, type: `time` },
+    
+    // Виртуальное измерение для приема фильтра. 
+    // Мы пишем sql: '1', чтобы не лезть в реальную колонку БД.
     ctx: { 
-      sql: `1`, // Виртуальное поле, колонки в БД нет
+      sql: `1`, 
       type: `string`, 
       public: false 
     }
@@ -45,13 +50,7 @@ cube(`ch_db_table__projection`, {
 
 cube(`ch_db_table__block_filter`, {
   sql: () => {
-    let ctxVal = FILTER_PARAMS.ch_db_table__block_filter.ctx.filter(v => v, () => '{}');
-    if (typeof ctxVal !== 'string' || ctxVal === '1=1' || ctxVal.includes('=')) {
-      ctxVal = '{}';
-    }
-    
-    const cleanCtx = ctxVal.replace(/^'|'$/g, '').replace(/'/g, "''");
-    const safeCtx = `'${cleanCtx}'`;
+    const safeCtx = getSafeCtx(FILTER_PARAMS.ch_db_table__block_filter.ctx);
 
     return `
       SELECT * FROM ${ch_db_table__projection.sql()}
@@ -62,6 +61,14 @@ cube(`ch_db_table__block_filter`, {
   },
 
   dimensions: {
+    // Вычисляемое поле на основе проброшенного JSON
+    customLabel: {
+      sql: () => {
+        const safeCtx = getSafeCtx(FILTER_PARAMS.ch_db_table__block_filter.ctx);
+        return `visitParamExtractString(${safeCtx}, 'p_label')`;
+      },
+      type: `string`
+    },
     ctx: { sql: `1`, type: `string`, public: false }
   }
 });
@@ -71,16 +78,14 @@ cube(`ch_db_table`, {
 
   measures: {
     count: { sql: `id`, type: `count` },
-    total_amount: {
-      sql: `amount`,
-      type: `sum`
-    }
+    total_amount: { sql: `amount`, type: `sum` }
   },
 
   dimensions: {
     id: { sql: `id`, type: `string`, primaryKey: true },
     region: { sql: `region`, type: `string` },
-    // Главная точка входа для фильтра в BI
+    
+    // Это поле будет видеть BI пользователь
     ctx: { 
       sql: `1`, 
       type: `string`, 

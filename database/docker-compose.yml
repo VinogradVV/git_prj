@@ -60,7 +60,7 @@ services:
     restart: unless-stopped
     ports:
       - "4000:4000"   # Cube API
-      - "15433:5432"  # SQL API (for Superset)
+      - "15433:15432"  # SQL API (for Superset)
       - "8000:8000"   # Python API
     environment:
       - CUBEJS_DB_TYPE=clickhouse
@@ -72,6 +72,7 @@ services:
       - CUBEJS_SQL_PORT=5432
       - CUBEJS_DEV_MODE=true
       - CUBEJS_LOG_LEVEL=debug
+      - CUBEJS_SQL_API=true
     volumes:
       - ./cube-model:/cube/conf/model
     networks:

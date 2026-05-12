@@ -1,17 +1,15 @@
 console.log('--- CONFIG LOADING: cube.js initialized ---');
 
 module.exports = {
+  // Это разрешает использование COMPILE_CONTEXT в кубах
   contextToAppId: ({ securityContext }) => {
-    return `APP_${securityContext?.ctxValue || 'default'}`;
+    return `APP_DEFAULT`; 
   },
+  
+  // Мы убираем модификацию securityContext из queryRewrite, 
+  // так как SQL API это блокирует. 
+  // Мы будем доставать фильтр напрямую в коде кубов.
   queryRewrite: (query) => {
-    const ctxFilter = (query.filters || []).find(f => f.member && f.member.endsWith('.ctx'));
-    if (ctxFilter && ctxFilter.values) {
-      query.securityContext = {
-        ...query.securityContext,
-        ctxValue: String(ctxFilter.values)
-      };
-    }
     return query;
   }
 };

@@ -9,6 +9,11 @@ RUN pip3 install fastapi uvicorn requests --break-system-packages
 # Копируем скрипт
 COPY schema_manager.py /cube/conf/schema_manager.py
 
+# Копируем файл конфигурации
+COPY cube.js /cube/conf/cube.js
+# Также можно сделать симлинк в корень, чтобы он точно подцепился
+RUN ln -s /cube/conf/cube.js /cube/cube.js
+
 # Исправленный скрипт запуска
 # Мы используем абсолютный путь к cubejs-server и передаем управление Docker-окружению
 RUN echo '#!/bin/sh\n\

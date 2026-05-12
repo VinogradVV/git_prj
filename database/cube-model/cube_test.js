@@ -1,83 +1,92 @@
-// 1. Общая функция для вычленения значения из фильтра
-// Работает надежно и в SQL API, и в обычном API
-const getRawJson = (filter) => {
-  // Вызываем фильтр. Если его нет, Cube вернет null или (1=1)
-  const val = filter.filter(v => v, () => '{}');
-  const sVal = String(val);
-  
-  // Если Cube подставил SQL-заглушку, возвращаем пустой JSON
-  if (!sVal || sVal === '{}' || sVal.includes('=') || sVal === '1') {
-    return '{}';
-  }
-  // Очищаем от кавычек
-  return sVal.replace(/^'|'$/g, '');
+// Вспомогательная функция для извлечения JSON-строки
+const getCtxString = (filter) => {
+  const s = String(filter.filter(v => v, () => '{}'));
+  // Находим только содержимое внутри фигурных скобок
+  const match = s.match(/\{.*\}/); 
+  return match ? match[0] : '{}';
 };
 
+// 1. Проекция
 cube(`ch_db_table__projection`, {
-  sql: () => {
-    // Используем FILTER_PARAMS текущего куба
-    const jsonStr = getRawJson(FILTER_PARAMS.ch_db_table__projection.ctx);
-    const safeCtx = `'${jsonStr.replace(/'/g, "''")}'`;
-
+  sql: (inheritedCtx) => {
+    const currentJson = (typeof inheritedCtx === 'string') ? inheritedCtx : getCtxString(FILTER_PARAMS.ch_db_table__projection.ctx);
+    const escapedJson = currentJson.replace(/'/g, "''");
+    
     return `
       SELECT id, amount, region, status, created_at
       FROM analytics.raw_table
-      WHERE 
-        (visitParamExtractString(${safeCtx}, 'p_region') = '' 
-         OR region = visitParamExtractString(${safeCtx}, 'p_region'))
+      WHERE (visitParamExtractString('${escapedJson}', 'p_region') = '' 
+             OR region = visitParamExtractString('${escapedJson}', 'p_region'))
     `;
+  },
+
+  measures: {
+    total_amount: { sql: `amount`, type: `sum` },
+    count: { type: `count` }
   },
 
   dimensions: {
     id: { sql: `id`, type: `string`, primaryKey: true },
     region: { sql: `region`, type: `string` },
     status: { sql: `status`, type: `string` },
-    // Поле должно называться одинаково во всех кубах для проброса!
+    createdAt: { sql: `created_at`, type: `time` },
     ctx: { 
       sql: `${FILTER_PARAMS.ch_db_table__projection.ctx.filter(v => v, () => `'{}'`)}`, 
-      type: `string`, 
-      public: false 
+      type: `string`, public: false 
     }
   }
 });
 
+// 2. Блок-фильтр
 cube(`ch_db_table__block_filter`, {
-  sql: () => {
-    const jsonStr = getRawJson(FILTER_PARAMS.ch_db_table__block_filter.ctx);
-    const safeCtx = `'${jsonStr.replace(/'/g, "''")}'`;
+  sql: (inheritedCtx) => {
+    const currentJson = (typeof inheritedCtx === 'string') ? inheritedCtx : getCtxString(FILTER_PARAMS.ch_db_table__block_filter.ctx);
+    const escapedJson = currentJson.replace(/'/g, "''");
 
     return `
-      SELECT * FROM ${ch_db_table__projection.sql()}
+      SELECT * FROM (${ch_db_table__projection.sql(currentJson)}) AS sub_proj
       WHERE status = 'active'
-        AND (visitParamExtractString(${safeCtx}, 'p_status') = '' 
-             OR status = visitParamExtractString(${safeCtx}, 'p_status'))
+        AND (visitParamExtractString('${escapedJson}', 'p_status') = '' 
+             OR status = visitParamExtractString('${escapedJson}', 'p_status'))
     `;
   },
 
-  dimensions: {
-    ctx: { 
-      sql: `${FILTER_PARAMS.ch_db_table__block_filter.ctx.filter(v => v, () => `'{}'`)}`, 
-      type: `string`, 
-      public: false 
-    }
-  }
-});
-
-cube(`ch_db_table`, {
-  sql: () => `SELECT * FROM ${ch_db_table__block_filter.sql()}`,
-
   measures: {
-    count: { sql: `id`, type: `count` },
-    total_amount: { sql: `amount`, type: `sum` }
+    total_amount: { sql: `amount`, type: `sum` },
+    count: { type: `count` }
   },
 
   dimensions: {
     id: { sql: `id`, type: `string`, primaryKey: true },
     region: { sql: `region`, type: `string` },
+    status: { sql: `status`, type: `string` },
+    ctx: { 
+      sql: `${FILTER_PARAMS.ch_db_table__block_filter.ctx.filter(v => v, () => `'{}'`)}`, 
+      type: `string`, public: false 
+    }
+  }
+});
+
+// 3. Основной куб
+cube(`ch_db_table`, {
+  sql: () => {
+    const topJson = getCtxString(FILTER_PARAMS.ch_db_table.ctx);
+    // Пробрасываем JSON по цепочке функций
+    return `SELECT * FROM (${ch_db_table__block_filter.sql(topJson)}) AS sub_final`;
+  },
+
+  measures: {
+    total_amount: { sql: `amount`, type: `sum` },
+    count: { sql: `id`, type: `count` }
+  },
+
+  dimensions: {
+    id: { sql: `id`, type: `string`, primaryKey: true },
+    region: { sql: `region`, type: `string` },
+    status: { sql: `status`, type: `string` },
     ctx: { 
       sql: `${FILTER_PARAMS.ch_db_table.ctx.filter(v => v, () => `'{}'`)}`, 
-      type: `string`, 
-      public: false 
+      type: `string`, public: false 
     }
   }
 });

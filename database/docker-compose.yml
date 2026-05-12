@@ -55,13 +55,13 @@ services:
       - asapbi-net
 
   asapbi-cube:
-    build: ./cube-api # Путь к вашей новой папке с Dockerfile
+    build: ./cube-api 
     container_name: asapbi-cube
     restart: unless-stopped
     ports:
       - "4000:4000"   # Cube API
-      - "15433:5432"  # SQL API (для Superset)
-      - "8000:8000"   # Ваш Python API для загрузки схем
+      - "15433:5432"  # SQL API (for Superset)
+      - "8000:8000"   # Python API
     environment:
       - CUBEJS_DB_TYPE=clickhouse
       - CUBEJS_DB_HOST=asapbi-clickhouse
@@ -71,6 +71,7 @@ services:
       - CUBEJS_API_SECRET=asapbi_secret_key_999
       - CUBEJS_SQL_PORT=5432
       - CUBEJS_DEV_MODE=true
+      - CUBEJS_LOG_LEVEL=debug
     volumes:
       - ./cube-model:/cube/conf/model
     networks:

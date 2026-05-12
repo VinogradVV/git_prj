@@ -1,0 +1,246 @@
+{
+    "blocks": [
+        {
+            "id": "semantics_block",
+            "name": "Semantics",
+            "type": "semantics",
+            "uuid": "f6a9b154-51fd-479c-b859-fbd918200c71",
+            "x": 2400,
+            "y": 1310,
+            "width": 200,
+            "height": 60,
+            "color": "#28a745",
+            "description": "CV cube_test",
+            "tableFields": [],
+            "fields": [],
+            "variables": [
+                {
+                    "id": "qfr2kqpht",
+                    "name": "p_region",
+                    "displayName": "Регион",
+                    "type": "TEXT",
+                    "defaultValue": "South",
+                    "description": "",
+                    "required": false,
+                    "visibility": "public",
+                    "category": "filter",
+                    "predefinedValues": "",
+                    "minValue": "",
+                    "maxValue": "",
+                    "expanded": false
+                }
+            ],
+            "technicalName": "cube_test",
+            "layerName": "Semantic Layer",
+            "implementation": "UDF",
+            "executionEngine": "CUBE_CLICK localhost@4000 (Cube.js)",
+            "selected": false,
+            "fieldMapping": {},
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            },
+            "__invalidBadgeLastCount": 0,
+            "engine": "CUBE_CLICK localhost@4000 (Cube.js)",
+            "engineDbType": "Cube.js",
+            "__cvInvalidCountCacheAt": 1778587862959,
+            "__cvInvalidCountCacheValue": 0,
+            "folder": "git_prj/cube",
+            "__invalidBadgeValidatedAt": 1778587862861,
+            "_fieldCache": [],
+            "attributes": [],
+            "measures": [],
+            "hierarchies": [],
+            "sqlScripts": {
+                "Cube.js": "// schema/cube_test.js\ncube(`cube_test`, {\n  sql: `SELECT * FROM cube_test__projection_2`,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    ctx: { sql: `'__ctx_placeholder__'`, type: `string` }\n  }\n,\n  meta: {\n    \"app\": \"asapBI\",\n    \"descr\": \"\",\n    \"type\": \"semantics\",\n    \"folder\": \"git_prj/cube\",\n    \"variables\": [\n        {\n            \"id\": \"qfr2kqpht\",\n            \"name\": \"p_region\",\n            \"displayName\": \"Регион\",\n            \"type\": \"TEXT\",\n            \"defaultValue\": \"South\",\n            \"description\": \"\",\n            \"required\": false,\n            \"visibility\": \"public\",\n            \"category\": \"filter\",\n            \"predefinedValues\": \"\",\n            \"minValue\": \"\",\n            \"maxValue\": \"\",\n            \"expanded\": false\n        }\n    ],\n    \"uuid\": \"semantics_block\",\n    \"version\": \"1.0\"\n}\n});\n"
+            },
+            "sqlScript": "// schema/cube_test.js\ncube(`cube_test`, {\n  sql: `SELECT * FROM cube_test__projection_2`,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    ctx: { sql: `'__ctx_placeholder__'`, type: `string` }\n  }\n,\n  meta: {\n    \"app\": \"asapBI\",\n    \"descr\": \"\",\n    \"type\": \"semantics\",\n    \"folder\": \"git_prj/cube\",\n    \"variables\": [\n        {\n            \"id\": \"qfr2kqpht\",\n            \"name\": \"p_region\",\n            \"displayName\": \"Регион\",\n            \"type\": \"TEXT\",\n            \"defaultValue\": \"South\",\n            \"description\": \"\",\n            \"required\": false,\n            \"visibility\": \"public\",\n            \"category\": \"filter\",\n            \"predefinedValues\": \"\",\n            \"minValue\": \"\",\n            \"maxValue\": \"\",\n            \"expanded\": false\n        }\n    ],\n    \"uuid\": \"semantics_block\",\n    \"version\": \"1.0\"\n}\n});\n",
+            "savedScrollTop": 0,
+            "savedScrollLeft": 0,
+            "savedCursorLine": 1,
+            "savedCursorColumn": 1
+        },
+        {
+            "id": "block_2",
+            "name": "Projection_2",
+            "type": "projection",
+            "uuid": "b7cde2ef-a165-4489-b6c9-5f58c019a823",
+            "x": 2400,
+            "y": 1470,
+            "width": 200,
+            "height": 60,
+            "color": "#6f42c120",
+            "description": "",
+            "selected": false,
+            "comment": "",
+            "tableFields": [],
+            "fieldOrder": [],
+            "__cvInvalidCountCacheAt": 1778587862959,
+            "__cvInvalidCountCacheValue": 0,
+            "__invalidBadgeLastCount": 0,
+            "_fieldCache": [],
+            "activeTab": "sql",
+            "_cacheDirty": false,
+            "_lastSourceHash": "{\"sourceIds\":[\"projection_1778587685800\"],\"fieldExclusions\":[],\"fieldAliases\":{}}",
+            "folder": "git_prj/cube",
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            }
+        },
+        {
+            "id": "projection_1778587685800",
+            "type": "projection",
+            "name": "Projection_raw_table",
+            "x": 2400,
+            "y": 1630,
+            "width": 200,
+            "height": 60,
+            "color": "#6f42c120",
+            "selectedTable": {
+                "connect_key": "1775066342937@@127.0.0.1@CLICKHOUSE@analytics",
+                "instanceName": "CLICKHOUSE",
+                "database": "analytics",
+                "schema": "",
+                "table": "raw_table",
+                "dbType": "Clickhouse",
+                "table_type": "TABLE",
+                "metadata": {
+                    "table_schema": "analytics",
+                    "table_name": "raw_table",
+                    "table_comment": "{\r\n  \"app\": \"asapBI\",\r\n  \"descr\": \"Тест для Cube.js\",\r\n  \"folder\": \"cube/raw\"\r\n}",
+                    "table_type": "TABLE"
+                },
+                "jsonComment": {
+                    "app": "asapBI",
+                    "descr": "Тест для Cube.js",
+                    "folder": "cube/raw"
+                }
+            },
+            "tableFields": [
+                {
+                    "name": "amount",
+                    "type": "Float64",
+                    "column_comment": "Сумма",
+                    "type_schema": "",
+                    "selected": true,
+                    "prevAlias": "amount",
+                    "origin": {
+                        "sourceBlockId": "projection_1778587685800",
+                        "originalFieldName": "amount",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "created_at",
+                    "type": "DateTime",
+                    "column_comment": "Время создания",
+                    "type_schema": "",
+                    "selected": true,
+                    "prevAlias": "created_at",
+                    "origin": {
+                        "sourceBlockId": "projection_1778587685800",
+                        "originalFieldName": "created_at",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "column_comment": "ID",
+                    "type_schema": "",
+                    "selected": true,
+                    "prevAlias": "id",
+                    "origin": {
+                        "sourceBlockId": "projection_1778587685800",
+                        "originalFieldName": "id",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "region",
+                    "type": "String",
+                    "column_comment": "Регион",
+                    "type_schema": "",
+                    "selected": true,
+                    "prevAlias": "region",
+                    "origin": {
+                        "sourceBlockId": "projection_1778587685800",
+                        "originalFieldName": "region",
+                        "cascadeDepth": 0
+                    }
+                },
+                {
+                    "name": "status",
+                    "type": "String",
+                    "column_comment": "Статус",
+                    "type_schema": "",
+                    "selected": true,
+                    "prevAlias": "status",
+                    "origin": {
+                        "sourceBlockId": "projection_1778587685800",
+                        "originalFieldName": "status",
+                        "cascadeDepth": 0
+                    }
+                }
+            ],
+            "position": {
+                "x": 1970,
+                "y": 1689.800048828125
+            },
+            "jsonComment": {
+                "app": "asapBI",
+                "descr": "Тест для Cube.js",
+                "folder": "cube/raw"
+            },
+            "description": "Тест для Cube.js",
+            "variables": [],
+            "__cvInvalidCountCacheAt": 1778587862959,
+            "__cvInvalidCountCacheValue": 0,
+            "__invalidBadgeLastCount": 0,
+            "selected": false,
+            "sqlScripts": {
+                "Cube.js": "// schema/cube_test__projection_raw_table.js\ncube(`cube_test__projection_raw_table`, {\n  sql: `\n    SELECT \n      amount,\n      created_at,\n      id,\n      region,\n      status\n    FROM analytics.raw_table\n  `,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    amount: { sql: `amount`, type: `number`,\n      description: `Сумма` },\n    createdAt: { sql: `created_at`, type: `time`,\n      description: `Время создания` },\n    id: { sql: `id`, type: `string`,\n      description: `ID` },\n    region: { sql: `region`, type: `string`,\n      description: `Регион` },\n    status: { sql: `status`, type: `string`,\n      description: `Статус` },\n    ctx: { sql: `'__ctx_placeholder__'`, type: `string` }\n  }\n,\n  meta: {\n    \"app\": \"asapBI\",\n    \"descr\": \"CV cube_test\",\n    \"type\": \"projection\",\n    \"folder\": \"git_prj/cube\",\n    \"variables\": [],\n    \"uuid\": \"projection_1778587685800\",\n    \"version\": \"1.0\"\n}\n});\n"
+            },
+            "sqlScript": "// schema/cube_test__projection_raw_table.js\ncube(`cube_test__projection_raw_table`, {\n  sql: `\n    SELECT \n      amount,\n      created_at,\n      id,\n      region,\n      status\n    FROM analytics.raw_table\n  `,\n\n  measures: {\n    count: {\n      sql: `id`,\n      type: `count`\n    }\n  },\n\n  dimensions: {\n    amount: { sql: `amount`, type: `number`,\n      description: `Сумма` },\n    createdAt: { sql: `created_at`, type: `time`,\n      description: `Время создания` },\n    id: { sql: `id`, type: `string`,\n      description: `ID` },\n    region: { sql: `region`, type: `string`,\n      description: `Регион` },\n    status: { sql: `status`, type: `string`,\n      description: `Статус` },\n    ctx: { sql: `'__ctx_placeholder__'`, type: `string` }\n  }\n,\n  meta: {\n    \"app\": \"asapBI\",\n    \"descr\": \"CV cube_test\",\n    \"type\": \"projection\",\n    \"folder\": \"git_prj/cube\",\n    \"variables\": [],\n    \"uuid\": \"projection_1778587685800\",\n    \"version\": \"1.0\"\n}\n});\n",
+            "activeTab": "sql",
+            "_fieldCache": [],
+            "_cacheDirty": false,
+            "_lastSourceHash": "{\"sourceIds\":[],\"fieldExclusions\":[],\"fieldAliases\":{},\"selectedTable\":{\"connect_key\":\"1775066342937@@127.0.0.1@CLICKHOUSE@analytics\",\"instanceName\":\"CLICKHOUSE\",\"database\":\"analytics\",\"schema\":\"\",\"table\":\"raw_table\",\"dbType\":\"Clickhouse\",\"table_type\":\"TABLE\",\"metadata\":{\"table_schema\":\"analytics\",\"table_name\":\"raw_table\",\"table_comment\":\"{\\r\\n  \\\"app\\\": \\\"asapBI\\\",\\r\\n  \\\"descr\\\": \\\"Тест для Cube.js\\\",\\r\\n  \\\"folder\\\": \\\"cube/raw\\\"\\r\\n}\",\"table_type\":\"TABLE\"},\"jsonComment\":{\"app\":\"asapBI\",\"descr\":\"Тест для Cube.js\",\"folder\":\"cube/raw\"}}}",
+            "savedScrollTop": 0,
+            "savedScrollLeft": 0,
+            "savedCursorLine": 1,
+            "savedCursorColumn": 1,
+            "uuid": "d2555fa9-8aea-412d-b894-c4c0b01a66ba",
+            "folder": "git_prj/cube",
+            "fieldOrder": [],
+            "cascadeMetadata": {
+                "parentBlocks": [],
+                "childBlocks": [],
+                "fieldOrigins": {}
+            }
+        }
+    ],
+    "connections": [
+        {
+            "id": "conn_4",
+            "name": "Connection 4",
+            "sourceBlockId": "block_2",
+            "targetBlockId": "semantics_block",
+            "type": "data",
+            "selected": false
+        },
+        {
+            "id": "conn_5",
+            "name": "Connection 5",
+            "sourceBlockId": "projection_1778587685800",
+            "targetBlockId": "block_2",
+            "type": "data",
+            "selected": false
+        }
+    ],
+    "aggregationSumFields": {},
+    "rankPartitionFields": {}
+}
